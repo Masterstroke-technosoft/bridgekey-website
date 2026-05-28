@@ -6,6 +6,7 @@
 <title>BridgeKey — Your gateway to on-chain value</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
@@ -33,6 +34,14 @@
     transform:translate(-50%,-50%);transition:opacity .4s;opacity:0;will-change:transform}
   .cursor-dot{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 14px var(--teal);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:opacity .2s;opacity:0;mix-blend-mode:normal}
   @media(hover:none){.cursor-glow,.cursor-dot{display:none}body{cursor:auto}}
+/* adding the corosole name price color */
+  .coin-name{
+    color: #ffffff;
+  }
+
+    .coin-price{
+    color: var(--gold);
+  }
 
   /* ----- particle network canvas ----- */
   .particles{position:fixed;inset:0;z-index:0;opacity:.55;pointer-events:none}
@@ -42,11 +51,11 @@
     background:linear-gradient(180deg, rgba(5,10,20,.85), rgba(5,10,20,0));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 
   /* ---- live block ticker ---- */
-  .ticker{position:fixed;top:72px;left:0;right:0;z-index:45;height:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(7,15,31,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden;display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--ink-dim)}
+  .ticker{position:sticky;flex-direction:row;top:72px;left:0;right:0;z-index:95;height:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(7,15,31,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden;display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--ink-dim)}
   .ticker .label{flex:none;padding:0 14px;height:100%;display:flex;align-items:center;gap:8px;border-right:1px solid var(--line);color:var(--teal);background:rgba(0,229,192,.06);font-weight:500;text-transform:uppercase}
   .ticker .label .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);animation:pulseDot 1.4s ease-in-out infinite}
-  .ticker .track{flex:1;overflow:hidden;position:relative;height:100%;-webkit-mask:linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);mask:linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%)}
-  .ticker .strip{display:flex;align-items:center;gap:38px;white-space:nowrap;height:100%;animation:tickerScroll 80s linear infinite;will-change:transform;padding-left:48px}
+  .ticker .track{flex:1;overflow:hidden;position:relative;height:100%;-webkit-mask:linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);mask:linear-gradient(90deg, transparent 0, #000000 5%, #000 95%, transparent 100%)}
+  .ticker .strip{display:flex;align-items:center;gap:38px;white-space:nowrap;height:100%;animation:tickerScroll 30s linear infinite;will-change:transform;padding-left:48px}
   .ticker .strip span{display:inline-flex;align-items:center;gap:8px}
   .ticker .strip .blk{color:var(--gold)}
   .ticker .strip .ok{color:var(--teal)}
@@ -54,7 +63,7 @@
   .ticker .strip .hash{color:var(--ink)}
   .ticker .strip .sep{color:var(--ink-faint);opacity:.5}
   @keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @media(max-width:780px){.ticker{top:62px;font-size:10px}.ticker .label{padding:0 10px}}
+  @media(max-width:780px){.ticker{top:75px;font-size:10px}.ticker .label{padding:0 10px}}
   .brand{display:flex;align-items:center;gap:10px;font-family:Syne,sans-serif;font-weight:700;letter-spacing:.02em;font-size:18px}
   .brand .mark{width:34px;height:34px;display:grid;place-items:center;position:relative;overflow:hidden;
     background:url('assets/bridgekey-icon.png') no-repeat center center;background-size:contain;
@@ -169,6 +178,10 @@
   .conn-lines path{stroke:var(--teal);stroke-width:1;fill:none;stroke-dasharray:4 4;opacity:.35;animation:dashFlow 6s linear infinite}
   @keyframes dashFlow{to{stroke-dashoffset:-100}}
 
+  .coin-item{align-items:center;justify-content: center; padding-top: 15px; display:flex; padding: 5px}
+  .coin-image{padding: 5px}
+  .coin-name{padding: 5px}
+
   /* showcase copy side */
   .sc-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--teal);margin-bottom:24px;display:flex;align-items:center;gap:14px}
   .sc-eyebrow::before{content:"";width:32px;height:1px;background:var(--teal)}
@@ -208,7 +221,7 @@
   @media(max-width:780px){nav.top{padding:18px 22px}nav .links{display:none}}
 
   /* ----- hero ----- */
-  .hero{position:relative;min-height:100vh;padding:140px 48px 80px;z-index:3;display:flex;align-items:center}
+  .hero{position:relative;min-height:100vh;padding:140px 48px 180px;z-index:3;display:flex;align-items:center}
   .grid-bg{position:absolute;inset:0;z-index:0;pointer-events:none;
     background:
       linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 64px 64px,
@@ -230,7 +243,7 @@
   }
 
   /* ---- BridgeKey logo (left column of hero) ---- */
-  .logo-stage{width:180px;height:180px;margin:0 0 24px;position:relative;opacity:0;transform:translateY(20px);animation:fadeUp 1s .15s forwards}
+  .logo-stage{width:180px;height:140px;margin:0 0 7px;position:relative;opacity:0;transform:translateY(20px);animation:fadeUp 1s .15s forwards}
   @media(max-width:980px){.logo-stage{margin:0 auto 12px}}
   .logo-stage .lhalo{position:absolute;inset:-15%;border-radius:50%;background:radial-gradient(circle, rgba(140,80,255,.35) 0%, rgba(0,229,192,.18) 30%, transparent 65%);filter:blur(22px);animation:pulse 5s ease-in-out infinite;z-index:0}
   .logo-stage .lhalo2{position:absolute;inset:5%;border-radius:50%;background:radial-gradient(circle, rgba(120,60,255,.5), transparent 55%);filter:blur(28px);animation:pulse 5s ease-in-out infinite reverse;z-index:0;opacity:.7}
@@ -381,17 +394,27 @@
   @keyframes blink{50%{opacity:0}}
 
   .cta-row{display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap;opacity:0;animation:fadeUp .8s 3.6s forwards}
-  .btn-primary{font-family:Syne,sans-serif;font-weight:600;font-size:15px;letter-spacing:.02em;padding:18px 34px;border-radius:999px;background:var(--teal);color:#001016;border:none;cursor:none;position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;transition:transform .25s, box-shadow .25s}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 50px -10px rgba(0,229,192,.55)}
-  .btn-primary .arrow{width:18px;height:18px;display:inline-grid;place-items:center;transition:transform .25s}
-  .btn-primary:hover .arrow{transform:translateX(4px)}
-  .btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);transform:translateX(-100%);transition:transform .8s}
-  .btn-primary:hover::after{transform:translateX(100%)}
+  .apple-btn{font-family:Syne,sans-serif;font-weight:600;font-size:15px; line-height:1; letter-spacing:.02em;padding:12px 28px;border-radius:999px;background:var(--teal);color:#001016;border:none;cursor:none;position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;transition:transform .25s, box-shadow .25s}
+  .apple-btn:hover{transform:translateY(-2px);box-shadow:0 18px 50px -10px rgba(0,229,192,.55)}
+  .apple-btn .arrow{width:8px;height:8px;display:inline-grid;place-items:center;transition:transform .25s}
+  .apple-btn:hover .arrow{transform:translateX(4px)}
+  .apple-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);transform:translateX(-100%);transition:transform .8s}
+  .apple-btn:hover::after{transform:translateX(100%)}
+  .btn-ghost{font-family:JetBrains Mono,monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:1px;border:1px solid var(--line-2);border-radius:999px;color:var(--ink-dim);cursor:none;transition:.25s;background:transparent}
+  .btn-ghost:hover{color:var(--ink);border-color:var(--line-2)}
+
+   .cta-row{display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap;opacity:0;animation:fadeUp .8s 3.6s forwards}
+  .playstore-btn{font-family:Syne,sans-serif;font-weight:600;font-size:15px;letter-spacing:.02em;padding:12px 28px;border-radius:999px;background:white;color:#001016;border:none;cursor:none;position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;transition:transform .25s, box-shadow .25s}
+  .playstore-btnn{transform:translateY(-2px);box-shadow:0 18px 50px -10px rgba(0,229,192,.55)}
+  .playstore-btn.arrow{width:18px;height:18px;display:inline-grid;place-items:center;transition:transform .25s}
+  .playstore-btn:hover .arrow{transform:translateX(4px)}
+  .playstore-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);transform:translateX(-100%);transition:transform .8s}
+  .playstore-btn:hover::after{transform:translateX(100%)}
   .btn-ghost{font-family:JetBrains Mono,monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:18px 24px;border:1px solid var(--line-2);border-radius:999px;color:var(--ink-dim);cursor:none;transition:.25s;background:transparent}
   .btn-ghost:hover{color:var(--ink);border-color:var(--line-2)}
 
-  .meta-row{margin-top:48px;display:flex;justify-content:flex-start;gap:36px;flex-wrap:wrap;font-family:JetBrains Mono,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);opacity:0;animation:fadeUp 1s 3.9s forwards}
-  .meta-row span{display:inline-flex;align-items:center;gap:8px}
+  .meta-row{margin-top:40px;display:flex;justify-content:flex-start;gap:36px;flex-wrap:wrap;font-family:JetBrains Mono,monospace;letter-spacing:.18em;text-transform:uppercase;color:white;animation:fadeUp 1s 3.9s forwards}
+  .meta-row span{display:inline-flex;align-items:center;gap:8px;}
   .meta-row span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 6px var(--teal)}
 
   /* mobile: re-center the rows */
@@ -399,6 +422,7 @@
     .hero-left .cta-row,.hero-left .meta-row{justify-content:center}
     .hero-left .tagline{margin-left:auto;margin-right:auto}
   }
+  .app-screenshot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:42px;display:block}
 
   @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
 
@@ -433,7 +457,7 @@
   .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   @media(max-width:980px){.feature-grid{grid-template-columns:1fr}}
   .feature{position:relative;padding:40px 32px 36px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,0));overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1), border-color .3s}
-  .feature::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at var(--mx,50%) var(--my,0%), rgba(0,229,192,.12), transparent 60%);opacity:0;transition:opacity .4s}
+  .feature::before{pointer-events:none; content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at var(--mx,50%) var(--my,0%), rgba(0,229,192,.12), transparent 60%);opacity:0;transition:opacity .4s}
   .feature:hover{transform:translateY(-6px);border-color:var(--line-2)}
   .feature:hover::before{opacity:1}
   .feature .glyph{width:64px;height:64px;display:grid;place-items:center;border:1px solid var(--line-2);border-radius:14px;margin-bottom:32px;color:var(--teal);position:relative;background:rgba(0,229,192,.04)}
@@ -518,7 +542,7 @@
 
   /* ----- footer ----- */
   footer{padding:80px 48px 40px;border-top:1px solid var(--line);position:relative;z-index:3;background:var(--bg-2)}
-  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:60px}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:60px}
   @media(max-width:780px){.foot-top{grid-template-columns:1fr 1fr;gap:32px}footer{padding:60px 22px 30px}}
   .foot-brand .tagline-foot{margin-top:18px;color:var(--ink-dim);font-size:14px;line-height:1.6;max-width:280px}
   .foot-col h5{font-family:JetBrains Mono,monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 18px;font-weight:400}
@@ -556,14 +580,18 @@
     <a href="#how">How it works</a>
     <a href="#security">Security</a>
   </div>
-  <a href="#get" class="nav-cta"><span class="dot"></span>Download BridgeKey</a>
+  <a href="https://play.google.com/store/apps/details?id=com.bridgekey" class="nav-cta"><span class="dot"></span>Download BridgeKey</a>
 </nav>
 
 <!-- live block ticker -->
 <div class="ticker" aria-hidden="true">
-  <div class="label"><span class="dot"></span> MST · Live</div>
+  <div class="label" style="color: red;"><span class="dot"></span>Live</div>
   <div class="track">
     <div class="strip" id="tickerStrip"></div>
+  </div>
+
+  <div class="ids">
+    
   </div>
 </div>
 
@@ -578,22 +606,34 @@
         </div>
       </div>
 
-      <div class="eyebrow">Liquid Precision · v1.0</div>
+      <div class="eyebrow">Crypto Wallet</div>
       <h1 class="headline">
         Your <span class="lq">gateway</span> to <br/>
         <span class="accent">on‑chain</span> value.
       </h1>
       <p class="tagline" id="tagline"><span class="caret"></span></p>
-
+        
       <div class="cta-row">
-        <button class="btn-primary" id="getKey">Download BridgeKey<span class="arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-        <button class="btn-ghost">Read the whitepaper</button>
+        <!-- <a href ="" class = "apple-btn ">
+          <img src="./assets/apple-black-logo-svgrepo-com.svg" alt="apple logo" style="height: 28px; width: auto;"> -->
+        <!-- <button class="btn-primary" id="getKey">Download Bridgekey<span class="arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button> -->
+        <!-- Download Bridgekey</a> -->
+        
+         <a href ="https://play.google.com/store/apps/details?id=com.bridgekey" class = "playstore-btn">
+          <img src="./assets/icons8-google-play-store-48.png" alt="playstore-logo" style="height: 28px; width: auto;">
+        Download Bridgekey</a>
+
+        <!-- <a href="" class="android-btn">
+          <img src="./assets/playstore.png" alt="playstore logo" style="height: 50px; width: auto;">
+        <button class="btn-ghost">Download Bridgekey <span class="arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        </a> -->
+        <!-- <button class="btn-primary" id="getKey">Download Bridgekey<span class="arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button> -->
       </div>
 
-      <div class="meta-row">
-        <span>Non‑custodial</span>
+      <div class="meta-row" >
+        <span >Non‑custodial</span>
         <span>MST L1 Native</span>
-        <span>Open Source</span>
+        <span>Multi-Asset</span>
       </div>
     </div>
 
@@ -602,10 +642,13 @@
       <div class="halo"></div>
       <div class="pay-card">
         <!-- BridgeKey logo as translucent watermark behind everything -->
-        <div class="pay-watermark"><div class="img"></div></div>
+        <div class="pay-watermark"><div class="img"></div>
+          
+        </div>
+        </div>
 
         <div class="pay-top">
-          <span class="live">Live · MST L1</span>
+          <span class="live">Live</span>
           <span class="hash" id="payHash">tx 0x7f3a…c8b1</span>
         </div>
 
@@ -613,171 +656,116 @@
         <span class="bg-hash h2">0x1d88…ee02</span>
         <span class="bg-hash h3">0x5af7…b3c1</span>
 
-        <svg class="pay-svg" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <linearGradient id="screenL" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#1A2952"/>
-              <stop offset="100%" stop-color="#0A1226"/>
-            </linearGradient>
-            <linearGradient id="screenR" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0E2E3C"/>
-              <stop offset="100%" stop-color="#072028"/>
-            </linearGradient>
-            <linearGradient id="sendBtn" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#00E5C0"/>
-              <stop offset="100%" stop-color="#3FA8E0"/>
-            </linearGradient>
-            <linearGradient id="recvBtn" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#00E5C0"/>
-              <stop offset="100%" stop-color="#00C7A0"/>
-            </linearGradient>
-            <radialGradient id="coinG" cx=".3" cy=".3" r=".8">
-              <stop offset="0%" stop-color="#FFEAB0"/>
-              <stop offset="55%" stop-color="#FFB830"/>
-              <stop offset="100%" stop-color="#B57400"/>
-            </radialGradient>
-            <radialGradient id="bigCoinG" cx=".3" cy=".3" r=".9">
-              <stop offset="0%" stop-color="#FFEFC0"/>
-              <stop offset="60%" stop-color="#FFB830"/>
-              <stop offset="100%" stop-color="#9C5F00"/>
-            </radialGradient>
-            <linearGradient id="avSend" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#5B6BFF"/>
-              <stop offset="100%" stop-color="#8C50FF"/>
-            </linearGradient>
-            <linearGradient id="avRecv" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#00E5C0"/>
-              <stop offset="100%" stop-color="#3FA8E0"/>
-            </linearGradient>
-            <filter id="phoneShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
-              <feOffset dx="0" dy="8" result="off"/>
-              <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
-              <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
+       <svg class="pay-svg" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="screenL" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1A2952"/>
+              <stop offset="100%" stop-color="#0A1226"/>
+            </linearGradient>
+            <linearGradient id="screenR" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0E2E3C"/>
+              <stop offset="100%" stop-color="#072028"/>
+            </linearGradient>
+            <linearGradient id="sendBtn" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#00E5C0"/>
+              <stop offset="100%" stop-color="#3FA8E0"/>
+            </linearGradient>
+            <linearGradient id="recvBtn" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#00E5C0"/>
+              <stop offset="100%" stop-color="#00C7A0"/>
+            </linearGradient>
+            <radialGradient id="coinG" cx=".3" cy=".3" r=".8">
+              <stop offset="0%" stop-color="#FFEAB0"/>
+              <stop offset="55%" stop-color="#FFB830"/>
+              <stop offset="100%" stop-color="#B57400"/>
+            </radialGradient>
+            <radialGradient id="btcG" cx=".3" cy=".3" r=".8">
+              <stop offset="0%" stop-color="#FFD880"/>
+              <stop offset="55%" stop-color="#F7931A"/>
+              <stop offset="100%" stop-color="#B55800"/>
+            </radialGradient>
+            <radialGradient id="ethG" cx=".3" cy=".3" r=".8">
+              <stop offset="0%" stop-color="#C0CCFF"/>
+              <stop offset="55%" stop-color="#627EEA"/>
+              <stop offset="100%" stop-color="#2030A0"/>
+            </radialGradient>
+            <radialGradient id="solG" cx=".3" cy=".3" r=".8">
+              <stop offset="0%" stop-color="#D0A0FF"/>
+              <stop offset="50%" stop-color="#9945FF"/>
+              <stop offset="100%" stop-color="#14F195" stop-opacity=".85"/>
+            </radialGradient>
+            <radialGradient id="bigCoinG" cx=".3" cy=".3" r=".9">
+              <stop offset="0%" stop-color="#FFEFC0"/>
+              <stop offset="60%" stop-color="#FFB830"/>
+              <stop offset="100%" stop-color="#9C5F00"/>
+            </radialGradient>
+            <linearGradient id="avSend" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#5B6BFF"/>
+              <stop offset="100%" stop-color="#8C50FF"/>
+            </linearGradient>
+            <linearGradient id="avRecv" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00E5C0"/>
+              <stop offset="100%" stop-color="#3FA8E0"/>
+            </linearGradient>
+            <filter id="phoneShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+              <feOffset dx="0" dy="8" result="off"/>
+              <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
+              <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <clipPath id="clipPhoneL">
+              <rect x="8" y="5" width="182" height="282" rx="18"/>
+            </clipPath>
+            <clipPath id="clipPhoneR">
+              <rect x="413" y="5" width="182" height="282" rx="18"/>
+            </clipPath>
+          </defs>
 
-          <!-- ground shadows -->
-          <ellipse cx="155" cy="265" rx="60" ry="6" fill="rgba(0,0,0,.4)" opacity=".5"/>
-          <ellipse cx="445" cy="265" rx="60" ry="6" fill="rgba(0,0,0,.4)" opacity=".5"/>
+          <!-- ground shadows -->
+          <ellipse cx="96" cy="292" rx="75" ry="6" fill="rgba(0,0,0,.4)" opacity=".5"/>
+          <ellipse cx="504" cy="292" rx="75" ry="6" fill="rgba(0,0,0,.4)" opacity=".5"/>
 
-          <!-- LEFT PHONE (sender) -->
-          <g class="phone phone-l" style="--cx:155px;--cy:150px">
-            <g filter="url(#phoneShadow)">
-              <!-- body -->
-              <rect x="105" y="50" width="100" height="200" rx="16" fill="#161E32" stroke="rgba(143,160,182,.35)" stroke-width="1"/>
-              <!-- side button -->
-              <rect x="103" y="100" width="2" height="22" rx="1" fill="#0A0F1A"/>
-              <!-- screen -->
-              <rect x="111" y="60" width="88" height="180" rx="10" fill="url(#screenL)"/>
-              <!-- notch -->
-              <rect x="140" y="58" width="30" height="5" rx="2.5" fill="#0A0F1A"/>
-              <!-- inner glow at top -->
-              <ellipse cx="155" cy="80" rx="40" ry="20" fill="rgba(91,107,255,.25)"/>
-            </g>
+          <!-- LEFT PHONE -->
+          <g class="phone phone-l" filter="url(#phoneShadow)">
+            <image href="assets/BridgekeyS.png" x="36" y="5" width="182" height="300" clip-path="url(#clipPhoneL)" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="3" y="95" width="2" height="28" rx="1" fill="#0A0F1A"/>
+          </g>
 
-            <!-- status bar -->
-            <text x="119" y="78" font-family="JetBrains Mono" font-size="6.5" fill="rgba(255,255,255,.65)" letter-spacing=".5">9:41</text>
-            <g transform="translate(186 73)">
-              <rect width="10" height="5" rx="1" fill="none" stroke="rgba(255,255,255,.55)" stroke-width=".6"/>
-              <rect x="1" y="1" width="6" height="3" rx=".5" fill="rgba(255,255,255,.55)"/>
-            </g>
+          <!-- RIGHT PHONE -->
+          <g class="phone phone-r" filter="url(#phoneShadow)">
+            <image href="assets/BridgekeyR.png" x="390" y="5" width="182" height="300" clip-path="url(#clipPhoneR)" preserveAspectRatio="xMidYMid slice"/>
+            <rect x="595" y="95" width="2" height="28" rx="1" fill="#0A0F1A"/>
+          </g>
 
-            <!-- "From" label -->
-            <text x="119" y="100" font-family="JetBrains Mono" font-size="5.5" fill="rgba(255,255,255,.45)" letter-spacing="1">FROM</text>
-            <circle cx="125" cy="113" r="7" fill="url(#avSend)"/>
-            <text x="125" y="116" text-anchor="middle" font-size="7" fill="#fff" font-weight="700" font-family="Syne">P</text>
-            <text x="137" y="111" font-size="7" fill="#fff" font-family="Inter" font-weight="500">@priya</text>
-            <text x="137" y="119" font-size="5" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" letter-spacing=".3">0x7f3a…c8b1</text>
-
-            <!-- amount label -->
-            <text x="155" y="140" text-anchor="middle" font-family="JetBrains Mono" font-size="5.5" fill="rgba(255,255,255,.45)" letter-spacing="1.5">YOU SEND</text>
-
-            <!-- amount value -->
-            <text x="155" y="166" text-anchor="middle" font-family="Syne" font-size="26" font-weight="700" fill="#fff">142</text>
-            <text x="155" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#FFB830" letter-spacing="2">MST · ₹ 23,930</text>
-
-            <!-- mini coin row preview -->
-            <g transform="translate(125 192)">
-              <circle cx="0" cy="0" r="5" fill="url(#coinG)"/>
-              <circle cx="9" cy="0" r="5" fill="url(#coinG)"/>
-              <circle cx="18" cy="0" r="5" fill="url(#coinG)"/>
-              <text x="32" y="2.5" font-family="JetBrains Mono" font-size="6" fill="rgba(255,255,255,.55)">+ many more</text>
-            </g>
-
-            <!-- SEND button -->
-            <g class="send-btn">
-              <rect x="120" y="210" width="70" height="22" rx="11" fill="url(#sendBtn)"/>
-              <text x="155" y="225" text-anchor="middle" font-family="Syne" font-size="10" font-weight="700" fill="#001016" letter-spacing="3">SEND</text>
-              <!-- finger touch hint -->
-              <circle cx="155" cy="221" r="2" fill="rgba(255,255,255,.7)" opacity=".4"/>
-            </g>
-          </g>
-
-          <!-- RIGHT PHONE (receiver) -->
-          <g class="phone phone-r" style="--cx:445px;--cy:150px">
-            <g filter="url(#phoneShadow)">
-              <rect x="395" y="50" width="100" height="200" rx="16" fill="#161E32" stroke="rgba(143,160,182,.35)" stroke-width="1"/>
-              <rect x="495" y="100" width="2" height="22" rx="1" fill="#0A0F1A"/>
-              <rect x="401" y="60" width="88" height="180" rx="10" fill="url(#screenR)"/>
-              <rect x="430" y="58" width="30" height="5" rx="2.5" fill="#0A0F1A"/>
-              <ellipse cx="445" cy="80" rx="40" ry="20" fill="rgba(0,229,192,.25)"/>
-            </g>
-
-            <text x="409" y="78" font-family="JetBrains Mono" font-size="6.5" fill="rgba(255,255,255,.65)">9:41</text>
-            <g transform="translate(476 73)">
-              <rect width="10" height="5" rx="1" fill="none" stroke="rgba(255,255,255,.55)" stroke-width=".6"/>
-              <rect x="1" y="1" width="6" height="3" rx=".5" fill="rgba(255,255,255,.55)"/>
-            </g>
-
-            <text x="409" y="100" font-family="JetBrains Mono" font-size="5.5" fill="rgba(255,255,255,.45)" letter-spacing="1">TO</text>
-            <circle cx="415" cy="113" r="7" fill="url(#avRecv)"/>
-            <text x="415" y="116" text-anchor="middle" font-size="7" fill="#001016" font-weight="700" font-family="Syne">A</text>
-            <text x="427" y="111" font-size="7" fill="#fff" font-family="Inter" font-weight="500">@arjun</text>
-            <text x="427" y="119" font-size="5" fill="rgba(255,255,255,.5)" font-family="JetBrains Mono" letter-spacing=".3">0x9c2e…4af3</text>
-
-            <!-- big receiving coin -->
-            <g class="recv-coin">
-              <circle cx="445" cy="160" r="22" fill="url(#bigCoinG)" stroke="rgba(255,255,255,.4)" stroke-width=".8"/>
-              <circle cx="445" cy="160" r="17" fill="none" stroke="rgba(255,255,255,.25)" stroke-width=".6"/>
-              <text x="445" y="167" text-anchor="middle" font-family="Syne" font-size="22" font-weight="700" fill="#3A1F00">M</text>
-            </g>
-
-            <!-- burst ring -->
-            <circle class="recv-burst" cx="445" cy="160" r="22" fill="none" stroke="var(--teal)" stroke-width="1.5"/>
-
-            <!-- received status -->
-            <g class="recv-status">
-              <text x="445" y="200" text-anchor="middle" font-family="JetBrains Mono" font-size="5.5" fill="rgba(255,255,255,.45)" letter-spacing="1.5">RECEIVED</text>
-              <text x="445" y="216" text-anchor="middle" font-family="Syne" font-size="14" font-weight="700" fill="#00E5C0">+142.00</text>
-              <text x="445" y="226" text-anchor="middle" font-family="JetBrains Mono" font-size="6" fill="rgba(0,229,192,.7)" letter-spacing="1">MST · ₹ 23,930</text>
-            </g>
-          </g>
-
-          <!-- FLYING COINS streaming between phones -->
-          <g class="coins">
-            <g class="fcoin c1">
-              <animateMotion dur="6s" repeatCount="indefinite" path="M 215 130 Q 300 30 385 130" keyTimes="0;0.15;0.50;1" keyPoints="0;0;1;1" calcMode="linear"/>
-              <g class="body"><circle r="9" fill="url(#coinG)" stroke="#FFE4A0" stroke-width=".8"/><text y="3.3" text-anchor="middle" font-family="Syne" font-size="9" font-weight="700" fill="#3A1F00">M</text></g>
-            </g>
-            <g class="fcoin c2">
-              <animateMotion dur="6s" repeatCount="indefinite" path="M 220 135 Q 300 55 380 135" keyTimes="0;0.15;0.50;1" keyPoints="0;0;1;1" calcMode="linear"/>
-              <g class="body"><circle r="8" fill="url(#coinG)" stroke="#FFE4A0" stroke-width=".7"/><text y="3" text-anchor="middle" font-family="Syne" font-size="8" font-weight="700" fill="#3A1F00">M</text></g>
-            </g>
-            <g class="fcoin c3">
-              <animateMotion dur="6s" repeatCount="indefinite" path="M 218 128 Q 300 15 386 128" keyTimes="0;0.15;0.50;1" keyPoints="0;0;1;1" calcMode="linear"/>
-              <g class="body"><circle r="7" fill="url(#coinG)" stroke="#FFE4A0" stroke-width=".6"/><text y="2.5" text-anchor="middle" font-family="Syne" font-size="7" font-weight="700" fill="#3A1F00">M</text></g>
-            </g>
-            <g class="fcoin c4">
-              <animateMotion dur="6s" repeatCount="indefinite" path="M 222 140 Q 300 70 378 140" keyTimes="0;0.15;0.50;1" keyPoints="0;0;1;1" calcMode="linear"/>
-              <g class="body"><circle r="8" fill="url(#coinG)" stroke="#FFE4A0" stroke-width=".7"/><text y="3" text-anchor="middle" font-family="Syne" font-size="8" font-weight="700" fill="#3A1F00">M</text></g>
-            </g>
-            <g class="fcoin c5">
-              <animateMotion dur="6s" repeatCount="indefinite" path="M 216 132 Q 300 40 384 132" keyTimes="0;0.15;0.50;1" keyPoints="0;0;1;1" calcMode="linear"/>
-              <g class="body"><circle r="6.5" fill="url(#coinG)" stroke="#FFE4A0" stroke-width=".5"/><text y="2.3" text-anchor="middle" font-family="Syne" font-size="6.5" font-weight="700" fill="#3A1F00">M</text></g>
-            </g>
-          </g>
-        </svg>
+          <!-- FLYING COINS streaming between phones -->
+          <g class="coins">
+            <!-- Bitcoin -->
+            <g class="fcoin c1">
+              <animateMotion dur="6s" repeatCount="indefinite" path="M 215 130 Q 300 30 385 130" keyTimes="0;0.15;0.50;1" keyPoints="0;0;1;1" calcMode="linear"/>
+              <g class="body"><circle r="9" fill="url(#btcG)" stroke="#FFD080" stroke-width=".8"/><text y="3.5" text-anchor="middle" font-family="Syne" font-size="9" font-weight="800" fill="#fff">₿</text></g>
+            </g>
+            <!-- Ethereum -->
+            <g class="fcoin c2">
+              <animateMotion dur="6s" repeatCount="indefinite" path="M 220 135 Q 300 55 380 135" keyTimes="0;0.15;0.50;1" keyPoints="0;0;1;1" calcMode="linear"/>
+              <g class="body"><circle r="8" fill="url(#ethG)" stroke="#A0AAFF" stroke-width=".7"/><text y="3" text-anchor="middle" font-family="Syne" font-size="8.5" font-weight="700" fill="#fff">Ξ</text></g>
+            </g>
+            <!-- Solana -->
+            <g class="fcoin c3">
+              <animateMotion dur="6s" repeatCount="indefinite" path="M 218 128 Q 300 15 386 128" keyTimes="0;0.15;0.50;1" keyPoints="0;0;1;1" calcMode="linear"/>
+              <g class="body"><circle r="7" fill="url(#solG)" stroke="#C080FF" stroke-width=".6"/><text y="2.5" text-anchor="middle" font-family="Syne" font-size="6.5" font-weight="800" fill="#fff">◎</text></g>
+            </g>
+            <!-- Ethereum -->
+            <g class="fcoin c4">
+              <animateMotion dur="6s" repeatCount="indefinite" path="M 222 140 Q 300 70 378 140" keyTimes="0;0.15;0.50;1" keyPoints="0;0;1;1" calcMode="linear"/>
+              <g class="body"><circle r="8" fill="url(#ethG)" stroke="#A0AAFF" stroke-width=".7"/><text y="3" text-anchor="middle" font-family="Syne" font-size="8.5" font-weight="700" fill="#fff">Ξ</text></g>
+            </g>
+            <!-- Bitcoin -->
+            <g class="fcoin c5">
+              <animateMotion dur="6s" repeatCount="indefinite" path="M 216 132 Q 300 40 384 132" keyTimes="0;0.15;0.50;1" keyPoints="0;0;1;1" calcMode="linear"/>
+              <g class="body"><circle r="6.5" fill="url(#btcG)" stroke="#FFD080" stroke-width=".5"/><text y="2.5" text-anchor="middle" font-family="Syne" font-size="7" font-weight="800" fill="#fff">₿</text></g>
+            </g>
+          </g>
+        </svg>
 
         <div class="pay-bottom">
           <div class="pay-status">
@@ -798,35 +786,38 @@
   <div class="container">
     <div class="showcase-grid">
       <div class="sc-copy">
-        <div class="reveal"><div class="sc-eyebrow">A device · A key · A network</div></div>
+        <div class="reveal"><div class="sc-eyebrow">A device · A Wallet · A network</div></div>
         <h2 class="sc-title reveal" data-delay="1">Hold every <em>EVM chain</em>, every<br/>token, in one pocket.</h2>
         <p class="sc-sub reveal" data-delay="2">Your assets, your addresses, your signatures — managed from a single surface. Tap to send. Scan to receive. Sign with a glance.</p>
 
         <div class="chain-stats reveal" data-delay="3">
           <div class="stat-card">
-            <div class="lbl"><span>Avg gas fee</span>
+            <div class="lbl" style="color: white;"><span>Playstore Ratings</span>
               <svg class="ic" viewBox="0 0 16 16" fill="none"><path d="M4 14V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v10M2 14h11M11 7l2 1v4a1 1 0 0 0 1 1 1 1 0 0 0 1-1V6l-2-2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <div class="num"><span class="pre"></span>0.001</div>
-            <div class="sub"><span class="pill">↓ 12%</span> <span>vs last week</span></div>
+            <div class="num"><span class="pre"></span>4.8 ★</div>
+         
+          
             <svg class="spark" viewBox="0 0 200 28" preserveAspectRatio="none"><path d="M0 16 L20 12 L40 18 L60 10 L80 14 L100 8 L120 12 L140 6 L160 10 L180 4 L200 8"/></svg>
           </div>
 
           <div class="stat-card violet">
-            <div class="lbl"><span>Avg block time</span>
+            <div class="lbl" style="color: white;"><span>Total Downloads</span>
               <svg class="ic" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M8 4v4l2.5 1.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
             </div>
-            <div class="num">812<span class="unit">ms</span></div>
-            <div class="sub"><span class="live-dot">Live</span> <span>last 100 blocks</span></div>
+            <div class="num">10K<span class="unit">+</span></div>
+            
             <svg class="spark" viewBox="0 0 200 28" preserveAspectRatio="none"><path d="M0 14 L20 10 L40 16 L60 12 L80 8 L100 14 L120 10 L140 12 L160 8 L180 14 L200 10"/></svg>
           </div>
 
           <div class="stat-card gold">
-            <div class="lbl"><span>Total validators</span>
+            <div class="lbl" style="color: white;"><span>Network Support</span>
               <svg class="ic" viewBox="0 0 16 16" fill="none"><path d="M8 1.5 L13 4 V9 C13 11.5 11 13.5 8 14.5 C5 13.5 3 11.5 3 9 V4 Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 8 L7.5 9.5 L10 6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <div class="num">4,217</div>
-            <div class="sub"><span class="pill">↑ 24</span> <span>this week</span></div>
+            <div class="num">95+ 
+              <span class="chain" style="font-size: medium;">chains</span>
+            </div>
+           
             <svg class="spark" viewBox="0 0 200 28" preserveAspectRatio="none"><path d="M0 22 L20 20 L40 18 L60 16 L80 14 L100 12 L120 11 L140 9 L160 8 L180 6 L200 4"/></svg>
           </div>
         </div>
@@ -848,7 +839,7 @@
         <!-- incoming-tx ping -->
         <div class="tx-ping">
           <span class="tic">↓</span>
-          <div class="meta"><span class="am">+12.40 MST</span><small>from 0x9c2e…4af3</small></div>
+          <div class="meta"><span class="am">+12.40 MSTC</span><small>from 0x9c2e…4af3</small></div>
         </div>
 
         <!-- QR card -->
@@ -859,63 +850,10 @@
         </div>
 
         <!-- device -->
-        <div class="device">
-          <div class="wallet-screen">
-            <div class="stat-bar">
-              <span>9:41</span>
-              <span class="net">MST Mainnet · #<span id="walletBlock">2,847,193</span></span>
-              <span>100%</span>
-            </div>
-
-            <div class="wb-top">
-              <div class="pill"><span class="ic"></span>BridgeKey</div>
-              <div class="menu"><span></span><span></span><span></span></div>
-            </div>
-
-            <div class="addr-row">
-              <span class="id"></span>
-              <span>0x7f3a · 9d24 · b18e · c8b1</span>
-              <span class="copy">⧉</span>
-            </div>
-
-            <div class="balance-block">
-              <div class="lbl">Total balance</div>
-              <div class="amt"><span id="balAmt">847.20</span><span class="sym">MST</span></div>
-              <div class="usd">≈ ₹ 1,42,580.40 <span class="up">↑ 4.2% · 24h</span></div>
-            </div>
-
-            <div class="actions">
-              <div class="act"><span class="ic"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 L11 3 M11 3 H6 M11 3 V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>Send</div>
-              <div class="act"><span class="ic"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 3 L3 11 M3 11 H8 M3 11 V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>Receive</div>
-              <div class="act"><span class="ic"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5 H11 L9 3 M11 9 H3 L5 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Swap</div>
-              <div class="act"><span class="ic"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="3" y="3" width="3" height="3" fill="currentColor"/><rect x="8" y="3" width="3" height="3" fill="currentColor"/><rect x="3" y="8" width="3" height="3" fill="currentColor"/><rect x="8" y="8" width="3" height="3" fill="currentColor"/></svg></span>Scan</div>
-            </div>
-
-            <div class="assets">
-              <div class="h"><span>Assets</span><span>4 tokens</span></div>
-              <div class="asset">
-                <div class="coin mst">M</div>
-                <div class="nm">MST<small>847.2000 · MST·L1</small></div>
-                <div class="val">₹ 1,42,580<small class="up">↑ 4.2%</small></div>
-              </div>
-              <div class="asset">
-                <div class="coin eth">Ξ</div>
-                <div class="nm">Ethereum<small>0.4120 ETH</small></div>
-                <div class="val">₹ 1,12,400<small class="up">↑ 1.1%</small></div>
-              </div>
-              <div class="asset">
-                <div class="coin usdc">$</div>
-                <div class="nm">USDC<small>1,240.00 USDC</small></div>
-                <div class="val">₹ 1,03,212<small class="flat">— 0.0%</small></div>
-              </div>
-              <div class="asset">
-                <div class="coin btc">₿</div>
-                <div class="nm">Bitcoin<small>0.0184 BTC</small></div>
-                <div class="val">₹ 1,06,820<small class="dn">↓ 0.8%</small></div>
-              </div>
-            </div>
-          </div>
-        </div>
+       <div class="device">
+          <!-- Replace src with your actual app screenshot. Dimensions: 440 × 830px (9:17 ratio) -->
+          <img class="app-screenshot" src="assets/BridgekeyBig.png" alt="BridgeKey app screenshot" />
+        </div>
       </div>
     </div>
   </div>
@@ -925,8 +863,8 @@
 <section class="features" id="features">
   <div class="container">
     <div class="reveal"><div class="section-eyebrow"><span class="num">01 / Features</span></div></div>
-    <h2 class="section-title reveal" data-delay="1">A key built for <em>humans</em>,<br/>not protocol nerds.</h2>
-    <p class="section-sub reveal" data-delay="2">No seed phrase anxiety. No mental gas math. Just access — to the value, the chains, and the future that belong to you.</p>
+    <h2 class="section-title reveal" data-delay="1">A wallet built for <em>humans</em>,<br/>not protocol nerds.</h2>
+    <p class="section-sub reveal" data-delay="2">No seed phrase anxiety. No mental gas math. Just access  to the value, the chains, and the future that belong to you.</p>
 
     <div class="feature-grid">
       <article class="feature reveal" data-delay="1">
@@ -939,7 +877,7 @@
           </svg>
         </div>
         <h3>One‑tap access.</h3>
-        <p>Biometric unlock, instant signing. From cold start to confirmed transaction in under three seconds — every time.</p>
+        <p>Biometric unlock, instant signing. From cold start to confirmed transaction in under three seconds every time.</p>
         <div class="code">~ 2.8s · avg unlock</div>
       </article>
 
@@ -952,8 +890,8 @@
           </svg>
         </div>
         <h3>India‑native chain.</h3>
-        <p>The first interface built natively for <strong style="color:var(--gold);font-weight:500">MST Blockchain</strong> — India's inaugural Layer‑1. Sub‑second finality, ₹‑denominated fees.</p>
-        <div class="code">mst://layer‑1 · 800ms finality</div>
+        <p>The first interface built natively for <strong style="color:var(--gold);font-weight:500">MST Blockchain</strong> India's inaugural Layer‑1. Sub‑second finality,denominated fees.</p>
+        <div class="code"><a href="https://mstblockchain.com//"> https://mstblockchain.com/  </a> </div>
       </article>
 
       <article class="feature reveal" data-delay="3">
@@ -966,8 +904,8 @@
           </svg>
         </div>
         <h3>Zero‑friction transfers.</h3>
-        <p>Send to a name, not a hash. Pay anyone on any supported chain with one signature, gas auto‑routed in the background.</p>
-        <div class="code">$ send 100 mst → @priya</div>
+        <p>Pay anyone on any supported chain with one signature, gas auto‑routed in the background.</p>
+        <div class="code"> <a href="https://mstblockchain.com/" target="_blank"> send 100 mstc </a> </div>
       </article>
     </div>
   </div>
@@ -980,117 +918,138 @@
       <div class="mst-copy">
         <div class="reveal"><div class="section-eyebrow"><span class="num">02 / Chain</span></div></div>
         <h2 class="section-title reveal" data-delay="1">Built on <em>MST</em> —<br/>India's first Layer‑1.</h2>
-        <p class="section-sub reveal" data-delay="2">A billion people. One sovereign chain. BridgeKey is the first gateway to natively speak MST — with full UPI bridge support, regional language signing, and validator nodes rooted across the subcontinent.</p>
+        <p class="section-sub reveal" data-delay="2">More than a billion people. One Sovereign chain. BridgeKey is the first gateway to natively speak MST.</p>
 
         <div class="mst-stats reveal" data-delay="3">
-          <div class="stat"><div class="num">800ms</div><div class="lbl">Finality</div></div>
-          <div class="stat"><div class="num">12 k</div><div class="lbl">Tx / second</div></div>
-          <div class="stat"><div class="num">22</div><div class="lbl">Languages</div></div>
+          <div class="stat"><div class="num">3.0 s</div><div class="lbl">Average Block Time</div></div>
+          <div class="stat"><div class="num">72,000 +</div><div class="lbl">Active validators</div></div>
+          <div class="stat"><div class="num">0.001 MSTC</div><div class="lbl">Average Txn Fees</div></div>
         </div>
       </div>
 
-      <div class="india-wrap reveal" data-delay="2">
-        <svg viewBox="0 0 800 440" aria-hidden="true">
-          <defs>
-            <radialGradient id="indiaGlow" cx=".5" cy=".5" r=".5">
-              <stop offset="0%" stop-color="#FFB830" stop-opacity=".35"/>
-              <stop offset="100%" stop-color="#FFB830" stop-opacity="0"/>
-            </radialGradient>
-            <linearGradient id="bridgeGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#FFB830"/>
-              <stop offset="100%" stop-color="#00E5C0"/>
-            </linearGradient>
-          </defs>
+      <svg viewBox="0 0 800 440" aria-hidden="true">
+          <defs>
+            <radialGradient id="indiaGlow" cx=".5" cy=".5" r=".5">
+              <stop offset="0%" stop-color="#FFB830" stop-opacity=".35"/>
+              <stop offset="100%" stop-color="#FFB830" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="bridgeGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#FFB830"/>
+              <stop offset="100%" stop-color="#00E5C0"/>
+            </linearGradient>
+          </defs>
 
-          <!-- equator + tropic guides -->
-          <g stroke="rgba(255,184,48,.07)" stroke-width=".6" stroke-dasharray="2 6">
-            <line x1="0" y1="220" x2="800" y2="220"/>
-            <line x1="0" y1="170" x2="800" y2="170"/>
-            <line x1="0" y1="270" x2="800" y2="270"/>
-            <line x1="200" y1="0" x2="200" y2="440"/>
-            <line x1="400" y1="0" x2="400" y2="440"/>
-            <line x1="600" y1="0" x2="600" y2="440"/>
-          </g>
+          <!-- equator + tropic guides -->
+          <g stroke="rgba(255,184,48,.07)" stroke-width=".6" stroke-dasharray="2 6">
+            <line x1="0" y1="220" x2="800" y2="220"/>
+            <line x1="0" y1="170" x2="800" y2="170"/>
+            <line x1="0" y1="270" x2="800" y2="270"/>
+            <line x1="200" y1="0" x2="200" y2="440"/>
+            <line x1="400" y1="0" x2="400" y2="440"/>
+            <line x1="600" y1="0" x2="600" y2="440"/>
+          </g>
 
-          <!-- warm glow over South/SE Asia (Pune ↔ Vietnam corridor) -->
-          <ellipse cx="600" cy="215" rx="140" ry="65" fill="url(#indiaGlow)"/>
+          <!-- warm glow over South/SE Asia (Pune ↔ Vietnam corridor) -->
+          <ellipse cx="600" cy="215" rx="140" ry="65" fill="url(#indiaGlow)"/>
 
-          <!-- continents (stylized, abstract silhouettes) -->
-          <g class="world-outline">
-            <!-- North America -->
-            <path d="M 50 95 L 95 70 L 155 60 L 215 70 L 245 95 L 250 125 L 235 155 L 200 180 L 165 200 L 140 220 L 115 215 L 90 195 L 65 165 L 50 130 Z"/>
-            <!-- Greenland -->
-            <path d="M 290 60 L 335 58 L 355 85 L 345 115 L 315 122 L 290 100 Z"/>
-            <!-- Central America -->
-            <path d="M 165 220 L 195 228 L 215 250 L 208 268 L 190 262 L 170 240 Z"/>
-            <!-- South America -->
-            <path d="M 205 270 L 240 278 L 258 305 L 262 345 L 245 380 L 220 395 L 198 372 L 192 335 L 192 295 Z"/>
-            <!-- British Isles -->
-            <circle cx="378" cy="128" r="7"/>
-            <!-- Europe (mainland) -->
-            <path d="M 395 115 L 445 105 L 475 120 L 480 140 L 460 155 L 425 158 L 400 148 L 388 130 Z"/>
-            <!-- Scandinavia -->
-            <path d="M 430 75 L 460 65 L 478 85 L 470 110 L 445 110 L 430 95 Z"/>
-            <!-- Africa -->
-            <path d="M 415 170 L 470 168 L 495 195 L 510 240 L 495 290 L 460 322 L 432 322 L 415 295 L 405 255 L 402 215 L 408 185 Z"/>
-            <!-- Madagascar -->
-            <path d="M 525 285 L 535 285 L 537 305 L 530 315 L 522 305 Z"/>
-            <!-- Asia (mainland, big) -->
-            <path d="M 480 100 L 555 85 L 625 90 L 685 105 L 720 125 L 735 152 L 715 170 L 670 180 L 615 184 L 565 180 L 520 175 L 488 158 L 475 130 Z"/>
-            <!-- Indian peninsula (jutting south) -->
-            <path d="M 550 180 L 600 180 L 612 210 L 608 240 L 588 260 L 568 252 L 555 220 Z"/>
-            <!-- Indochina / SE Asia incl Vietnam -->
-            <path d="M 632 178 L 668 185 L 672 215 L 668 240 L 648 255 L 632 250 L 625 220 L 625 195 Z"/>
-            <!-- Japan -->
-            <path d="M 715 145 L 728 152 L 732 168 L 722 182 L 712 172 L 710 158 Z"/>
-            <!-- Korean peninsula -->
-            <path d="M 692 158 L 702 162 L 700 178 L 690 178 Z"/>
-            <!-- Indonesia / Philippines (islands) -->
-            <ellipse cx="640" cy="275" rx="28" ry="6"/>
-            <ellipse cx="688" cy="278" rx="18" ry="5"/>
-            <ellipse cx="685" cy="290" rx="11" ry="4"/>
-            <ellipse cx="668" cy="262" rx="8" ry="3.5"/>
-            <!-- Australia -->
-            <path d="M 680 308 L 740 305 L 762 325 L 750 352 L 708 360 L 680 340 L 668 322 Z"/>
-            <!-- New Zealand -->
-            <path d="M 778 348 L 786 360 L 783 372 L 775 362 Z"/>
-            <path d="M 786 370 L 792 380" stroke="rgba(255,184,48,.55)" stroke-width="1.5" fill="none"/>
-          </g>
+          <!-- continents (stylized, abstract silhouettes) -->
+          <g class="world-outline">
+            <!-- North America -->
+            <path d="M 50 95 L 95 70 L 155 60 L 215 70 L 245 95 L 250 125 L 235 155 L 200 180 L 165 200 L 140 220 L 115 215 L 90 195 L 65 165 L 50 130 Z"/>
+            <!-- Greenland -->
+            <path d="M 290 60 L 335 58 L 355 85 L 345 115 L 315 122 L 290 100 Z"/>
+            <!-- Central America -->
+            <path d="M 165 220 L 195 228 L 215 250 L 208 268 L 190 262 L 170 240 Z"/>
+            <!-- South America -->
+            <path d="M 205 270 L 240 278 L 258 305 L 262 345 L 245 380 L 220 395 L 198 372 L 192 335 L 192 295 Z"/>
+            <!-- British Isles -->
+            <circle cx="378" cy="128" r="7"/>
+            <!-- Europe (mainland) -->
+            <path d="M 395 115 L 445 105 L 475 120 L 480 140 L 460 155 L 425 158 L 400 148 L 388 130 Z"/>
+            <!-- Scandinavia -->
+            <path d="M 430 75 L 460 65 L 478 85 L 470 110 L 445 110 L 430 95 Z"/>
+            <!-- Africa -->
+            <path d="M 415 170 L 470 168 L 495 195 L 510 240 L 495 290 L 460 322 L 432 322 L 415 295 L 405 255 L 402 215 L 408 185 Z"/>
+            <!-- Madagascar -->
+            <path d="M 525 285 L 535 285 L 537 305 L 530 315 L 522 305 Z"/>
+            <!-- Asia (mainland, big) -->
+            <path d="M 480 100 L 555 85 L 625 90 L 685 105 L 720 125 L 735 152 L 715 170 L 670 180 L 615 184 L 565 180 L 520 175 L 488 158 L 475 130 Z"/>
+            <!-- Indian peninsula (jutting south) -->
+            <path d="M 550 180 L 600 180 L 612 210 L 608 240 L 588 260 L 568 252 L 555 220 Z"/>
+            <!-- Indochina / SE Asia incl Vietnam -->
+            <path d="M 632 178 L 668 185 L 672 215 L 668 240 L 648 255 L 632 250 L 625 220 L 625 195 Z"/>
+            <!-- Japan -->
+            <path d="M 715 145 L 728 152 L 732 168 L 722 182 L 712 172 L 710 158 Z"/>
+            <!-- Korean peninsula -->
+            <path d="M 692 158 L 702 162 L 700 178 L 690 178 Z"/>
+            <!-- Indonesia / Philippines (islands) -->
+            <ellipse cx="640" cy="275" rx="28" ry="6"/>
+            <ellipse cx="688" cy="278" rx="18" ry="5"/>
+            <ellipse cx="685" cy="290" rx="11" ry="4"/>
+            <ellipse cx="668" cy="262" rx="8" ry="3.5"/>
+            <!-- Australia -->
+            <path d="M 680 308 L 740 305 L 762 325 L 750 352 L 708 360 L 680 340 L 668 322 Z"/>
+            <!-- New Zealand -->
+            <path d="M 778 348 L 786 360 L 783 372 L 775 362 Z"/>
+            <path d="M 786 370 L 792 380" stroke="rgba(255,184,48,.55)" stroke-width="1.5" fill="none"/>
+          </g>
 
-          <!-- Bridge line: Pune → Vietnam -->
-          <path class="bridge-line" d="M 580 215 Q 620 195 645 222"/>
+          <!-- Bridge line: Pune → Vietnam -->
+          <path class="bridge-line" d="M 580 215 Q 620 195 645 222"/>
 
-          <!-- PUNE highlight (gold) -->
-          <g class="pune-mark">
-            <circle class="ripple" cx="580" cy="215" r="4" style="stroke:var(--gold);animation:ripple 3s linear infinite"/>
-            <circle class="ripple" cx="580" cy="215" r="4" style="stroke:var(--gold);animation:ripple 3s linear infinite 1s"/>
-            <circle class="ripple" cx="580" cy="215" r="4" style="stroke:var(--gold);animation:ripple 3s linear infinite 2s"/>
-            <circle class="city-major" cx="580" cy="215" r="5" fill="var(--gold)" style="filter:drop-shadow(0 0 8px var(--gold))"/>
-            <circle cx="580" cy="215" r="2.5" fill="#FFEAB0"/>
-            <line x1="580" y1="215" x2="540" y2="175" stroke="rgba(255,184,48,.4)" stroke-width=".7"/>
-            <text class="city-label-big" x="540" y="170" text-anchor="end" fill="var(--gold)">PUNE</text>
-            <text class="coord-label" x="540" y="160" text-anchor="end">18.52°N · 73.85°E · IND</text>
-          </g>
+          <!-- Continental node markers (hub dots for each continent) -->
+          <circle cx="155" cy="128" r="2.5" fill="var(--gold)" class="city-major" style="filter:drop-shadow(0 0 5px var(--gold))"/>
+          <circle cx="228" cy="332" r="2.5" fill="var(--gold)" class="city-major" style="filter:drop-shadow(0 0 5px var(--gold));animation-delay:0.4s"/>
+          <circle cx="437" cy="128" r="2.5" fill="var(--teal)" class="city-major" style="filter:drop-shadow(0 0 5px var(--teal));animation-delay:0.8s"/>
+          <circle cx="450" cy="245" r="2.5" fill="var(--gold)" class="city-major" style="filter:drop-shadow(0 0 5px var(--gold));animation-delay:1.2s"/>
+          <circle cx="715" cy="332" r="2.5" fill="var(--teal)" class="city-major" style="filter:drop-shadow(0 0 5px var(--teal));animation-delay:1.6s"/>
 
-          <!-- VIETNAM highlight (teal) -->
-          <g class="vn-mark">
-            <circle class="ripple" cx="645" cy="222" r="4" style="stroke:var(--teal);animation:ripple 3s linear infinite .5s"/>
-            <circle class="ripple" cx="645" cy="222" r="4" style="stroke:var(--teal);animation:ripple 3s linear infinite 1.5s"/>
-            <circle class="ripple" cx="645" cy="222" r="4" style="stroke:var(--teal);animation:ripple 3s linear infinite 2.5s"/>
-            <circle class="city-major" cx="645" cy="222" r="5" fill="var(--teal)" style="filter:drop-shadow(0 0 8px var(--teal))"/>
-            <circle cx="645" cy="222" r="2.5" fill="#A8FFE8"/>
-            <line x1="645" y1="222" x2="690" y2="262" stroke="rgba(0,229,192,.4)" stroke-width=".7"/>
-            <text class="city-label-big" x="694" y="266" fill="var(--teal)">VIETNAM</text>
-            <text class="coord-label" x="694" y="277">21.03°N · 105.83°E · VNM</text>
-          </g>
+          <!-- Inter-continental connection lines -->
+          <!-- North America → Europe (trans-Atlantic, arcing over north Atlantic) -->
+          <path class="bridge-line" d="M 215 112 Q 300 52 395 118" opacity="0.6" style="animation-delay:-0.5s"/>
+          <!-- North America → South America (through Central America) -->
+          <path class="bridge-line" d="M 183 222 Q 194 248 208 270" opacity="0.6" style="animation-delay:-1.8s"/>
+          <!-- Europe → Africa (across Mediterranean) -->
+          <path class="bridge-line" d="M 445 158 Q 440 164 430 170" opacity="0.6" style="animation-delay:-0.9s"/>
+          <!-- Europe → Asia (Eurasia overland, through Central Asia) -->
+          <path class="bridge-line" d="M 476 126 Q 538 106 608 122" opacity="0.6" style="animation-delay:-2.4s"/>
+          <!-- Africa → South America (trans-Atlantic, southern crossing) -->
+          <path class="bridge-line" d="M 410 215 Q 328 268 250 295" opacity="0.6" style="animation-delay:-3.1s"/>
+          <!-- SE Asia → Australia (through Indonesian archipelago) -->
+          <path class="bridge-line" d="M 650 254 Q 666 278 682 306" opacity="0.6" style="animation-delay:-1.4s"/>
+          <!-- Asia east coast → Australia (through Pacific) -->
+          <path class="bridge-line" d="M 724 156 Q 748 232 743 306" opacity="0.6" style="animation-delay:-2.7s"/>
 
-          <!-- corner labels -->
-          <text x="20" y="32" font-family="JetBrains Mono" font-size="9" fill="rgba(255,184,48,.65)" letter-spacing="2.5">MST · GLOBAL · L1</text>
-          <text x="780" y="32" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="rgba(143,160,182,.45)" letter-spacing="2">2 NODES · LIVE</text>
-          <text x="20" y="425" font-family="JetBrains Mono" font-size="7" fill="rgba(143,160,182,.45)" letter-spacing="2">EQUIRECTANGULAR · WGS84</text>
-          <text x="780" y="425" text-anchor="end" font-family="JetBrains Mono" font-size="7" fill="rgba(143,160,182,.45)" letter-spacing="2">bridge.mst://corridor</text>
-        </svg>
-      </div>
+          <!-- PUNE highlight (gold) -->
+          <g class="pune-mark">
+            <circle class="ripple" cx="580" cy="215" r="4" style="stroke:var(--gold);animation:ripple 3s linear infinite"/>
+            <circle class="ripple" cx="580" cy="215" r="4" style="stroke:var(--gold);animation:ripple 3s linear infinite 1s"/>
+            <circle class="ripple" cx="580" cy="215" r="4" style="stroke:var(--gold);animation:ripple 3s linear infinite 2s"/>
+            <circle class="city-major" cx="580" cy="215" r="5" fill="var(--gold)" style="filter:drop-shadow(0 0 8px var(--gold))"/>
+            <circle cx="580" cy="215" r="2.5" fill="#FFEAB0"/>
+            <line x1="580" y1="215" x2="540" y2="175" stroke="rgba(255,184,48,.4)" stroke-width=".7"/>
+            <text class="city-label-big" x="540" y="170" text-anchor="end" fill="var(--gold)">PUNE</text>
+            <text class="coord-label" x="540" y="160" text-anchor="end">18.52°N · 73.85°E · IND</text>
+          </g>
+
+          <!-- VIETNAM highlight (teal) -->
+          <g class="vn-mark">
+            <circle class="ripple" cx="645" cy="222" r="4" style="stroke:var(--teal);animation:ripple 3s linear infinite .5s"/>
+            <circle class="ripple" cx="645" cy="222" r="4" style="stroke:var(--teal);animation:ripple 3s linear infinite 1.5s"/>
+            <circle class="ripple" cx="645" cy="222" r="4" style="stroke:var(--teal);animation:ripple 3s linear infinite 2.5s"/>
+            <circle class="city-major" cx="645" cy="222" r="5" fill="var(--teal)" style="filter:drop-shadow(0 0 8px var(--teal))"/>
+            <circle cx="645" cy="222" r="2.5" fill="#A8FFE8"/>
+            <line x1="645" y1="222" x2="690" y2="262" stroke="rgba(0,229,192,.4)" stroke-width=".7"/>
+            <text class="city-label-big" x="694" y="266" fill="var(--teal)">VIETNAM</text>
+            <text class="coord-label" x="694" y="277">21.03°N · 105.83°E · VNM</text>
+          </g>
+
+          <!-- corner labels -->
+          <text x="20" y="32" font-family="JetBrains Mono" font-size="9" fill="rgba(255,184,48,.65)" letter-spacing="2.5">MST · GLOBAL · L1</text>
+          <text x="780" y="32" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="rgba(143,160,182,.45)" letter-spacing="2">21 NODES</text>
+          <text x="20" y="425" font-family="JetBrains Mono" font-size="7" fill="rgba(143,160,182,.45)" letter-spacing="2">EQUIRECTANGULAR · WGS84</text>
+          <text x="780" y="425" text-anchor="end" font-family="JetBrains Mono" font-size="7" fill="rgba(143,160,182,.45)" letter-spacing="2">bridgeKey</text>
+        </svg>
     </div>
   </div>
 </section>
@@ -1106,13 +1065,13 @@
       <div class="step reveal" data-delay="1">
         <div class="step-num"><span>01</span></div>
         <h3>Create.</h3>
-        <p>Generate your sovereign key in under a minute. Backed up via your trusted devices — never a server.</p>
+        <p>Generate your sovereign key in under a minute. Backed up via your trusted devices never a server.</p>
         <div class="code">→ create_key()</div>
       </div>
       <div class="step reveal" data-delay="2">
         <div class="step-num"><span>02</span></div>
         <h3>Connect.</h3>
-        <p>Link to MST and 14 other supported chains in one move. Permissions live on your terms, not the dApp's.</p>
+        <p>Link to MST and 70 other supported chains in one move. Permissions live on your terms, not the dApp's.</p>
         <div class="code">→ connect(mst, eth, sol)</div>
       </div>
       <div class="step reveal" data-delay="3">
@@ -1156,8 +1115,8 @@
           </svg>
         </div>
         <span class="tag">Property 02</span>
-        <h4>Open source.</h4>
-        <p>Every line of cryptographic code is public. Audit it, fork it, run it locally. Transparency by default.</p>
+        <h4>Multi-Asset Support.</h4>
+        <p>Store and manage MSTC,Bitcoin,Ethereum and thousand plus tokens in one secure wallet.</p>
       </div>
       <div class="sec-item reveal" data-delay="3">
         <div class="ic">
@@ -1168,8 +1127,8 @@
           </svg>
         </div>
         <span class="tag">Property 03</span>
-        <h4>Independently audited.</h4>
-        <p>Reviewed by Trail of Bits and CertiK. Continuous fuzzing in production. Zero critical findings since v0.9.</p>
+        <h4>Transaction History.</h4>
+        <p>Keep track of all your transactions with detailed records and easy-to-understand summaries.</p>
       </div>
     </div>
   </div>
@@ -1179,8 +1138,15 @@
 <section class="cta-band" id="get">
   <div class="container">
     <h2 class="reveal">Ready to <em>cross</em><br/>the bridge?</h2>
-    <p class="reveal" data-delay="1">Join the waitlist. Be among the first 10,000 to hold a BridgeKey when MST Mainnet opens.</p>
-    <div class="reveal" data-delay="2"><button class="btn-primary">Download BridgeKey<span class="arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button></div>
+    <p class="reveal" data-delay="1">Join the crypto Wallet BridgeKey community and secure and manage your assets today</p>
+    <div class="reveal" data-delay="2">
+      <a href ="https://play.google.com/store/apps/details?id=com.bridgekey" class = "playstore-btn">
+          <img src="./assets/playstore.png" alt="apple logo" style="height: 28px; width: auto;">
+        <!-- <button class="btn-primary" id="getKey">Download Bridgekey<span class="arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button> -->
+        Download Bridgekey</a>
+      <!-- <button class="btn-primary">Download BridgeKey<span class="arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button> -->
+    </div>
   </div>
 </section>
 
@@ -1193,28 +1159,39 @@
           <span class="mark"></span>
           BridgeKey
         </div>
-        <p class="tagline-foot">Your key. Your chain. Your future. Built in Bengaluru, made for everywhere.</p>
+        <p class="tagline-foot">Your key. Your chain. Your future.<br> Built in India, made for everywhere.</p>
       </div>
       <div class="foot-col">
         <h5>Product</h5>
-        <ul><li><a href="#">Features</a></li><li><a href="#">Roadmap</a></li><li><a href="#">Changelog</a></li><li><a href="#">Status</a></li></ul>
+        <ul><li><a href="#">Features</a></li><li><a href="#">MST Chain</a></li><li><a href="#">How It Works</a></li><li><a href="#">Security</a></li></ul>
       </div>
       <div class="foot-col">
         <h5>Chain</h5>
         <ul><li><a href="#">MST L1</a></li><li><a href="#">Bridges</a></li><li><a href="#">Validators</a></li><li><a href="#">Explorer</a></li></ul>
       </div>
-      <div class="foot-col">
-        <h5>Company</h5>
-        <ul><li><a href="#">About</a></li><li><a href="#">Audits</a></li><li><a href="#">Press</a></li><li><a href="#">Careers</a></li></ul>
-      </div>
+      
     </div>
     <div class="foot-bottom">
-      <div class="signature">© 2026 BridgeKey Labs · <em>Liquid Precision</em></div>
+      <div class="signature">© 2026 BridgeKey· <em>Crypto Wallet</em></div>
       <div class="socials">
-        <a href="#" aria-label="X"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1 L13 13 M13 1 L1 13" stroke="currentColor" stroke-width="1.5"/></svg></a>
-        <a href="#" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C4.4 1.5 1.5 4.4 1.5 8c0 2.9 1.9 5.3 4.4 6.2 .3.1 .4-.1 .4-.3v-1.2c-1.8.4-2.2-.8-2.2-.8-.3-.7-.7-.9-.7-.9-.6-.4 0-.4 0-.4 .7 0 1 .7 1 .7 .6 1 1.6.7 2 .6 .1-.4.2-.7.4-.9-1.4-.2-2.9-.7-2.9-3.2 0-.7.3-1.3.7-1.7-.1-.2-.3-.9.1-1.8 0 0 .6-.2 1.8.7.5-.1 1.1-.2 1.6-.2.6 0 1.1.1 1.6.2 1.3-.9 1.8-.7 1.8-.7 .4.9.1 1.6.1 1.8 .4.5.7 1 .7 1.7 0 2.5-1.5 3-2.9 3.2 .2.2.4.6.4 1.2v1.7c0 .2.1.4.4.3 2.6-.9 4.4-3.3 4.4-6.2 0-3.6-2.9-6.5-6.5-6.5z" fill="currentColor"/></svg></a>
-        <a href="#" aria-label="Telegram"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7 L13 2 L11 12 L7 10 L5 12 L5 9 L11 4" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" fill="none"/></svg></a>
-        <a href="#" aria-label="Discord"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><ellipse cx="6" cy="9" rx="1.2" ry="1.5" fill="currentColor"/><ellipse cx="10" cy="9" rx="1.2" ry="1.5" fill="currentColor"/><path d="M3 5 L5 4 M11 4 L13 5 M3 5 C2 7 2 10 3 12 C4 12.5 5 13 6 13 M13 5 C14 7 14 10 13 12 C12 12.5 11 13 10 13" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg></a>
+        <a href="https://x.com/MSTBlockchain" aria-label="X"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1 L13 13 M13 1 L1 13" stroke="currentColor" stroke-width="1.5"/></svg></a>
+
+        <a href="https://www.linkedin.com/company/mstblockchain" aria-label="Linkedin"><svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M4.983 3.5C4.983 4.328 4.31 5 3.483 5S2 4.328 2 3.5 2.672 2 3.483 2s1.5.672 1.5 1.5zM2.2 8h2.566v12H2.2V8zm4.8 0h2.46v1.64h.035c.342-.648 1.178-1.332 2.425-1.332 2.592 0 3.07 1.705 3.07 3.924V20h-2.566v-6.214c0-1.482-.027-3.39-2.066-3.39-2.067 0-2.383 1.614-2.383 3.283V20H7V8z"
+      fill="currentColor"
+    />
+  </svg></a>
+
+        <a href="https://www.facebook.com/MSTBlockchain/" aria-label="Facebook"> <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M9.5 5.5V4.2c0-.4.3-.7.7-.7h1.1V1.5H9.4C7.7 1.5 6.5 2.7 6.5 4.4v1.1H5v2h1.5v7h2v-7h2.2l.3-2H8.5z" fill="currentColor"/>
+  </svg></a>
+
+        <a href="https://www.instagram.com/mstblockchain?igsh=MWg2djU1dHkxdHhyNg==" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <path d="M11.5 1.5h-7A3 3 0 0 0 1.5 4.5v7a3 3 0 0 0 3 3h7a3 3 0 0 0 3-3v-7a3 3 0 0 0-3-3zm1.5 10a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 3 11.5v-7A1.5 1.5 0 0 1 4.5 3h7A1.5 1.5 0 0 1 13 4.5v7z" fill="currentColor"/>
+    <path d="M8 4.5A3.5 3.5 0 1 0 8 11.5 3.5 3.5 0 1 0 8 4.5zm0 5.5A2 2 0 1 1 8 6a2 2 0 0 1 0 4z" fill="currentColor"/>
+    <circle cx="12" cy="4" r="0.8" fill="currentColor"/>
+  </svg></a>
       </div>
     </div>
   </div>
@@ -1237,7 +1214,8 @@
   } loop();
 })();
 
-/* ---------- live block ticker ---------- */
+/* ---------- live block  -ticker--------- */
+/*
 (function(){
   const strip = document.getElementById('tickerStrip');
   if(!strip) return;
@@ -1261,6 +1239,79 @@
   // duplicate for seamless scroll
   strip.innerHTML = html + html;
 })();
+*/
+
+
+// 2nd my way
+
+  // function Cryptoprices(){
+  //   const [coins,setcoins]= useSate([]);
+
+  //   useEffect(()=> {
+  //     fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&names=Bitcoin&symbols=btc&category=layer-1&price_change_percentage=1h')
+  //     .then(response => response.json())
+  //     .then(data => {setcoins(data)
+
+  //     })
+  //   })
+  // } // Process the retrieved user data
+
+
+
+  // working code 
+//  const apiUrl =('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&names=Bitcoin&symbols=btc&category=layer-1&price_change_percentage=1h')
+//   fetch(apiUrl)
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+//     return response.json();
+//   })
+//   .then(userData => {
+   
+//     console.log('User Data:', userData);
+//   })
+//   .catch(error => {
+//     console.error('Error:', error);
+//   });
+
+const ids= 'ethereum,bitcoin,solana,ripple,polygon-pos,avalanche-2,chainlink,cosmos,tron,fantom,hedera-hashgraph,tezos,algorand,near-protocol,vechain'; 
+fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${ids}`)
+
+  .then(response => response.json())
+  .then(data => {
+      const cryptoData = data.map(coin => ({
+        id:coin.id,
+        name:coin.name,
+        current_price: coin.current_price,  
+        image: coin.image,
+      }));
+      console.log('cryptoData:', cryptoData);
+
+        const tickerStrip = document.getElementById("tickerStrip");
+        console.log('tickerStrip:', tickerStrip);
+        tickerStrip.innerHTML = cryptoData.map(coin => `
+    
+        <div class="coin-item">
+           <span class="coin-image"><img src="${coin.image}" alt="${coin.name} logo" width="20" height="20"></span>
+           <span class="coin-name">${coin.name}</span>
+           <span class="coin-price">$${coin.current_price}</span>
+         </div>
+         
+     
+
+    `).join("");
+
+
+  }
+)
+
+    
+  .catch(error => console.error('Error:', error));
+
+  
+
+
 
 /* ---------- wallet block number increments ---------- */
 (function(){
@@ -1386,7 +1437,7 @@
 /* ---------- typewriter tagline ---------- */
 (function(){
   const el = document.getElementById('tagline');
-  const text = "A non-custodial key for the chains, currencies, and communities you actually use.";
+  const text = "A non-custodial wallet for the chains, currencies, and communities you actually use.";
   el.innerHTML = '<span class="caret"></span>';
   let i = 0;
   setTimeout(function type(){
