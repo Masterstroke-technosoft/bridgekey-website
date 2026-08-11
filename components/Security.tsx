@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function Security() {
   return (
     <section className="security" id="security">
@@ -51,6 +53,25 @@ export default function Security() {
             <h4>Transaction History.</h4>
             <p className="content">Keep track of all your transactions with detailed records and easy-to-understand summaries.</p>
           </div>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '48px' }} className="reveal" data-delay="4">
+          <Link href="/security" style={{
+            fontFamily: 'JetBrains Mono, monospace',
+            color: 'var(--teal)',
+            fontSize: '14px',
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            fontWeight: 500,
+            borderBottom: '1px solid transparent',
+            transition: 'border-color 0.2s',
+          }}
+          className="hover:border-[var(--teal)]"
+          >
+            Learn more about our security →
+          </Link>
         </div>
       </div>
     </section>

@@ -15,6 +15,7 @@ export default function CursorGlow() {
     let my = window.innerHeight / 2;
     let gx = mx;
     let gy = my;
+    let animationId: number;
 
     const onMouseMove = (e: MouseEvent) => {
       mx = e.clientX;
@@ -33,7 +34,7 @@ export default function CursorGlow() {
       gy += (my - gy) * 0.12;
       glow.style.transform = `translate(${gx}px,${gy}px) translate(-50%,-50%)`;
       dot.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
-      requestAnimationFrame(loop);
+      animationId = requestAnimationFrame(loop);
     };
 
     window.addEventListener('mousemove', onMouseMove);
@@ -43,6 +44,7 @@ export default function CursorGlow() {
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseleave', onMouseLeave);
+      cancelAnimationFrame(animationId);
     };
   }, []);
 
