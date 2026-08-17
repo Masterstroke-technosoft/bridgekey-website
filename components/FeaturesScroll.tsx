@@ -223,7 +223,7 @@ export default function FeaturesScroll() {
                   <h2 className="mb-4 text-4xl font-bold tracking-tight" style={{ fontFamily: 'Syne, sans-serif' }}>
                     {feature.title}
                   </h2>
-                  <p className="text-lg leading-relaxed text-gray-400" style={{ color: 'var(--ink-dim)' }}>
+                  <p className="feature-description text-lg leading-relaxed text-gray-400" style={{ color: 'var(--ink-dim)' }}>
                     {feature.description}
                   </p>
                 </div>
@@ -274,7 +274,7 @@ export default function FeaturesScroll() {
                 <h3 className="mb-3 text-2xl font-bold tracking-tight text-white" style={{ fontFamily: 'Syne, sans-serif' }}>
                   {feature.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-gray-400" style={{ color: 'var(--ink-dim)' }}>
+                <p className="feature-description text-sm leading-relaxed text-gray-400" style={{ color: 'var(--ink-dim)' }}>
                   {feature.description}
                 </p>
               </div>
