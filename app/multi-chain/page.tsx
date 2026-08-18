@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CursorGlow from '@/components/CursorGlow';
@@ -9,8 +9,76 @@ import NetworkChip from '@/components/NetworkChip';
 import ChainConsole from '@/components/ChainConsole';
 
 export const metadata: Metadata = {
-  title: 'BridgeKey Wallet Multi-Chain Support — Web3 Across Ecosystems',
-  description: 'BridgeKey brings multi-chain access to your fingertips. Seamlessly manage assets across MST Blockchain, Ethereum, BNB Chain, Polygon, Base, Arbitrum, Linea, and more.',
+  title: "Multi-Chain Crypto Wallet — 95+ EVM Networks | BridgeKey",
+  description: "BridgeKey supports MST Blockchain, Ethereum, BNB Chain, Polygon, Base, Arbitrum, and 95+ EVM networks in one non-custodial wallet. Switch chains instantly. Add custom RPC networks.",
+  keywords: "multi-chain crypto wallet, EVM compatible wallet India, Ethereum wallet India, BNB chain wallet India, Polygon wallet India, cross-chain crypto wallet, custom RPC wallet, MST EVM wallet, Arbitrum wallet India",
+  alternates: {
+    canonical: "https://bridgekey.io/multi-chain",
+    languages: {
+      "en-IN": "https://bridgekey.io/multi-chain",
+      "en": "https://bridgekey.io/multi-chain",
+      "x-default": "https://bridgekey.io/multi-chain",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-video-preview': -1,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+  },
+  openGraph: {
+    type: "article",
+    siteName: "BridgeKey",
+    title: "BridgeKey Multi-Chain — One Wallet for Every EVM Chain",
+    description: "MST, Ethereum, BNB, Polygon, Base, Arbitrum & 95+ chains — all in one non-custodial wallet. Switch networks instantly with BridgeKey.",
+    url: "https://bridgekey.io/multi-chain",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://bridgekey.io/assets/og-multichain.png",
+        width: 1200,
+        height: 630,
+        alt: "BridgeKey Multi-Chain Crypto Wallet — 95+ EVM Networks",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@BridgekeyWallet",
+    creator: "@BridgekeyWallet",
+    title: "BridgeKey Multi-Chain — One Wallet for Every EVM Chain",
+    description: "MST, Ethereum, BNB, Polygon, Base, Arbitrum & 95+ chains — all in one non-custodial wallet. Switch networks instantly with BridgeKey.",
+    images: [
+      {
+        url: "https://bridgekey.io/assets/og-multichain.png",
+        alt: "BridgeKey Multi-Chain Crypto Wallet — 95+ EVM Networks",
+      },
+    ],
+  },
+  manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/assets/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/assets/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/assets/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  appleWebApp: {
+    capable: true,
+    title: "BridgeKey",
+  },
+  other: {
+    "mobile-web-app-capable": "yes",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0F172A",
 };
 
 export default function MultiChainPage() {
@@ -29,8 +97,154 @@ export default function MultiChainPage() {
     { name: 'Sei (Custom)' },
   ];
 
+  const softwareApplicationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "BridgeKey Multi-Chain Support",
+    "url": "https://bridgekey.io/multi-chain",
+    "description": "BridgeKey supports 95+ EVM-compatible blockchain networks including MST Blockchain, Ethereum, BNB Chain, Polygon, Base, Arbitrum, OP Mainnet, Linea, and custom RPC networks.",
+    "mainEntity": {
+      "@type": "SoftwareApplication",
+      "name": "BridgeKey Wallet",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "ANDROID",
+      "url": "https://bridgekey.io",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.bridgekey",
+      "description": "Multi-chain non-custodial crypto wallet supporting MST Blockchain and 95+ EVM-compatible networks.",
+      "featureList": [
+        "MST Blockchain — India's first Layer-1",
+        "Ethereum Mainnet",
+        "BNB Smart Chain",
+        "Polygon",
+        "Base",
+        "Arbitrum",
+        "OP Mainnet",
+        "Linea",
+        "Sepolia Testnet",
+        "Avalanche (Custom RPC)",
+        "zkSync (Custom RPC)",
+        "Sei (Custom RPC)",
+        "Custom RPC network support",
+        "Instant network switching",
+        "Developer testnet connectivity"
+      ]
+    }
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bridgekey.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Multi-Chain",
+        "item": "https://bridgekey.io/multi-chain"
+      }
+    ]
+  };
+
+  const faqPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which blockchains does BridgeKey support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BridgeKey supports MST Blockchain, Ethereum, BNB Smart Chain, Polygon, Base, Arbitrum, OP Mainnet, Linea, Sepolia testnet, and allows custom RPC networks for any EVM-compatible blockchain. That is 95+ networks in total."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I add custom blockchains to BridgeKey?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. BridgeKey supports custom RPC networks, allowing you to connect to any EVM-compatible blockchain not already built in, including private networks and emerging ecosystems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does BridgeKey support Ethereum?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. BridgeKey fully supports Ethereum Mainnet along with Ethereum testnets and Ethereum Layer-2 networks including Base, Arbitrum, OP Mainnet, and Linea."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is BridgeKey compatible with Polygon?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Polygon is a natively supported network in BridgeKey. You can manage MATIC tokens and interact with Polygon dApps directly from the wallet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does BridgeKey support BNB Smart Chain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. BNB Smart Chain is natively supported in BridgeKey, allowing you to manage BNB and BEP-20 tokens alongside assets on other chains."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can developers use BridgeKey for testing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. BridgeKey supports popular blockchain test networks including Sepolia, making it suitable for developers and blockchain builders who need testnet connectivity."
+        }
+      }
+    ]
+  };
+
+  const speakableJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Multi-Chain Crypto Wallet — 95+ EVM Networks | BridgeKey",
+    "url": "https://bridgekey.io/multi-chain",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2", ".chain-description"]
+    }
+  };
+
   return (
     <main>
+      <meta httpEquiv="content-language" content="en-IN" />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(softwareApplicationJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqPageJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(speakableJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+
       <CursorGlow />
       <ParticleNetwork />
       <Navbar />
@@ -46,11 +260,11 @@ export default function MultiChainPage() {
                     <span className="num">02 / Chain</span>
                   </div>
                 </div>
-                <h2 className="section-title reveal" data-delay="1" style={{ marginBottom: '24px' }}>
+                <h1 className="section-title reveal" data-delay="1" style={{ marginBottom: '24px' }}>
                   One Wallet. Every <em>Chain</em> That Matters.
-                </h2>
-                <p className="section-sub reveal" data-delay="2" style={{ maxWidth: '680px', margin: 0 }}>
-                  BridgeKey brings the world's leading blockchain networks together in one secure, intuitive wallet. Manage digital assets, switch between networks, and explore the decentralized ecosystem all without leaving the BridgeKey experience. Whether you're interacting with MST Blockchain, Ethereum, or other EVM-compatible networks, BridgeKey keeps everything connected in one place.
+                </h1>
+                <p className="chain-description section-sub reveal" data-delay="2" style={{ maxWidth: '680px', margin: 0 }}>
+                  BridgeKey brings the world&apos;s leading blockchain networks together in one secure, intuitive wallet. Manage digital assets, switch between networks, and explore the decentralized ecosystem all without leaving the BridgeKey experience. Whether you&apos;re interacting with MST Blockchain, Ethereum, or other EVM-compatible networks, BridgeKey keeps everything connected in one place.
                 </p>
               </div>
               <div className="lg:w-2/5 w-full flex justify-center reveal" data-delay="3">
@@ -64,8 +278,8 @@ export default function MultiChainPage() {
         <section className="multi-chain-summary py-10 md:pt-10 md:pb-16" style={{ borderTop: '1px solid var(--line)' }}>
           <div className="container">
             <div className="reveal" style={{ maxWidth: '800px' }}>
-              <p style={{ color: 'var(--ink-dim)', fontSize: '18px', lineHeight: '1.7' }}>
-                Blockchain shouldn't be limited to a single network. BridgeKey empowers you to seamlessly manage assets across multiple ecosystems, making it easier to explore DeFi, NFTs, decentralized applications, and digital payments from one wallet.
+              <p className="chain-description" style={{ color: 'var(--ink-dim)', fontSize: '18px', lineHeight: '1.7' }}>
+                Blockchain shouldn&apos;t be limited to a single network. BridgeKey empowers you to seamlessly manage assets across multiple ecosystems, making it easier to explore DeFi, NFTs, decentralized applications, and digital payments from one wallet.
               </p>
             </div>
           </div>
@@ -162,7 +376,7 @@ export default function MultiChainPage() {
             <h2 className="section-title reveal" style={{ maxWidth: '800px' }}>
               Why <em>Multi-Chain</em> Matters
             </h2>
-            <p className="reveal" data-delay="1" style={{ color: 'var(--ink-dim)', fontSize: '18px', lineHeight: '1.7', margin: '24px 0 32px 0' }}>
+            <p className="chain-description reveal" data-delay="1" style={{ color: 'var(--ink-dim)', fontSize: '18px', lineHeight: '1.7', margin: '24px 0 32px 0' }}>
               The future of Web3 is interconnected. By supporting multiple blockchain networks, BridgeKey enables you to:
             </p>
             <div className="reveal" data-delay="2" style={{ maxWidth: '650px' }}>

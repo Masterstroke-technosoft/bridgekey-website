@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CursorGlow from '@/components/CursorGlow';
@@ -8,8 +8,76 @@ import SpecTable from '@/components/SpecTable';
 import SecurityConsole from '@/components/SecurityConsole';
 
 export const metadata: Metadata = {
-  title: 'BridgeKey Wallet Security — Self-Custody & Privacy First',
-  description: 'Learn about BridgeKey security. As a non-custodial wallet, your keys remain on your device. Benefit from biometric authentication, recovery protection, and secure transaction signing.',
+  title: "BridgeKey Wallet Security — Self-Custody, Biometric & Privacy-First",
+  description: "BridgeKey is a non-custodial crypto wallet where your private keys never leave your device. Learn how biometric authentication, secret recovery protection, and self-custody architecture keep your crypto safe.",
+  keywords: "non-custodial wallet security, self-custody crypto wallet India, biometric crypto wallet, private key security wallet, safe crypto wallet India, crypto wallet no KYC India, secret recovery phrase wallet",
+  alternates: {
+    canonical: "https://bridgekey.io/security",
+    languages: {
+      "en-IN": "https://bridgekey.io/security",
+      "en": "https://bridgekey.io/security",
+      "x-default": "https://bridgekey.io/security",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    'max-video-preview': -1,
+    'max-image-preview': 'large',
+    'max-snippet': -1,
+  },
+  openGraph: {
+    type: "article",
+    siteName: "BridgeKey",
+    title: "BridgeKey Security — Your Keys. Your Control. Always.",
+    description: "Non-custodial, biometric-secured, privacy-first. BridgeKey never stores your keys. Learn how every layer of the wallet protects your crypto assets.",
+    url: "https://bridgekey.io/security",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://bridgekey.io/assets/og-security.png",
+        width: 1200,
+        height: 630,
+        alt: "BridgeKey Security — Self-Custody & Privacy First",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@BridgekeyWallet",
+    creator: "@BridgekeyWallet",
+    title: "BridgeKey Security — Your Keys. Your Control. Always.",
+    description: "Non-custodial, biometric-secured, privacy-first. BridgeKey never stores your keys. Learn how every layer of the wallet protects your crypto assets.",
+    images: [
+      {
+        url: "https://bridgekey.io/assets/og-security.png",
+        alt: "BridgeKey Security — Self-Custody & Privacy First",
+      },
+    ],
+  },
+  manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/assets/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/assets/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/assets/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  appleWebApp: {
+    capable: true,
+    title: "BridgeKey",
+  },
+  other: {
+    "mobile-web-app-capable": "yes",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0F172A",
 };
 
 const pillars = [
@@ -100,8 +168,133 @@ export default function SecurityPage() {
     { feature: 'Multi-Chain Security', benefit: 'Securely manage assets across supported blockchain networks.' },
   ];
 
+  const securityWebPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "BridgeKey Wallet Security",
+    "url": "https://bridgekey.io/security",
+    "description": "BridgeKey uses non-custodial self-custody architecture ensuring private keys never leave the user's device. Includes biometric authentication, secure recovery phrase protection, and privacy-first design.",
+    "about": {
+      "@type": "Thing",
+      "name": "Crypto Wallet Security",
+      "description": "BridgeKey's security model is built on self-custody: your private keys are generated and stored only on your device. Biometric unlock, secure transaction signing, and zero server-side key storage protect your assets at every layer."
+    }
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bridgekey.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Security",
+        "item": "https://bridgekey.io/security"
+      }
+    ]
+  };
+
+  const faqPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does BridgeKey store my private keys?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. BridgeKey is fully non-custodial. Your private keys and Secret Recovery Phrase are stored only on your device. BridgeKey has zero access to your wallet credentials and cannot retrieve them."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can BridgeKey freeze or access my crypto funds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. As a non-custodial wallet, BridgeKey cannot see, access, freeze, or transfer your funds under any circumstances. Only you control your assets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does BridgeKey require KYC verification?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. BridgeKey requires no KYC or identity verification of any kind. Simply download the app, create a wallet, and start using it immediately with complete privacy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does BridgeKey protect my wallet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BridgeKey protects your wallet through multiple layers: non-custodial key storage on your device, biometric authentication for access, secure transaction signing requiring your approval for every transaction, and a protected Secret Recovery Phrase that never leaves your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is BridgeKey safe for large crypto holdings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. For maximum security on large holdings, BridgeKey supports hardware wallet integration with Ledger, Keystone, and Ngrave Zero devices, giving you cold storage protection alongside the BridgeKey interface."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I lose my phone with BridgeKey installed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your funds are safe. BridgeKey is non-custodial — your assets live on the blockchain, not on your device. Use your Secret Recovery Phrase to restore your wallet on any new device."
+        }
+      }
+    ]
+  };
+
+  const speakableJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "BridgeKey Wallet Security — Self-Custody, Biometric & Privacy-First",
+    "url": "https://bridgekey.io/security",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2", ".security-description"]
+    }
+  };
+
   return (
     <main>
+      <meta httpEquiv="content-language" content="en-IN" />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(securityWebPageJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqPageJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(speakableJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+
       <CursorGlow />
       <ParticleNetwork />
       <Navbar />
@@ -117,11 +310,11 @@ export default function SecurityPage() {
                     <span className="num">04 / Trust</span>
                   </div>
                 </div>
-                <h2 className="section-title reveal" data-delay="1" style={{ marginBottom: '24px' }}>
+                <h1 className="section-title reveal" data-delay="1" style={{ marginBottom: '24px' }}>
                   Your Assets. Your Control. <em>Your Peace of Mind.</em>
-                </h2>
-                <p className="section-sub reveal" data-delay="2" style={{ maxWidth: '680px', margin: 0 }}>
-                  Security isn't just a feature, it's the foundation of BridgeKey. Built with a self-custody architecture, BridgeKey gives you complete control over your digital assets while helping you navigate Web3 with confidence. From protecting your private keys to securing every transaction, every layer of BridgeKey is designed to put you in control.
+                </h1>
+                <p className="security-description section-sub reveal" data-delay="2" style={{ maxWidth: '680px', margin: 0 }}>
+                  Security isn&apos;t just a feature, it&apos;s the foundation of BridgeKey. Built with a self-custody architecture, BridgeKey gives you complete control over your digital assets while helping you navigate Web3 with confidence. From protecting your private keys to securing every transaction, every layer of BridgeKey is designed to put you in control.
                 </p>
               </div>
               <div className="lg:w-2/5 w-full flex justify-center reveal" data-delay="3">
@@ -135,8 +328,8 @@ export default function SecurityPage() {
         <section className="security-summary" style={{ padding: '40px 0 60px 0', borderTop: '1px solid var(--line)' }}>
           <div className="container">
             <div className="reveal bk-quote-rail" style={{ maxWidth: '800px' }}>
-              <p style={{ color: 'var(--ink-dim)', fontSize: '18px', lineHeight: '1.7' }}>
-                Every interaction within BridgeKey is designed with security in mind. Whether you're creating a wallet, managing tokens, or exploring decentralized applications, BridgeKey helps safeguard your assets through intelligent security features and user-controlled access.
+              <p className="security-description" style={{ color: 'var(--ink-dim)', fontSize: '18px', lineHeight: '1.7' }}>
+                Every interaction within BridgeKey is designed with security in mind. Whether you&apos;re creating a wallet, managing tokens, or exploring decentralized applications, BridgeKey helps safeguard your assets through intelligent security features and user-controlled access.
               </p>
             </div>
           </div>
@@ -177,7 +370,7 @@ export default function SecurityPage() {
         <section className="security-commitment" style={{ padding: '60px 0 100px 0', borderTop: '1px solid var(--line)' }}>
           <div className="container">
             <div className="reveal" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-              <p style={{ color: 'var(--ink-dim)', fontSize: '17px', lineHeight: '1.7' }}>
+              <p className="security-description" style={{ color: 'var(--ink-dim)', fontSize: '17px', lineHeight: '1.7' }}>
                 As blockchain technology evolves, so do security challenges. BridgeKey is continuously designed to help users navigate the decentralized ecosystem with confidence by combining self-custody, privacy-first architecture, and secure wallet management into one seamless experience.
               </p>
             </div>
