@@ -90,50 +90,23 @@ export default function Home() {
   const mobileApplicationJsonLd = {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
-    "name": "BridgeKey Wallet",
-    "operatingSystem": "ANDROID",
+    "name": "BridgeKey Crypto Wallet",
+    "operatingSystem": "Android",
     "applicationCategory": "FinanceApplication",
+    "description": "India's non-custodial crypto wallet — 95+ chains, MST Blockchain, biometric, no KYC.",
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.bridgekey",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
-      "ratingCount": "1239"
+      "ratingCount": "5000",
+      "bestRating": "5"
     },
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "INR"
     },
-    "url": "https://bridgekey.io",
-    "downloadUrl": "https://play.google.com/store/apps/details?id=com.bridgekey",
-    "description": "Non-custodial multi-chain crypto wallet built natively for MST Blockchain and compatible with 95+ EVM chains including Ethereum, BNB Chain, and Polygon.",
-    "screenshot": "https://bridgekey.io/assets/BridgekeyBig.png",
-    "featureList": [
-      "Non-custodial self-custody",
-      "MST Blockchain native support",
-      "95+ EVM chain support",
-      "Biometric authentication",
-      "Built-in Web3 browser",
-      "NFT management",
-      "Hardware wallet support"
-    ]
-  };
-
-  const organizationJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "BridgeKey",
-    "url": "https://bridgekey.io",
-    "logo": "https://bridgekey.io/uploads/header-logo.png",
-    "description": "Next-generation self-custody crypto wallet engineered for India, built for the global Web3 ecosystem.",
-    "foundingLocation": {
-      "@type": "Place",
-      "name": "Pune, India"
-    },
-    "sameAs": [
-      "https://x.com/BridgekeyWallet",
-      "https://www.instagram.com/bridgekeywallet/",
-      "https://t.me/s/mstblockchain"
-    ]
+    "featureList": ["Non-custodial","95+ chains","Biometric login","Web3 browser","Hardware wallet","Smart accounts","No KYC"]
   };
 
   const websiteJsonLd = {
@@ -143,7 +116,10 @@ export default function Home() {
     "url": "https://bridgekey.io",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://bridgekey.io/?q={search_term_string}",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://bridgekey.io/search?q={search_term_string}"
+      },
       "query-input": "required name=search_term_string"
     }
   };
@@ -154,42 +130,26 @@ export default function Home() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is BridgeKey Wallet?",
+        "name": "What is BridgeKey?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "BridgeKey is a non-custodial crypto wallet built natively for MST Blockchain and compatible with 95+ EVM chains including Ethereum, BNB Chain, and Polygon. It is available free on Android."
+          "text": "BridgeKey is a non-custodial crypto wallet for Android supporting 95+ blockchain networks including Bitcoin, Ethereum, MST Chain (India's first Layer-1), Polygon and BNB Chain. Features: biometric login, Web3 browser, hardware wallet support."
         }
       },
       {
         "@type": "Question",
-        "name": "Is BridgeKey safe?",
+        "name": "Is BridgeKey non-custodial?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. BridgeKey is non-custodial — your private keys never leave your device. BridgeKey cannot access, freeze, or transfer your funds under any circumstances."
+          "text": "Yes. Your private keys are stored only on your device. BridgeKey's servers never access your wallet credentials or assets."
         }
       },
       {
         "@type": "Question",
-        "name": "Which blockchains does BridgeKey support?",
+        "name": "What blockchains does BridgeKey support?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "BridgeKey supports MST Blockchain, Ethereum, BNB Smart Chain, Polygon, Base, Arbitrum, OP Mainnet, Linea, and 95+ EVM-compatible networks. Custom RPC networks can also be added."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I download BridgeKey?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "BridgeKey is available on the Google Play Store. Search for BridgeKey Wallet or visit https://play.google.com/store/apps/details?id=com.bridgekey to download it free."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is BridgeKey available on iOS?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "BridgeKey is currently available on Android. iOS support is coming soon."
+          "text": "95+ networks: MST Blockchain, Bitcoin, Ethereum, BNB Smart Chain, Polygon, Base, Arbitrum, OP Mainnet, Linea and all EVM chains. Custom RPC networks can also be added."
         }
       },
       {
@@ -197,7 +157,15 @@ export default function Home() {
         "name": "Does BridgeKey require KYC?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. BridgeKey requires no KYC or identity verification. Simply download the app, create a wallet, and start using it immediately."
+          "text": "No. No KYC, no email, no personal information. Create a wallet in under a minute with complete privacy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is MST Blockchain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MST Blockchain is India's first sovereign Layer-1 with 3-second block time, 73,000+ validators and fees of 0.001 MSTC. BridgeKey is the official native wallet for the MST Blockchain ecosystem."
         }
       }
     ]
@@ -231,12 +199,6 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationJsonLd).replace(/</g, '\\u003c'),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
           __html: JSON.stringify(websiteJsonLd).replace(/</g, '\\u003c'),
         }}
       />
@@ -262,6 +224,95 @@ export default function Home() {
       <MSTChain />
       <HowItWorks />
       <Security />
+
+      {/* FAQ Section */}
+      <section id="faq" className="faq py-20 border-t border-[var(--line)]">
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px' }}>
+          <div className="reveal" style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <div className="section-eyebrow" style={{ justifyContent: 'center' }}>
+              <span className="num">05 / FAQ</span>
+            </div>
+            <h2 className="section-title" style={{ marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
+              Frequently Asked <em>Questions</em>
+            </h2>
+          </div>
+
+          <div className="faq-list" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            {[
+              {
+                q: "What is BridgeKey?",
+                a: "BridgeKey is a non-custodial crypto wallet app for Android supporting 95+ blockchain networks including Bitcoin, Ethereum, MST Chain, Polygon and BNB Chain."
+              },
+              {
+                q: "Is BridgeKey non-custodial?",
+                a: "Yes. Your private keys and Secret Recovery Phrase are stored only on your device. BridgeKey&apos;s servers never access your wallet credentials or crypto assets."
+              },
+              {
+                q: "What blockchains does BridgeKey support?",
+                a: "BridgeKey supports 95+ networks: MST Blockchain, Bitcoin, Ethereum, BNB Smart Chain, Polygon, Base, Arbitrum, OP Mainnet, Linea and all EVM-compatible chains."
+              },
+              {
+                q: "Does BridgeKey require KYC?",
+                a: "No. No KYC, no email, no personal information required."
+              },
+              {
+                q: "What is MST Blockchain?",
+                a: "MST Blockchain is India&apos;s first sovereign Layer-1 with 3-second block time, 73,000+ validators and fees of 0.001 MSTC. BridgeKey is the official native wallet."
+              }
+            ].map((faq, idx) => (
+              <details
+                key={idx}
+                className="faq-item reveal"
+                data-delay="1"
+                style={{
+                  border: '1px solid var(--line)',
+                  borderRadius: '16px',
+                  background: 'rgba(255, 255, 255, 0.01)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
+              >
+                <summary
+                  style={{
+                    padding: '20px 24px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    color: 'white',
+                    fontFamily: 'Syne, sans-serif',
+                    fontSize: '18px',
+                    fontWeight: 600,
+                    listStyle: 'none',
+                    outline: 'none'
+                  }}
+                >
+                  <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 600, fontFamily: 'Syne, sans-serif', color: 'white', display: 'inline-block' }}>{faq.q}</h3>
+                  <span className="faq-icon" style={{
+                    color: 'var(--teal)',
+                    fontSize: '20px',
+                    display: 'inline-block',
+                    marginLeft: '12px'
+                  }}>+</span>
+                </summary>
+                <div
+                  style={{
+                    padding: '0 24px 20px 24px',
+                    cursor: 'default'
+                  }}
+                >
+                  <p style={{
+                    margin: 0,
+                    color: 'var(--ink-dim)',
+                    fontSize: '15px',
+                    lineHeight: '1.6'
+                  }}>{faq.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CTABand />
       <Footer />
       <ScrollReveal />

@@ -10,7 +10,8 @@ export default function HowItWorks() {
           </div>
         </div>
         <h2 className="section-title reveal" data-delay="1">
-          Three steps, <em>then you're on.</em>
+          How to Set Up Your BridgeKey Crypto Wallet — <br />
+          <em>3 Simple Steps</em>
         </h2>
         <p className="section-sub reveal" data-delay="2">
           No paperwork. No KYC theater. Just a key, a chain, and a confirmation.

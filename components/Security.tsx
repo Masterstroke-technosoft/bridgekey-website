@@ -11,9 +11,8 @@ export default function Security() {
             <span className="num">04 / Trust</span>
           </div>
           <h2 className="section-title" style={{ marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
-            Trust isn't a feature.
-            <br />
-            <em>It's the foundation.</em>
+            Crypto Wallet Security You Can Trust — <br />
+            <em>Non‑Custodial, Encrypted, Always Yours</em>
           </h2>
         </div>
         <div className="sec-grid">

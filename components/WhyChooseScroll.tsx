@@ -181,7 +181,8 @@ export default function WhyChooseScroll() {
             </div>
           </div>
           <h2 className="section-title reveal" data-delay="1" style={{ marginBottom: '48px' }}>
-            One Wallet. Unlimited <em>Possibilities.</em>
+            Why Choose BridgeKey? <br />
+            <em>India&apos;s Most Trusted Non‑Custodial Crypto Wallet</em>
           </h2>
 
           <div className="feature-grid">
@@ -195,6 +196,20 @@ export default function WhyChooseScroll() {
                 delay={1}
               />
             ))}
+          </div>
+
+          {/* Internal Links */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '16px',
+            marginTop: '48px',
+            textAlign: 'center'
+          }} className="reveal" data-delay="2">
+            <a href="/features" style={{ color: 'var(--teal)', fontWeight: 600, fontSize: '16px', fontFamily: 'Syne, sans-serif' }}>Explore BridgeKey Features →</a>
+            <a href="/security" style={{ color: 'var(--teal)', fontWeight: 600, fontSize: '16px', fontFamily: 'Syne, sans-serif' }}>Learn About BridgeKey Security →</a>
+            <a href="/multi-chain" style={{ color: 'var(--teal)', fontWeight: 600, fontSize: '16px', fontFamily: 'Syne, sans-serif' }}>See All Supported Chains →</a>
           </div>
         </div>
       </section>
@@ -213,7 +228,8 @@ export default function WhyChooseScroll() {
               </div>
             </div>
             <h2 className="section-title">
-              One Wallet. Unlimited <em>Possibilities.</em>
+              Why Choose BridgeKey? <br />
+              <em>India&apos;s Most Trusted Non‑Custodial Crypto Wallet</em>
             </h2>
           </div>
 
@@ -237,6 +253,18 @@ export default function WhyChooseScroll() {
                 />
               </div>
             ))}
+          </div>
+
+          {/* Internal Links for Desktop */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '40px',
+            marginTop: '56px'
+          }}>
+            <a href="/features" style={{ color: 'var(--teal)', fontWeight: 600, fontSize: '16px', fontFamily: 'Syne, sans-serif', transition: 'opacity 0.2s' }} className="hover:opacity-80">Explore BridgeKey Features →</a>
+            <a href="/security" style={{ color: 'var(--teal)', fontWeight: 600, fontSize: '16px', fontFamily: 'Syne, sans-serif', transition: 'opacity 0.2s' }} className="hover:opacity-80">Learn About BridgeKey Security →</a>
+            <a href="/multi-chain" style={{ color: 'var(--teal)', fontWeight: 600, fontSize: '16px', fontFamily: 'Syne, sans-serif', transition: 'opacity 0.2s' }} className="hover:opacity-80">See All Supported Chains →</a>
           </div>
         </div>
       </div>
