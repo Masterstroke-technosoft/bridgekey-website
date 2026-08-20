@@ -12,9 +12,8 @@ export default function Features() {
           </div>
         </div>
         <h2 className="section-title reveal" data-delay="1">
-          A wallet built for <em>humans</em>,
-          <br />
-          not protocol nerds.
+          Everything You Need in a Crypto Wallet — <br />
+          Built for India&apos;s <em>Web3 Future</em>
         </h2>
         <p className="section-sub reveal" data-delay="2">
           No seed phrase anxiety. No mental gas math. Just access to the value, the chains, and the future that belong to you.

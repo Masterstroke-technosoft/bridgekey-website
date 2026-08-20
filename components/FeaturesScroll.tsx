@@ -19,7 +19,7 @@ export default function FeaturesScroll() {
           <line x1="8" y1="12" x2="16" y2="12" />
         </svg>
       ),
-      title: "Create or Import Your Wallet",
+      title: "How to Create or Import a Crypto Wallet — Set Up in Minutes",
       description: "Get started in minutes by creating a new wallet or securely importing an existing one using your Private Key. Your wallet is created locally on your device, ensuring complete ownership from day one.",
     },
     {
@@ -32,7 +32,7 @@ export default function FeaturesScroll() {
           <polygon points="22 2 15 22 11 13 2 9 22 2" />
         </svg>
       ),
-      title: "Send & Receive Crypto with Ease",
+      title: "Send & Receive Crypto Instantly — QR Code & Wallet Address Support",
       description: "Transfer digital assets quickly using wallet addresses or QR codes. Share your wallet address and manage transactions through a streamlined interface designed for speed and simplicity.",
     },
     {
@@ -47,7 +47,7 @@ export default function FeaturesScroll() {
           <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
       ),
-      title: "Manage Multiple Wallet Accounts",
+      title: "Multiple Crypto Wallet Accounts — Organise Your Portfolio Your Way",
       description: "Create and manage multiple wallet accounts within a single application. Easily organize your assets, switch between accounts, and keep your portfolio structured the way you want.",
     },
     {
@@ -61,7 +61,7 @@ export default function FeaturesScroll() {
           <path d="M2 12l10 5 10-5" />
         </svg>
       ),
-      title: "Support for Multiple Blockchain Networks",
+      title: "Multi-Chain Wallet — ETH, BNB, Polygon, MST & 95+ Networks",
       description: "Access MST Blockchain alongside leading EVM-compatible networks, including Ethereum, BNB Chain, Polygon, Base, Arbitrum, OP Mainnet, and Linea. Add custom RPC networks to expand your blockchain connectivity.",
     },
     {
@@ -76,7 +76,7 @@ export default function FeaturesScroll() {
           <line x1="12" y1="12" x2="2" y2="8.5" />
         </svg>
       ),
-      title: "Manage Tokens, NFTs & Digital Assets",
+      title: "Manage Crypto, ERC-20 Tokens & NFTs — All Assets in One Wallet",
       description: "Store and manage cryptocurrencies, ERC-20 tokens, NFTs, and other digital assets in one secure wallet. Import custom tokens and organize your portfolio with ease.",
     },
     {
@@ -89,7 +89,7 @@ export default function FeaturesScroll() {
           <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
         </svg>
       ),
-      title: "Built-in Web3 Browser",
+      title: "Built-in Web3 Browser — Access dApps Without Leaving BridgeKey",
       description: "Explore decentralized applications directly within BridgeKey using the integrated browser. Connect with Web3 platforms, blockchain services, and ecosystem applications without leaving your wallet.",
     },
     {
@@ -102,7 +102,7 @@ export default function FeaturesScroll() {
           <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
         </svg>
       ),
-      title: "Hardware Wallet Compatibility",
+      title: "Hardware Wallet Support — Connect Ledger, Keystone & Ngrave Zero",
       description: "Enhance your security by connecting supported hardware wallets, including Ledger, Keystone, and Ngrave Zero, giving you greater control over your digital assets.",
     },
     {
@@ -114,7 +114,7 @@ export default function FeaturesScroll() {
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
         </svg>
       ),
-      title: "Smart Account Support",
+      title: "Smart Account Crypto Wallet — Next-Generation Web3 Functionality",
       description: "Upgrade to Smart Accounts on supported networks to unlock next-generation wallet functionality designed for a more flexible and efficient Web3 experience.",
     },
     {
@@ -127,7 +127,7 @@ export default function FeaturesScroll() {
           <polyline points="12 6 12 12 16 14" />
         </svg>
       ),
-      title: "Transaction History & Wallet Insights",
+      title: "Crypto Transaction History — Track All On-Chain Activity",
       description: "Track your wallet activity with a clear transaction history, monitor transfers, and stay informed about your on-chain interactions from a single dashboard.",
     },
     {
@@ -140,7 +140,7 @@ export default function FeaturesScroll() {
           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
         </svg>
       ),
-      title: "Custom Network & Token Management",
+      title: "Add Custom Blockchain Networks & Import Tokens — Full Flexibility",
       description: "Personalize your Web3 experience by adding custom blockchain networks and importing supported tokens, giving you complete flexibility across the decentralized ecosystem.",
     },
   ];

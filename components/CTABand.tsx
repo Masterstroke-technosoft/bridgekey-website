@@ -5,9 +5,8 @@ export default function CTABand() {
     <section className="cta-band" id="get">
       <div className="container">
         <h2 className="reveal">
-          Ready to <em>cross</em>
-          <br />
-          the bridge?
+          Ready to Manage Your Crypto? <br />
+          Download BridgeKey — <em>India&apos;s Best Web3 Wallet</em>
         </h2>
         <p className="reveal" data-delay="1">
           Join the crypto Wallet BridgeKey community and secure and manage your assets today

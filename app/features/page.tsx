@@ -7,9 +7,9 @@ import ScrollReveal from '@/components/ScrollReveal';
 import FeaturesScroll from '@/components/FeaturesScroll';
 
 export const metadata: Metadata = {
-  title: "BridgeKey Wallet Features — Web3, DeFi, NFT & Multi-Chain Support",
-  description: "Explore BridgeKey's crypto wallet features: send & receive crypto, built-in Web3 browser, NFT support, hardware wallet compatibility, multi-account management, and 95+ chain access on Android.",
-  keywords: "crypto wallet features, Web3 browser wallet, NFT wallet India, hardware wallet support India, DeFi wallet India, multi-account crypto wallet, ERC-20 token wallet Android, smart account wallet",
+  title: "BridgeKey Features: Biometric Login, Multi-Chain & Web3 Browser",
+  description: "Explore BridgeKey crypto wallet features: biometric login, 95+ chain support, Web3 browser, hardware wallet compatibility, smart accounts & NFT management. Built for India.",
+  keywords: "crypto wallet features India, multi-chain wallet features, Web3 browser crypto wallet, hardware wallet compatible app, biometric crypto wallet, smart account wallet, NFT wallet India",
   alternates: {
     canonical: "https://bridgekey.io/features",
     languages: {
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     siteName: "BridgeKey",
-    title: "BridgeKey Features — Web3 Wallet with DeFi, NFT & Hardware Support",
-    description: "One wallet. Every feature you need. Multi-chain, Web3 browser, NFT management, hardware wallet support, smart accounts — all in BridgeKey.",
+    title: "BridgeKey Features: Biometric Login, Multi-Chain & Web3 Browser",
+    description: "Explore BridgeKey crypto wallet features: biometric login, 95+ chain support, Web3 browser, hardware wallet & smart accounts. Built for India.",
     url: "https://bridgekey.io/features",
     locale: "en_IN",
     images: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         url: "https://bridgekey.io/assets/og-features.png",
         width: 1200,
         height: 630,
-        alt: "BridgeKey Wallet Features — Web3, DeFi, NFT & Multi-Chain",
+        alt: "BridgeKey Crypto Wallet Features",
       },
     ],
   },
@@ -45,12 +45,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@BridgekeyWallet",
     creator: "@BridgekeyWallet",
-    title: "BridgeKey Features — Web3 Wallet with DeFi, NFT & Hardware Support",
-    description: "One wallet. Every feature you need. Multi-chain, Web3 browser, NFT management, hardware wallet support, smart accounts — all in BridgeKey.",
+    title: "BridgeKey Features: Biometric Login, Multi-Chain & Web3 Browser",
+    description: "Biometric login, 95+ chains, Web3 browser, hardware wallet support. India's best crypto wallet features.",
     images: [
       {
         url: "https://bridgekey.io/assets/og-features.png",
-        alt: "BridgeKey Wallet Features — Web3, DeFi, NFT & Multi-Chain",
+        alt: "BridgeKey Crypto Wallet Features",
       },
     ],
   },
@@ -70,6 +70,7 @@ export const metadata: Metadata = {
   },
   other: {
     "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
   },
 };
 
@@ -80,6 +81,25 @@ export const viewport: Viewport = {
 };
 
 export default function FeaturesPage() {
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "BridgeKey Crypto Wallet Features",
+    "numberOfItems": 10,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Create or Import Crypto Wallet" },
+      { "@type": "ListItem", "position": 2, "name": "Send & Receive Crypto" },
+      { "@type": "ListItem", "position": 3, "name": "Multiple Wallet Accounts" },
+      { "@type": "ListItem", "position": 4, "name": "95+ Blockchain Networks" },
+      { "@type": "ListItem", "position": 5, "name": "Tokens, NFTs & Digital Assets" },
+      { "@type": "ListItem", "position": 6, "name": "Built-in Web3 Browser" },
+      { "@type": "ListItem", "position": 7, "name": "Hardware Wallet Support" },
+      { "@type": "ListItem", "position": 8, "name": "Smart Account Support" },
+      { "@type": "ListItem", "position": 9, "name": "Transaction History" },
+      { "@type": "ListItem", "position": 10, "name": "Custom Networks & Tokens" }
+    ]
+  };
+
   const softwareApplicationJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -217,6 +237,12 @@ export default function FeaturesPage() {
           __html: JSON.stringify(speakableJsonLd).replace(/</g, '\\u003c'),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(itemListJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
 
       <CursorGlow />
       <ParticleNetwork />
@@ -231,9 +257,11 @@ export default function FeaturesPage() {
                 <span className="num">01 / Features</span>
               </div>
             </div>
-            <h1 className="section-title reveal" data-delay="1" style={{ maxWidth: '800px' }}>
-              Powerful Features for the Modern <em>Web3</em> User
-            </h1>
+            <h1 className="sr-only">BridgeKey Crypto Wallet Features — Multi-Chain, Biometric & Web3 Ready</h1>
+            <h2 className="section-title reveal" data-delay="1" style={{ maxWidth: '800px' }}>
+              Everything You Need in a Crypto Wallet — <br />
+              Built for India&apos;s <em>Web3 Future</em>
+            </h2>
             <p className="section-sub reveal" data-delay="2" style={{ maxWidth: '650px' }}>
               BridgeKey combines powerful wallet management, seamless blockchain connectivity, and advanced security features to help you confidently manage your digital assets across the Web3 ecosystem.
             </p>
@@ -246,8 +274,9 @@ export default function FeaturesPage() {
         {/* Custom CTA Band */}
         <section className="cta-band" style={{ borderTop: '1px solid var(--line)' }}>
           <div className="container">
-            <h2 className="reveal">
-              Ready to Experience the Future of <em>Web3</em>?
+            <h2 className="reveal" style={{ maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
+              Download BridgeKey — <br />
+              <em>India&apos;s Best Multi‑Chain Crypto Wallet App, Free</em>
             </h2>
             <p className="reveal" data-delay="1" style={{ maxWidth: '600px', margin: '16px auto 32px auto' }}>
               Secure your digital assets, explore multiple blockchain networks, and connect with the decentralized world through BridgeKey.

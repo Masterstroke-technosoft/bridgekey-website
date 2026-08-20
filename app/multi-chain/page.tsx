@@ -150,56 +150,93 @@ export default function MultiChainPage() {
     ]
   };
 
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "BridgeKey Supported Blockchain Networks",
+    "numberOfItems": 12,
+    "itemListElement": [
+      {
+        "@type": "ListItem", "position": 1, "name": "MST Blockchain",
+        "description": "India's first Layer-1. Native support, 3s block time, 0.001 MSTC fees."
+      },
+      {
+        "@type": "ListItem", "position": 2, "name": "Ethereum",
+        "description": "World's largest smart contract ecosystem with thousands of dApps."
+      },
+      {
+        "@type": "ListItem", "position": 3, "name": "BNB Smart Chain",
+        "description": "High-speed EVM chain with low fees and large DeFi ecosystem."
+      },
+      {
+        "@type": "ListItem", "position": 4, "name": "Polygon",
+        "description": "Ethereum Layer-2 with fast transactions and minimal gas fees."
+      },
+      {
+        "@type": "ListItem", "position": 5, "name": "Base",
+        "description": "Coinbase Layer-2 Ethereum network with growing Web3 ecosystem."
+      },
+      {
+        "@type": "ListItem", "position": 6, "name": "Arbitrum",
+        "description": "Ethereum optimistic rollup Layer-2 with Ethereum security at lower cost."
+      },
+      {
+        "@type": "ListItem", "position": 7, "name": "OP Mainnet",
+        "description": "Optimism Layer-2 Ethereum network for DeFi and dApp access."
+      },
+      {
+        "@type": "ListItem", "position": 8, "name": "Linea",
+        "description": "ConsenSys zkEVM Layer-2 Ethereum network."
+      },
+      { "@type": "ListItem", "position": 9, "name": "Sepolia Testnet" },
+      { "@type": "ListItem", "position": 10, "name": "Avalanche (Custom)" },
+      { "@type": "ListItem", "position": 11, "name": "zkSync (Custom)" },
+      { "@type": "ListItem", "position": 12, "name": "Sei (Custom)" }
+    ]
+  };
+
   const faqPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Which blockchains does BridgeKey support?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "BridgeKey supports MST Blockchain, Ethereum, BNB Smart Chain, Polygon, Base, Arbitrum, OP Mainnet, Linea, Sepolia testnet, and allows custom RPC networks for any EVM-compatible blockchain. That is 95+ networks in total."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I add custom blockchains to BridgeKey?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. BridgeKey supports custom RPC networks, allowing you to connect to any EVM-compatible blockchain not already built in, including private networks and emerging ecosystems."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "Does BridgeKey support Ethereum?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. BridgeKey fully supports Ethereum Mainnet along with Ethereum testnets and Ethereum Layer-2 networks including Base, Arbitrum, OP Mainnet, and Linea."
+          "text": "Yes. BridgeKey natively supports Ethereum Mainnet, all ERC-20 tokens and thousands of Ethereum decentralised applications."
         }
       },
       {
         "@type": "Question",
-        "name": "Is BridgeKey compatible with Polygon?",
+        "name": "Does BridgeKey support BNB Chain?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Polygon is a natively supported network in BridgeKey. You can manage MATIC tokens and interact with Polygon dApps directly from the wallet."
+          "text": "Yes. BridgeKey supports BNB Smart Chain natively, including BEP-20 tokens and BNB Chain dApps."
         }
       },
       {
         "@type": "Question",
-        "name": "Does BridgeKey support BNB Smart Chain?",
+        "name": "Does BridgeKey support Polygon?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. BNB Smart Chain is natively supported in BridgeKey, allowing you to manage BNB and BEP-20 tokens alongside assets on other chains."
+          "text": "Yes. BridgeKey supports Polygon Mainnet, MATIC and all Polygon-based tokens and dApps."
         }
       },
       {
         "@type": "Question",
-        "name": "Can developers use BridgeKey for testing?",
+        "name": "Can I add custom blockchain networks?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. BridgeKey supports popular blockchain test networks including Sepolia, making it suitable for developers and blockchain builders who need testnet connectivity."
+          "text": "Yes. Go to Settings > Networks > Add Network. Enter the RPC URL, chain ID and currency symbol for any EVM-compatible chain."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many chains does BridgeKey support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "95+ blockchain networks natively, plus unlimited custom EVM networks via RPC."
         }
       }
     ]
@@ -241,6 +278,12 @@ export default function MultiChainPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
+          __html: JSON.stringify(itemListJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
           __html: JSON.stringify(speakableJsonLd).replace(/</g, '\\u003c'),
         }}
       />
@@ -257,7 +300,7 @@ export default function MultiChainPage() {
               <div className="lg:w-3/5">
                 <div className="reveal">
                   <div className="section-eyebrow">
-                    <span className="num">02 / Chain</span>
+                    <span className="num"> Chain</span>
                   </div>
                 </div>
                 <h1 className="section-title reveal" data-delay="1" style={{ marginBottom: '24px' }}>
@@ -284,7 +327,6 @@ export default function MultiChainPage() {
             </div>
           </div>
         </section>
-
         {/* Feature Highlights Grid */}
         <section className="multi-chain-highlights py-12 md:py-20" style={{ borderTop: '1px solid var(--line)' }}>
           <div className="container">
@@ -310,12 +352,39 @@ export default function MultiChainPage() {
                   </svg>
                 }
                 title="Ethereum Ecosystem"
-                description="Access the world's largest smart contract ecosystem and interact with thousands of decentralized applications, tokens, and Web3 services."
+                description="Access the world&apos;s largest smart contract ecosystem and interact with thousands of decentralized applications, tokens, and Web3 services. BridgeKey connects you to the full Ethereum ecosystem — manage ETH and all ERC-20 tokens, access Ethereum-based DeFi protocols, buy and store NFTs, and interact with thousands of decentralised applications directly from your wallet."
                 delay={2}
               />
 
               <FeatureCard
                 index="003"
+                icon={
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <polygon points="12 2 20 6 20 18 12 22 4 18 4 6" />
+                    <line x1="12" y1="2" x2="12" y2="22" />
+                    <line x1="4" y1="6" x2="20" y2="18" />
+                    <line x1="20" y1="6" x2="4" y2="18" />
+                  </svg>
+                }
+                title="BNB Smart Chain"
+                description="BNB Smart Chain — Manage BNB and all BEP-20 tokens. BridgeKey connects you to Binance&apos;s high-speed network with some of the lowest transaction fees in DeFi, giving you access to a thriving ecosystem of tokens, protocols and dApps."
+                delay={3}
+              />
+
+              <FeatureCard
+                index="004"
+                icon={
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                  </svg>
+                }
+                title="Polygon"
+                description="Polygon — Use Polygon&apos;s fast Ethereum-compatible network from BridgeKey. Send MATIC, interact with Polygon-based dApps and manage your assets on one of the most widely used Layer‑2 networks — with fees a fraction of Ethereum Mainnet."
+                delay={4}
+              />
+
+              <FeatureCard
+                index="005"
                 icon={
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <rect x="2" y="2" width="8" height="8" rx="1" />
@@ -330,7 +399,7 @@ export default function MultiChainPage() {
                 }
                 title="Major EVM Networks"
                 description="BridgeKey supports leading EVM-compatible networks, allowing you to manage assets across multiple blockchain ecosystems without switching wallets. Supported networks include: Ethereum, MST Mainnet, BNB Smart Chain, Polygon, Base, Arbitrum, OP Mainnet, Linea."
-                delay={3}
+                delay={5}
               />
             </div>
           </div>
@@ -432,6 +501,94 @@ export default function MultiChainPage() {
                   );
                 })}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section id="faq" className="faq py-20 border-t border-[var(--line)]">
+          <div className="container" style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px' }}>
+            <div className="reveal" style={{ textAlign: 'center', marginBottom: '48px' }}>
+              <div className="section-eyebrow" style={{ justifyContent: 'center' }}>
+                <span className="num"> FAQ</span>
+              </div>
+              <h2 className="section-title" style={{ marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
+                Frequently Asked <em>Questions</em>
+              </h2>
+            </div>
+
+            <div className="faq-list" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              {[
+                {
+                  q: "Does BridgeKey support Ethereum?",
+                  a: "Yes. BridgeKey natively supports Ethereum Mainnet, all ERC-20 tokens and thousands of Ethereum dApps."
+                },
+                {
+                  q: "Does BridgeKey support BNB Chain?",
+                  a: "Yes. BridgeKey supports BNB Smart Chain natively, including BEP-20 tokens and dApps."
+                },
+                {
+                  q: "Does BridgeKey support Polygon?",
+                  a: "Yes. BridgeKey supports Polygon Mainnet, MATIC and all Polygon-based tokens and dApps."
+                },
+                {
+                  q: "Can I add custom blockchain networks?",
+                  a: "Yes. Go to Settings > Networks > Add Network. Enter RPC URL, chain ID and currency symbol."
+                },
+                {
+                  q: "How many chains does BridgeKey support?",
+                  a: "95+ networks natively, plus unlimited custom EVM networks via RPC."
+                }
+              ].map((faq, idx) => (
+                <details
+                  key={idx}
+                  className="faq-item reveal"
+                  data-delay="1"
+                  style={{
+                    border: '1px solid var(--line)',
+                    borderRadius: '16px',
+                    background: 'rgba(255, 255, 255, 0.01)',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <summary
+                    style={{
+                      padding: '20px 24px',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      color: 'white',
+                      fontFamily: 'Syne, sans-serif',
+                      fontSize: '18px',
+                      fontWeight: 600,
+                      listStyle: 'none',
+                      outline: 'none'
+                    }}
+                  >
+                    <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 600, fontFamily: 'Syne, sans-serif', color: 'white', display: 'inline-block' }}>{faq.q}</h3>
+                    <span className="faq-icon" style={{
+                      color: 'var(--teal)',
+                      fontSize: '20px',
+                      display: 'inline-block',
+                      marginLeft: '12px'
+                    }}>+</span>
+                  </summary>
+                  <div
+                    style={{
+                      padding: '0 24px 20px 24px',
+                      cursor: 'default'
+                    }}
+                  >
+                    <p style={{
+                      margin: 0,
+                      color: 'var(--ink-dim)',
+                      fontSize: '15px',
+                      lineHeight: '1.6'
+                    }}>{faq.a}</p>
+                  </div>
+                </details>
+              ))}
             </div>
           </div>
         </section>
