@@ -106,9 +106,8 @@ export default function Hero() {
 
           <div className="eyebrow">Crypto Wallet</div>
           <h1 className="headline">
-            India&apos;s Best <span className="lq">Non‑Custodial</span> <br />
-            Crypto Wallet — <span className="accent">Manage 95+ Chains</span> <br />
-            in One App
+            India&apos;s <span className="lq">Non‑Custodial </span> Crypto Wallet. <br />
+            <span className="accent">95+ Chains</span>, One App
           </h1>
           <p className="tagline" ref={taglineRef}>
             <span className="caret"></span>
