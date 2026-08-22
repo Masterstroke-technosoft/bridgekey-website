@@ -417,7 +417,7 @@ export default function SecurityPage() {
                 rel="noopener noreferrer"
               >
                 <img src="/assets/playstore.png" alt="playstore logo" style={{ height: '28px', width: 'auto' }} />
-                Download BridgeKey — Trusted by 20,000+ Crypto Users Globally
+                Download BridgeKey
               </a>
             </div>
           </div>

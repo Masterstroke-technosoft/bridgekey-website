@@ -284,7 +284,7 @@ export default function FeaturesPage() {
             <div className="reveal" data-delay="2">
               <a href="https://play.google.com/store/apps/details?id=com.bridgekey" className="playstore-btn" target="_blank" rel="noopener noreferrer">
                 <img src="/assets/playstore.png" alt="playstore logo" style={{ height: '28px', width: 'auto' }} />
-                <span className="hidden sm:inline">Download BridgeKey and start your Web3 journey today.</span>
+                <span className="hidden sm:inline">Download BridgeKey</span>
                 <span className="inline sm:hidden">Download</span>
               </a>
             </div>
