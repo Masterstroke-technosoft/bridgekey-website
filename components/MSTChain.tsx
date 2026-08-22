@@ -14,10 +14,10 @@ export default function MSTChain() {
             <h2 className="section-title reveal" data-delay="1">
               Built on <em>MST</em> —
               <br />
-              India's first Layer‑1.
+              a sovereign, independent Layer-1 blockchain.
             </h2>
             <p className="section-sub reveal" data-delay="2">
-              More than a billion people. One Sovereign chain. BridgeKey is the first gateway to natively speak MST.
+              One sovereign chain. No central control. No single government. BridgeKey is the only wallet built natively for MST.
             </p>
 
             <div className="mst-stats reveal" data-delay="3">

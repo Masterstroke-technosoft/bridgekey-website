@@ -8,9 +8,9 @@ import SpecTable from '@/components/SpecTable';
 import SecurityConsole from '@/components/SecurityConsole';
 
 export const metadata: Metadata = {
-  title: "BridgeKey Security: Non-Custodial Crypto Wallet | Private Keys Stay Yours",
-  description: "BridgeKey never stores your private keys. Self-custody architecture, biometric login & local encryption protect your crypto. India's most secure non-custodial wallet. No KYC.",
-  keywords: "crypto wallet security India, non-custodial wallet, is BridgeKey safe, private keys crypto wallet, no KYC crypto India, Secret Recovery Phrase, biometric crypto wallet, self-custody wallet",
+  title: "BridgeKey: Non-Custodial Crypto Wallet Security — Your Keys, Your Device",
+  description: "BridgeKey is fully non-custodial — your private keys never leave your device. Biometric login, AES encryption, no KYC. Even BridgeKey cannot access your crypto.",
+  keywords: "non-custodial wallet security, self-custody crypto wallet, is BridgeKey safe, crypto wallet private keys, biometric crypto wallet, AES encrypted wallet, Secret Recovery Phrase, no KYC crypto wallet, hardware wallet support, crypto wallet security audit",
   alternates: {
     canonical: "https://bridgekey.io/security",
     languages: {
@@ -29,16 +29,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     siteName: "BridgeKey",
-    title: "BridgeKey Security: Non-Custodial Crypto Wallet | Private Keys Stay Yours",
-    description: "BridgeKey never stores your private keys. Self-custody, biometric login & local encryption. India's most secure non-custodial wallet.",
+    title: "BridgeKey: Non-Custodial Crypto Wallet Security — Your Keys, Your Device",
+    description: "Fully non-custodial. Your private keys never leave your device. Biometric login, AES encryption. Even BridgeKey cannot access your crypto.",
     url: "https://bridgekey.io/security",
-    locale: "en_IN",
+    locale: "en_US",
     images: [
       {
         url: "https://bridgekey.io/assets/og-security.png",
         width: 1200,
         height: 630,
-        alt: "BridgeKey Crypto Wallet Security",
+        alt: "BridgeKey: Non-Custodial Crypto Wallet Security — Your Keys, Your Device",
       },
     ],
   },
@@ -46,12 +46,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@BridgekeyWallet",
     creator: "@BridgekeyWallet",
-    title: "BridgeKey Security: Non-Custodial Crypto Wallet | Private Keys Stay Yours",
-    description: "BridgeKey never stores your private keys. Self-custody, biometric & local encryption. No KYC. India's most secure crypto wallet.",
+    title: "BridgeKey: Non-Custodial Crypto Wallet Security — Your Keys, Your Device",
+    description: "Fully non-custodial. Your private keys never leave your device. Biometric login, AES encryption. No KYC.",
     images: [
       {
         url: "https://bridgekey.io/assets/og-security.png",
-        alt: "BridgeKey Crypto Wallet Security",
+        alt: "BridgeKey: Non-Custodial Crypto Wallet Security — Your Keys, Your Device",
       },
     ],
   },
@@ -172,9 +172,9 @@ export default function SecurityPage() {
   const securityWebPageJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "BridgeKey Wallet Security",
+    "name": "BridgeKey: Non-Custodial Crypto Wallet Security — Your Keys, Your Device",
     "url": "https://bridgekey.io/security",
-    "description": "BridgeKey uses non-custodial self-custody architecture ensuring private keys never leave the user's device. Includes biometric authentication, secure recovery phrase protection, and privacy-first design.",
+    "description": "BridgeKey is fully non-custodial — your private keys never leave your device. Biometric login, AES encryption, no KYC. Even BridgeKey cannot access your crypto.",
     "about": {
       "@type": "Thing",
       "name": "Crypto Wallet Security",
@@ -259,7 +259,7 @@ export default function SecurityPage() {
   const speakableJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "BridgeKey Wallet Security — Self-Custody, Biometric & Privacy-First",
+    "name": "BridgeKey: Non-Custodial Crypto Wallet Security — Your Keys, Your Device",
     "url": "https://bridgekey.io/security",
     "speakable": {
       "@type": "SpeakableSpecification",
@@ -312,8 +312,8 @@ export default function SecurityPage() {
                   </div>
                 </div>
                 <h1 className="section-title reveal" data-delay="1" style={{ marginBottom: '16px', fontSize: 'clamp(32px, 4vw, 56px)' }}>
-                  BridgeKey Crypto Wallet Security — <br />
-                  <em>Non‑Custodial, Encrypted & Fully Self‑Custody</em>
+                  Non-Custodial Crypto Wallet Security — <br />
+                  <em>Your Keys Never Leave Your Device</em>
                 </h1>
                 <div className="reveal" data-delay="1.5" style={{
                   display: 'inline-flex',
@@ -330,7 +330,7 @@ export default function SecurityPage() {
                   marginBottom: '24px'
                 }}>
                   <span style={{ display: 'inline-block', width: '6px', height: '6px', borderRadius: '50%', background: 'var(--teal)' }}></span>
-                  Trusted by 20,000+ crypto users across India &middot; 4.8★ on Google Play
+                  Trusted by 20,000+ crypto users across 15+ countries &middot; 4.8★ on Google Play
                 </div>
                 <p className="security-description section-sub reveal" data-delay="2" style={{ maxWidth: '680px', margin: 0 }}>
                   Security isn&apos;t just a feature, it&apos;s the foundation of BridgeKey. Built with a self-custody architecture, BridgeKey gives you complete control over your digital assets while helping you navigate Web3 with confidence. From protecting your private keys to securing every transaction, every layer of BridgeKey is designed to put you in control.
@@ -417,7 +417,7 @@ export default function SecurityPage() {
                 rel="noopener noreferrer"
               >
                 <img src="/assets/playstore.png" alt="playstore logo" style={{ height: '28px', width: 'auto' }} />
-                Download BridgeKey — Trusted by 20,000+ Crypto Users Across India
+                Download BridgeKey — Trusted by 20,000+ Crypto Users Globally
               </a>
             </div>
           </div>

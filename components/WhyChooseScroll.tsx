@@ -182,7 +182,7 @@ export default function WhyChooseScroll() {
           </div>
           <h2 className="section-title reveal" data-delay="1" style={{ marginBottom: '48px' }}>
             Why Choose BridgeKey? <br />
-            <em>India&apos;s Most Trusted Non‑Custodial Crypto Wallet</em>
+            <em>Secure, Non‑Custodial Multi-Chain Crypto Wallet</em>
           </h2>
 
           <div className="feature-grid">
@@ -229,7 +229,7 @@ export default function WhyChooseScroll() {
             </div>
             <h2 className="section-title">
               Why Choose BridgeKey? <br />
-              <em>India&apos;s Most Trusted Non‑Custodial Crypto Wallet</em>
+              <em>Secure, Non‑Custodial Multi-Chain Crypto Wallet</em>
             </h2>
           </div>
 

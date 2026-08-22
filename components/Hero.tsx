@@ -15,7 +15,7 @@ export default function Hero() {
     const el = taglineRef.current;
     if (!el) return;
 
-    const text = 'A non-custodial wallet for the chains, currencies, and communities you actually use.';
+    const text = 'Biometric login. Web3 browser built in. Send, swap and sign across 95+ EVM chains. Your keys stay on your device — always.';
     el.innerHTML = '<span class="caret"></span>';
     let i = 0;
 
@@ -104,10 +104,10 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="eyebrow">Crypto Wallet</div>
+          <div className="eyebrow">Non-Custodial &middot; Self-Custody &middot; 95+ Chains</div>
           <h1 className="headline">
-            India&apos;s <span className="lq">Non‑Custodial </span> Crypto Wallet. <br />
-            <span className="accent">95+ Chains</span>, One App
+            <span className="lq">Non‑Custodial</span> Crypto Wallet. <br />
+            <span className="accent">95+ Chains</span>. No KYC.
           </h1>
           <p className="tagline" ref={taglineRef}>
             <span className="caret"></span>
@@ -121,7 +121,7 @@ export default function Hero() {
               rel="noopener noreferrer"
             >
               <img src="/assets/icons8-google-play-store-48.png" alt="playstore-logo" style={{ height: '28px', width: 'auto' }} />
-              Download Bridgekey
+              Download BridgeKey
             </a>
           </div>
 
