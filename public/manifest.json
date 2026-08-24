@@ -1,7 +1,7 @@
 {
   "name": "BridgeKey Wallet",
   "short_name": "BridgeKey",
-  "description": "Non-custodial crypto wallet for MST Blockchain and 95+ EVM chains. Self-custody. No KYC. Built in India.",
+  "description": "Non-custodial crypto wallet for MST Blockchain and 95+ EVM chains. Self-custody. No KYC. Secure multi-chain gateway.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F172A",

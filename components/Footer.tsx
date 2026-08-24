@@ -1,9 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isAboutPage = pathname === '/about' || pathname === '/about/';
   const containerVariants = {
     hidden: { opacity: 0, y: 30 },
     show: {
@@ -53,7 +56,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm mt-3">
-              Your key. Your chain. Your future. Next-generation self-custody engineered for India and built for the global Web3 ecosystem.
+              Your key. Your chain. Your future. Next-generation self-custody for the global Web3 ecosystem.
             </p>
           </motion.div>
 
@@ -136,7 +139,11 @@ export default function Footer() {
           variants={itemVariants}
         >
           <div className="text-gray-500 text-xs font-mono tracking-wide">
-            © 2026 BridgeKey · CRYPTO WALLET · MADE IN INDIA
+            {isAboutPage ? (
+              "© 2026 BridgeKey · CRYPTO WALLET · MADE IN INDIA"
+            ) : (
+              "© 2026 BridgeKey · NON-CUSTODIAL CRYPTO WALLET"
+            )}
           </div>
 
           <div className="flex items-center gap-4">

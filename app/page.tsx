@@ -13,9 +13,9 @@ import ParticleNetwork from '@/components/ParticleNetwork';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata: Metadata = {
-  title: "BridgeKey — Crypto Wallet India | MST Blockchain & 95+ EVM Chains",
-  description: "Download BridgeKey — India's non-custodial crypto wallet for MST Blockchain and 95+ EVM chains. Send, swap & sign Bitcoin, Ethereum & more. 20K+ downloads. 4.8★ on Google Play.",
-  keywords: "crypto wallet India, non-custodial crypto wallet, MST blockchain wallet, Web3 wallet India, multi-chain wallet India, BridgeKey download, self-custody wallet India",
+  title: "BridgeKey — Non-Custodial Crypto Wallet | 95+ EVM Chains | No KYC",
+  description: "Download BridgeKey — non-custodial crypto wallet for 95+ EVM chains. Biometric login. No KYC. Web3 browser. Send, swap & sign Bitcoin, Ethereum & more. 4.8★",
+  keywords: "non-custodial crypto wallet, self-custody wallet, EVM crypto wallet, multi-chain crypto wallet, crypto wallet no KYC, Web3 wallet, biometric crypto wallet, MST blockchain wallet, BridgeKey download",
   alternates: {
     canonical: "https://bridgekey.io/",
     languages: {
@@ -34,16 +34,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "BridgeKey",
-    title: "BridgeKey — India's Non-Custodial Crypto Wallet",
-    description: "Manage MST, Bitcoin, Ethereum & 95+ chains. Self-custody. 20K+ downloads. 4.8★. Built in India for the world.",
+    title: "BridgeKey — Non-Custodial Crypto Wallet | 95+ Chains | No KYC",
+    description: "Non-custodial. 95+ chains. No KYC. Biometric login. Web3 browser. 20K+ downloads. 4.8★ on Google Play.",
     url: "https://bridgekey.io/",
-    locale: "en_IN",
+    locale: "en_US",
     images: [
       {
         url: "https://bridgekey.io/assets/og-home.png",
         width: 1200,
         height: 630,
-        alt: "BridgeKey — India's Non-Custodial Crypto Wallet",
+        alt: "BridgeKey — Non-Custodial Crypto Wallet for 95+ EVM Chains",
       },
     ],
   },
@@ -51,12 +51,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@BridgekeyWallet",
     creator: "@BridgekeyWallet",
-    title: "BridgeKey — India's Non-Custodial Crypto Wallet",
-    description: "Manage MST, Bitcoin, Ethereum & 95+ chains. Self-custody. 20K+ downloads. 4.8★. Built in India for the world.",
+    title: "BridgeKey — Non-Custodial Crypto Wallet | 95+ Chains | No KYC",
+    description: "Non-custodial. 95+ chains. No KYC. Biometric login. Web3 browser. 4.8★ on Google Play.",
     images: [
       {
         url: "https://bridgekey.io/assets/og-home.png",
-        alt: "BridgeKey — India's Non-Custodial Crypto Wallet",
+        alt: "BridgeKey — Non-Custodial Crypto Wallet for 95+ EVM Chains",
       },
     ],
   },
@@ -93,7 +93,7 @@ export default function Home() {
     "name": "BridgeKey Crypto Wallet",
     "operatingSystem": "Android",
     "applicationCategory": "FinanceApplication",
-    "description": "India's non-custodial crypto wallet — 95+ chains, MST Blockchain, biometric, no KYC.",
+    "description": "Non-custodial crypto wallet — 95+ chains, MST Blockchain, biometric, no KYC.",
     "downloadUrl": "https://play.google.com/store/apps/details?id=com.bridgekey",
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -133,7 +133,7 @@ export default function Home() {
         "name": "What is BridgeKey?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "BridgeKey is a non-custodial crypto wallet for Android supporting 95+ blockchain networks including Bitcoin, Ethereum, MST Chain (India's first Layer-1), Polygon and BNB Chain. Features: biometric login, Web3 browser, hardware wallet support."
+          "text": "BridgeKey is a non-custodial crypto wallet for Android supporting 95+ blockchain networks including Bitcoin, Ethereum, MST Chain, Polygon and BNB Chain. Features: biometric login, Web3 browser, hardware wallet support."
         }
       },
       {
@@ -165,7 +165,7 @@ export default function Home() {
         "name": "What is MST Blockchain?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "MST Blockchain is India's first sovereign Layer-1 with 3-second block time, 73,000+ validators and fees of 0.001 MSTC. BridgeKey is the official native wallet for the MST Blockchain ecosystem."
+          "text": "MST Blockchain is a sovereign Layer-1 blockchain with 3-second block time, 73,000+ validators and fees of 0.001 MSTC. BridgeKey is the official native wallet for the MST Blockchain ecosystem."
         }
       }
     ]
@@ -174,7 +174,7 @@ export default function Home() {
   const speakableJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "BridgeKey — Crypto Wallet India | MST Blockchain & 95+ EVM Chains",
+    "name": "BridgeKey — Non-Custodial Crypto Wallet | 95+ EVM Chains | No KYC",
     "url": "https://bridgekey.io/",
     "speakable": {
       "@type": "SpeakableSpecification",
@@ -257,7 +257,7 @@ export default function Home() {
               },
               {
                 q: "What is MST Blockchain?",
-                a: "MST Blockchain is India&apos;s first sovereign Layer-1 with 3-second block time, 73,000+ validators and fees of 0.001 MSTC. BridgeKey is the official native wallet."
+                a: "MST Blockchain is a sovereign Layer-1 blockchain with 3-second block time, 73,000+ validators and fees of 0.001 MSTC. BridgeKey is the official native wallet."
               }
             ].map((faq, idx) => (
               <details

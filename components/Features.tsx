@@ -12,8 +12,7 @@ export default function Features() {
           </div>
         </div>
         <h2 className="section-title reveal" data-delay="1">
-          Everything You Need in a Crypto Wallet — <br />
-          Built for India&apos;s <em>Web3 Future</em>
+          Everything You Need in a Non-Custodial Crypto Wallet
         </h2>
         <p className="section-sub reveal" data-delay="2">
           No seed phrase anxiety. No mental gas math. Just access to the value, the chains, and the future that belong to you.
@@ -29,7 +28,7 @@ export default function Features() {
                 <circle cx="16" cy="16" r="2" fill="currentColor" />
               </svg>
             }
-            title="One‑tap access."
+            title="Biometric crypto wallet login — fingerprint & Face ID."
             description="Biometric unlock, instant signing. From cold start to confirmed transaction in under three seconds every time."
             delay={1}
           />
@@ -42,12 +41,12 @@ export default function Features() {
                 <path d="M16 3 L16 29 M6 9 L26 9 M6 20 L26 20 M16 11 L11 14.5 L11 20 M16 11 L21 14.5 L21 20" stroke="currentColor" strokeWidth="1" opacity=".6" />
               </svg>
             }
-            title="India‑native chain."
+            title="MST Blockchain native — sovereign Layer-1 support."
             description={
               <>
-                The first interface built natively for{' '}
+                The only wallet built natively for{' '}
                 <strong style={{ color: 'var(--gold)', fontWeight: '500' }}>MST Blockchain</strong>{' '}
-                India's inaugural Layer‑1. Sub‑second finality, denominated fees.
+                — a sovereign Layer-1 with sub-second finality and 0.001 MSTC average fees.
               </>
             }
             delay={2}
@@ -62,7 +61,7 @@ export default function Features() {
                 <circle cx="26" cy="20" r="1.5" fill="currentColor" />
               </svg>
             }
-            title="Zero‑friction transfers."
+            title="Send crypto across 95+ chains — gas auto-routed."
             description="Pay anyone on any supported chain with one signature, gas auto‑routed in the background."
             delay={3}
           />

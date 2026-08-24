@@ -8,8 +8,8 @@ import FeaturesScroll from '@/components/FeaturesScroll';
 
 export const metadata: Metadata = {
   title: "BridgeKey Features: Biometric Login, Multi-Chain & Web3 Browser",
-  description: "Explore BridgeKey crypto wallet features: biometric login, 95+ chain support, Web3 browser, hardware wallet compatibility, smart accounts & NFT management. Built for India.",
-  keywords: "crypto wallet features India, multi-chain wallet features, Web3 browser crypto wallet, hardware wallet compatible app, biometric crypto wallet, smart account wallet, NFT wallet India",
+  description: "Explore BridgeKey non-custodial wallet features: biometric login, 95+ chain support, Web3 browser, hardware wallet, smart accounts, NFT management. No KYC required.",
+  keywords: "non-custodial wallet features, multi-chain crypto wallet, Web3 browser crypto wallet, hardware wallet compatible app, biometric crypto wallet, smart account wallet, NFT crypto wallet, EVM wallet features, self-custody wallet, DeFi wallet features",
   alternates: {
     canonical: "https://bridgekey.io/features",
     languages: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     type: "article",
     siteName: "BridgeKey",
     title: "BridgeKey Features: Biometric Login, Multi-Chain & Web3 Browser",
-    description: "Explore BridgeKey crypto wallet features: biometric login, 95+ chain support, Web3 browser, hardware wallet & smart accounts. Built for India.",
+    description: "Explore BridgeKey non-custodial wallet features: biometric login, 95+ chain support, Web3 browser, hardware wallet & smart accounts. No KYC. Free.",
     url: "https://bridgekey.io/features",
     locale: "en_IN",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     site: "@BridgekeyWallet",
     creator: "@BridgekeyWallet",
     title: "BridgeKey Features: Biometric Login, Multi-Chain & Web3 Browser",
-    description: "Biometric login, 95+ chains, Web3 browser, hardware wallet support. India's best crypto wallet features.",
+    description: "Biometric login, 95+ chains, Web3 browser, hardware wallet support. Non-custodial. No KYC. Self-custody.",
     images: [
       {
         url: "https://bridgekey.io/assets/og-features.png",
@@ -259,8 +259,8 @@ export default function FeaturesPage() {
             </div>
             <h1 className="sr-only">BridgeKey Crypto Wallet Features — Multi-Chain, Biometric & Web3 Ready</h1>
             <h2 className="section-title reveal" data-delay="1" style={{ maxWidth: '800px' }}>
-              Everything You Need in a Crypto Wallet — <br />
-              Built for India&apos;s <em>Web3 Future</em>
+              Everything You Need in a Non-Custodial Crypto Wallet — <br />
+              Built for Web3
             </h2>
             <p className="section-sub reveal" data-delay="2" style={{ maxWidth: '650px' }}>
               BridgeKey combines powerful wallet management, seamless blockchain connectivity, and advanced security features to help you confidently manage your digital assets across the Web3 ecosystem.
@@ -276,7 +276,7 @@ export default function FeaturesPage() {
           <div className="container">
             <h2 className="reveal" style={{ maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
               Download BridgeKey — <br />
-              <em>India&apos;s Best Multi‑Chain Crypto Wallet App, Free</em>
+              <em>Non-Custodial Multi-Chain Crypto Wallet. Free. No KYC.</em>
             </h2>
             <p className="reveal" data-delay="1" style={{ maxWidth: '600px', margin: '16px auto 32px auto' }}>
               Secure your digital assets, explore multiple blockchain networks, and connect with the decentralized world through BridgeKey.
@@ -284,7 +284,7 @@ export default function FeaturesPage() {
             <div className="reveal" data-delay="2">
               <a href="https://play.google.com/store/apps/details?id=com.bridgekey" className="playstore-btn" target="_blank" rel="noopener noreferrer">
                 <img src="/assets/playstore.png" alt="playstore logo" style={{ height: '28px', width: 'auto' }} />
-                <span className="hidden sm:inline">Download BridgeKey and start your Web3 journey today.</span>
+                <span className="hidden sm:inline">Download BridgeKey</span>
                 <span className="inline sm:hidden">Download</span>
               </a>
             </div>

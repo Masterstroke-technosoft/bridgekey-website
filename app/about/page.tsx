@@ -216,7 +216,8 @@ export default function AboutPage() {
               </div>
             </div>
             <h1 className="section-title reveal" data-delay="1" style={{ maxWidth: '900px' }}>
-              BridgeKey — India&apos;s Non‑Custodial Crypto Wallet for Secure <em>Web3 Access</em>
+              BridgeKey — Non-Custodial Crypto Wallet. <br />
+              Built in India for the <em>World.</em>
             </h1>
             <div className="reveal" data-delay="2" style={{ marginTop: '32px', maxWidth: '800px' }}>
               <p className="page-description" style={{ color: 'var(--ink-dim)', fontSize: '18px', lineHeight: '1.7' }}>
@@ -230,7 +231,7 @@ export default function AboutPage() {
         <section className="about-vision" style={{ padding: '80px 0', borderTop: '1px solid var(--line)' }}>
           <div className="container">
             <h2 className="section-title reveal" data-delay="1" style={{ maxWidth: '800px' }}>
-              Making Crypto & Blockchain Accessible for <em>Everyone in India and Beyond</em>
+              Making Blockchain Accessible for <em>Everyone</em>
             </h2>
             <div className="reveal" data-delay="2" style={{ marginTop: '24px', maxWidth: '800px' }}>
               <p style={{ color: 'var(--ink-dim)', fontSize: '16px', lineHeight: '1.7' }}>
@@ -340,7 +341,7 @@ export default function AboutPage() {
               The future of finance is decentralized, and BridgeKey is committed to making this future accessible to everyone. By combining blockchain security, multi-chain functionality, and user-focused design, we are building a wallet that enables individuals to confidently participate in the Web3 ecosystem. BridgeKey continues to innovate towards a future where managing digital assets and accessing blockchain technology becomes simple, secure, and accessible for all.
             </p>
             <p style={{ color: 'var(--ink)', fontSize: '20px', fontFamily: 'Syne, sans-serif', fontWeight: 600 }}>
-              BridgeKey — Your Gateway to On-Chain Value.
+              BridgeKey — Your Gateway to On-Chain Value. Built in India for the World.
             </p>
           </div>
         </section>

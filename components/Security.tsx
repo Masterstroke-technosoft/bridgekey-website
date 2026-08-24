@@ -12,7 +12,7 @@ export default function Security() {
           </div>
           <h2 className="section-title" style={{ marginLeft: 'auto', marginRight: 'auto', textAlign: 'center' }}>
             Crypto Wallet Security You Can Trust — <br />
-            <em>Non‑Custodial, Encrypted, Always Yours</em>
+            <em>Your Keys. Your Device.</em>
           </h2>
         </div>
         <div className="sec-grid">

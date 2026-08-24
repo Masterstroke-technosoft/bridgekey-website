@@ -11,7 +11,7 @@ import ChainConsole from '@/components/ChainConsole';
 export const metadata: Metadata = {
   title: "Multi-Chain Crypto Wallet — 95+ EVM Networks | BridgeKey",
   description: "BridgeKey supports MST Blockchain, Ethereum, BNB Chain, Polygon, Base, Arbitrum, and 95+ EVM networks in one non-custodial wallet. Switch chains instantly. Add custom RPC networks.",
-  keywords: "multi-chain crypto wallet, EVM compatible wallet India, Ethereum wallet India, BNB chain wallet India, Polygon wallet India, cross-chain crypto wallet, custom RPC wallet, MST EVM wallet, Arbitrum wallet India",
+  keywords: "multi-chain crypto wallet, EVM compatible wallet, Ethereum wallet, BNB Chain wallet, Polygon wallet, Arbitrum wallet, cross-chain crypto wallet, custom RPC wallet, non-custodial multi-chain wallet, Web3 multi-chain wallet, best wallet for DeFi",
   alternates: {
     canonical: "https://bridgekey.io/multi-chain",
     languages: {
@@ -30,10 +30,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     siteName: "BridgeKey",
-    title: "BridgeKey Multi-Chain — One Wallet for Every EVM Chain",
+    title: "BridgeKey Multi-Chain — Non-Custodial Wallet for 95+ EVM Networks",
     description: "MST, Ethereum, BNB, Polygon, Base, Arbitrum & 95+ chains — all in one non-custodial wallet. Switch networks instantly with BridgeKey.",
     url: "https://bridgekey.io/multi-chain",
-    locale: "en_IN",
+    locale: "en_US",
     images: [
       {
         url: "https://bridgekey.io/assets/og-multichain.png",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@BridgekeyWallet",
     creator: "@BridgekeyWallet",
-    title: "BridgeKey Multi-Chain — One Wallet for Every EVM Chain",
+    title: "BridgeKey Multi-Chain — Non-Custodial Wallet for 95+ EVM Networks",
     description: "MST, Ethereum, BNB, Polygon, Base, Arbitrum & 95+ chains — all in one non-custodial wallet. Switch networks instantly with BridgeKey.",
     images: [
       {
@@ -112,7 +112,7 @@ export default function MultiChainPage() {
       "downloadUrl": "https://play.google.com/store/apps/details?id=com.bridgekey",
       "description": "Multi-chain non-custodial crypto wallet supporting MST Blockchain and 95+ EVM-compatible networks.",
       "featureList": [
-        "MST Blockchain — India's first Layer-1",
+        "MST Blockchain — Sovereign Layer-1 Blockchain",
         "Ethereum Mainnet",
         "BNB Smart Chain",
         "Polygon",
@@ -158,7 +158,7 @@ export default function MultiChainPage() {
     "itemListElement": [
       {
         "@type": "ListItem", "position": 1, "name": "MST Blockchain",
-        "description": "India's first Layer-1. Native support, 3s block time, 0.001 MSTC fees."
+        "description": "Sovereign Layer-1 Blockchain. Native support, 3s block time, 0.001 MSTC fees."
       },
       {
         "@type": "ListItem", "position": 2, "name": "Ethereum",
@@ -339,8 +339,8 @@ export default function MultiChainPage() {
                     <circle cx="12" cy="12" r="3" />
                   </svg>
                 }
-                title="MST Blockchain"
-                description="Experience the full potential of the MST ecosystem with native support for MST Mainnet. Manage MSTC, access ecosystem applications, and enjoy optimized performance designed specifically for the MST network."
+                title="MST Blockchain — Sovereign Layer-1, No Central Control"
+                description="MST Blockchain is a sovereign Layer-1 — no central bank, no government control, no single point of failure. BridgeKey is the only wallet with native MST support. Sub-second finality. Average fee: 0.001 MSTC."
                 delay={1}
               />
 
@@ -597,7 +597,7 @@ export default function MultiChainPage() {
         <section className="cta-band" style={{ borderTop: '1px solid var(--line)' }}>
           <div className="container">
             <h2 className="reveal">
-              Connect Beyond a <em>Single Blockchain</em>
+              One Non-Custodial Wallet. Every Chain. <em>No Middleman.</em>
             </h2>
             <p className="reveal" data-delay="1" style={{ maxWidth: '600px', margin: '16px auto 32px auto' }}>
               BridgeKey gives you the freedom to manage assets, explore decentralized applications, and interact with multiple blockchain ecosystems all from one powerful wallet.
