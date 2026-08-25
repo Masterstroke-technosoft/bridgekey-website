@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import Ticker from './Ticker';
 
 export default function Hero() {
   const taglineRef = useRef<HTMLParagraphElement>(null);
@@ -94,7 +93,6 @@ export default function Hero() {
 
   return (
     <header className="hero" ref={heroRef}>
-      <Ticker />
       <div className="grid-bg"></div>
       <div className="hero-inner">
         <div className="hero-left" ref={leftRef}>

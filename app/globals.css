@@ -133,7 +133,7 @@ nav.top {
 
 /* Live block ticker */
 .ticker {
-  position: absolute;
+  position: fixed;
   top: 80px;
   left: 0;
   width: 100%;
@@ -1172,6 +1172,7 @@ h1 .lq {
   font-style: italic;
   font-weight: 600;
   color: transparent;
+  padding-right: 0.1em;
 }
 
 h1 .accent {
