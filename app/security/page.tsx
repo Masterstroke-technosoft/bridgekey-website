@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "BridgeKey: Non-Custodial Crypto Wallet Security — Your Keys, Your Device",
     description: "Fully non-custodial. Your private keys never leave your device. Biometric login, AES encryption. Even BridgeKey cannot access your crypto.",
     url: "https://bridgekey.io/security",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "https://bridgekey.io/assets/og-security.png",

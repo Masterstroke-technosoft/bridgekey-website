@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title: "BridgeKey — Non-Custodial Crypto Wallet | 95+ Chains | No KYC",
     description: "Non-custodial. 95+ chains. No KYC. Biometric login. Web3 browser. 20K+ downloads. 4.8★ on Google Play.",
     url: "https://bridgekey.io/",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "https://bridgekey.io/assets/og-home.png",
