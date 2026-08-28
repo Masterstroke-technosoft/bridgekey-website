@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "BridgeKey Multi-Chain — Non-Custodial Wallet for 95+ EVM Networks",
     description: "MST, Ethereum, BNB, Polygon, Base, Arbitrum & 95+ chains — all in one non-custodial wallet. Switch networks instantly with BridgeKey.",
     url: "https://bridgekey.io/multi-chain",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "https://bridgekey.io/assets/og-multichain.png",
