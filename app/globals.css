@@ -12,6 +12,8 @@
   --gold-soft: rgba(255, 184, 48, 0.22);
   --line: rgba(143, 160, 182, 0.12);
   --line-2: rgba(143, 160, 182, 0.22);
+  --text: var(--ink);
+  --text-muted: var(--ink-dim);
 }
 
 * {

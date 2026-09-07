@@ -34,7 +34,7 @@ export default function RootLayout({
               "logo": "https://bridgekey.io/uploads/header-logo.png",
               "description": "Non-custodial multi-chain crypto wallet on MST Blockchain. 95+ EVM chains.",
               "foundingLocation": { "@type": "Place", "addressCountry": "IN", "addressLocality": "Pune" },
-              "knowsAbout": ["Cryptocurrency","Blockchain","Web3","DeFi","Non-Custodial Wallet","MST Blockchain"],
+              "knowsAbout": ["Cryptocurrency", "Blockchain", "Web3", "DeFi", "Non-Custodial Wallet", "MST Blockchain"],
               "sameAs": [
                 "https://x.com/BridgekeyWallet",
                 "https://www.instagram.com/bridgekeywallet/",

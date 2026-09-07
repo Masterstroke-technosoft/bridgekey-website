@@ -31,16 +31,17 @@ export default function Navbar() {
           )}
           <Link href="/security">Security</Link>
           <Link href="/multi-chain">Multi-Chain</Link>
+          <Link href="/blogs">Blogs</Link>
         </div>
-        
+
         <div className="flex items-center gap-4">
           <a href="https://play.google.com/store/apps/details?id=com.bridgekey" className="nav-cta" target="_blank" rel="noopener noreferrer">
             <span className="dot"></span>
             <span className="hidden sm:inline">Download BridgeKey</span>
             <span className="inline sm:hidden">Download</span>
           </a>
-          
-          <button 
+
+          <button
             className="md:hidden text-white flex items-center justify-center p-1"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
@@ -73,7 +74,8 @@ export default function Navbar() {
               <a href="/#how" onClick={() => setMenuOpen(false)} className="py-4 border-b border-[rgba(255,255,255,0.08)]">How it works</a>
             )}
             <Link href="/security" onClick={() => setMenuOpen(false)} className="py-4 border-b border-[rgba(255,255,255,0.08)]">Security</Link>
-            <Link href="/multi-chain" onClick={() => setMenuOpen(false)} className="py-4">Multi-Chain</Link>
+            <Link href="/multi-chain" onClick={() => setMenuOpen(false)} className="py-4 border-b border-[rgba(255,255,255,0.08)]">Multi-Chain</Link>
+            <Link href="/blogs" onClick={() => setMenuOpen(false)} className="py-4">Blogs</Link>
           </div>
         </div>
       )}

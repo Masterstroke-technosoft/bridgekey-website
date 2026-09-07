@@ -107,7 +107,7 @@ export default function Home() {
       "price": "0",
       "priceCurrency": "INR"
     },
-    "featureList": ["Non-custodial","95+ chains","Biometric login","Web3 browser","Hardware wallet","Smart accounts","No KYC"]
+    "featureList": ["Non-custodial", "95+ chains", "Biometric login", "Web3 browser", "Hardware wallet", "Smart accounts", "No KYC"]
   };
 
   const websiteJsonLd = {
@@ -215,7 +215,7 @@ export default function Home() {
           __html: JSON.stringify(speakableJsonLd).replace(/</g, '\\u003c'),
         }}
       />
-
+      
       <CursorGlow />
       <ParticleNetwork />
       <Navbar />
@@ -226,7 +226,7 @@ export default function Home() {
       <MSTChain />
       <HowItWorks />
       <Security />
-
+    
       {/* FAQ Section */}
       <section id="faq" className="faq py-20 border-t border-[var(--line)]">
         <div className="container" style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px' }}>
