@@ -117,16 +117,16 @@ export default function BlogClient({
         featuredOnly,
     ]);
 
-    const isFiltered =
-        searchQuery.trim() !== "" ||
-        dateSort !== "newest" ||
-        featuredOnly;
+    // const isFiltered =
+    //     searchQuery.trim() !== "" ||
+    //     dateSort !== "newest" ||
+    //     featuredOnly;
 
-    const clearFilters = () => {
-        setSearchQuery("");
-        setDateSort("newest");
-        setFeaturedOnly(false);
-    };
+    // const clearFilters = () => {
+    //     setSearchQuery("");
+    //     setDateSort("newest");
+    //     setFeaturedOnly(false);
+    // };
 
     return (
         <main className="min-h-screen bg-[var(--bg)] text-[var(--ink)]">
@@ -218,8 +218,8 @@ export default function BlogClient({
                                 )
                             }
                             className={`px-3.5 py-2.5 text-xs font-semibold rounded-xl border flex items-center gap-1.5 transition-all cursor-pointer select-none ${featuredOnly
-                                    ? "bg-[#00E5C0]/20 text-[#00E5C0] border-[#00E5C0] shadow-[0_0_15px_rgba(0,229,192,0.25)]"
-                                    : "bg-[#050A14] text-gray-300 border-[rgba(143,160,182,0.2)] hover:border-gray-500 hover:text-white"
+                                ? "bg-[#00E5C0]/20 text-[#00E5C0] border-[#00E5C0] shadow-[0_0_15px_rgba(0,229,192,0.25)]"
+                                : "bg-[#050A14] text-gray-300 border-[rgba(143,160,182,0.2)] hover:border-gray-500 hover:text-white"
                                 }`}
                         >
                             <span
@@ -320,26 +320,20 @@ export default function BlogClient({
                         </div>
 
                         {/* Reset */}
-                        {isFiltered && (
+                        {/* {isFiltered && (
                             <button
                                 onClick={clearFilters}
                                 className="px-3 py-2 text-xs font-mono uppercase tracking-wider text-[#00E5C0] border border-[#00E5C0]/30 rounded-xl hover:bg-[#00E5C0]/10 transition-colors"
                             >
                                 Reset
                             </button>
-                        )}
+                        )} */}
                     </div>
                 </div>
 
                 {/* Articles Display */}
                 {filteredItems.length > 0 ? (
-                    <div
-                        className={
-                            filteredItems.length === 1
-                                ? "max-w-md"
-                                : "w-full"
-                        }
-                    >
+                    <div className="bg-[#070F1F] border border-[rgba(143,160,182,0.15)] rounded-2xl p-6 sm:p-8 shadow-xl">
                         <AccordionGallery
                             items={filteredItems}
                             defaultIndex={0}
@@ -351,7 +345,7 @@ export default function BlogClient({
                             trigger="hover"
                             cardTheme="light"
                             height={470}
-                            gap={16}
+                            gap={24}
                             radius={20}
                         />
                     </div>
@@ -382,12 +376,12 @@ export default function BlogClient({
                                 : `No blog posts match your current search "${searchQuery}".`}
                         </p>
 
-                        <button
+                        {/* <button
                             onClick={clearFilters}
                             className="mt-5 px-4 py-2 text-xs font-mono uppercase tracking-wider text-[#00E5C0] border border-[#00E5C0]/40 rounded-xl hover:bg-[#00E5C0]/10 transition-colors inline-flex items-center gap-2"
                         >
                             <span>Clear Filters</span>
-                        </button>
+                        </button> */}
                     </div>
                 )}
             </div>
