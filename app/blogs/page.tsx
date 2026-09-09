@@ -6,6 +6,9 @@ import BlogClient from "./BlogClient";
 const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const SITE_TOKEN = process.env.NEXT_PUBLIC_SITE_TOKEN;
 
+// Strip any trailing slash so path concatenation never produces a double slash.
+const CMS_BASE = CMS_URL?.replace(/\/+$/, "");
+
 interface CmsPost {
     id: string;
     slug: string;
@@ -51,13 +54,13 @@ function formatDate(dateStr?: string) {
 async function getBlogPosts(): Promise<BlogItem[]> {
 
     try {
-        if (!CMS_URL || !SITE_TOKEN) {
+        if (!CMS_BASE || !SITE_TOKEN) {
             console.error("CMS URL or Site Token is missing");
             return [];
         }
 
         const res = await fetch(
-            `${CMS_URL}/api/v1/connector/posts?limit=30`,
+            `${CMS_BASE}/api/v1/connector/posts?limit=30`,
             {
                 headers: {
                     "x-site-token": SITE_TOKEN,

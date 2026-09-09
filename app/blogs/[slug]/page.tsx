@@ -10,6 +10,7 @@ import BlogPostWidget from "@/components/BlogPostWidget";
 const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const SITE_TOKEN = process.env.NEXT_PUBLIC_SITE_TOKEN;
 
+<<<<<<< Updated upstream
 interface CmsPost {
   id: string;
   slug: string;
@@ -88,6 +89,10 @@ async function getOtherBlogPosts(): Promise<SidebarBlogItem[]> {
     return [];
   }
 }
+=======
+// Strip any trailing slash so path concatenation never produces a double slash.
+const CMS_BASE = CMS_URL?.replace(/\/+$/, "");
+>>>>>>> Stashed changes
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -107,7 +112,17 @@ export default async function BlogPostPage({
       <ParticleNetwork />
       <Navbar />
 
+<<<<<<< Updated upstream
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-36 pb-24">
+=======
+      <Script
+        src={`${CMS_BASE}/widget.js`}
+        strategy="afterInteractive"
+      />
+
+      <div className="mx-auto max-w-4xl px-4 pt-36 pb-24">
+
+>>>>>>> Stashed changes
         {/* Back Link */}
         <div className="mb-8">
           <Link
