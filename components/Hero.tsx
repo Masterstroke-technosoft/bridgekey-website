@@ -121,6 +121,20 @@ export default function Hero() {
               <img src="/assets/icons8-google-play-store-48.png" alt="playstore-logo" style={{ height: '28px', width: 'auto' }} />
               Download BridgeKey
             </a>
+
+            <a
+              href="https://chromewebstore.google.com/detail/bridgekey/bfjojdcfenehemjgjlepdjomkpginlkg"
+              className="playstore-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/assets/Google_Chrome_icon.png"
+                alt="Chrome logo"
+                style={{ height: "28px", width: "auto" }}
+              />
+              Add Extension
+            </a>
           </div>
 
           <div className="meta-row">
