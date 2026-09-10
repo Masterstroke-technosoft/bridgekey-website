@@ -6,7 +6,14 @@ import BlogClient from "./BlogClient";
 const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const SITE_TOKEN = process.env.NEXT_PUBLIC_SITE_TOKEN;
 
-// Strip any trailing slash so path concatenation never produces a double slash.
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    alternates: {
+        canonical: "https://bridgekey.io/blogs",
+    },
+};
+
 const CMS_BASE = CMS_URL?.replace(/\/+$/, "");
 
 interface CmsPost {

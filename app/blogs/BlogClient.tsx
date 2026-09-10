@@ -28,25 +28,23 @@ interface BlogClientProps {
 export default function BlogClient({
     items,
 }: BlogClientProps) {
-    // Filters State
+
     const [searchQuery, setSearchQuery] = useState("");
     const [dateSort, setDateSort] =
         useState<"newest" | "oldest">("newest");
     const [featuredOnly, setFeaturedOnly] =
         useState(false);
 
-    // Filter and Sort Logic
     const filteredItems = useMemo(() => {
         let result = [...items];
 
-        // 1. Featured Filter Toggle
         if (featuredOnly) {
             result = result.filter(
                 (item) => Boolean(item.featured)
             );
         }
 
-        // 2. Search
+       
         if (searchQuery.trim()) {
             const q = searchQuery.toLowerCase().trim();
 
@@ -92,7 +90,6 @@ export default function BlogClient({
             });
         }
 
-        // 3. Sort by Date
         result.sort((a, b) => {
             const timeA = a.rawDate
                 ? new Date(a.rawDate).getTime()
@@ -136,7 +133,6 @@ export default function BlogClient({
 
             <div className="mx-auto max-w-6xl px-4 pt-36 pb-20">
 
-                {/* Header */}
                 <div className="mb-8">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(0,229,192,0.2)] bg-[rgba(0,229,192,0.06)] text-[var(--teal,#00E5C0)] text-xs font-mono uppercase tracking-wider mb-4">
                         <span>BridgeKey Blog</span>
@@ -151,10 +147,9 @@ export default function BlogClient({
                     </p>
                 </div>
 
-                {/* Filters Bar */}
                 <div className="mb-10 bg-[#070F1F] border border-[rgba(143,160,182,0.15)] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between shadow-xl">
 
-                    {/* Search */}
+                  
                     <div className="relative flex-1 max-w-md">
                         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
                             <svg
@@ -206,10 +201,9 @@ export default function BlogClient({
                         )}
                     </div>
 
-                    {/* Filter Controls */}
                     <div className="flex items-center gap-3 flex-wrap">
 
-                        {/* Featured */}
+                       
                         <button
                             type="button"
                             onClick={() =>
@@ -235,7 +229,7 @@ export default function BlogClient({
                             <span>Featured</span>
                         </button>
 
-                        {/* Date Sort */}
+                       
                         <div className="relative flex items-center">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
                                 <svg

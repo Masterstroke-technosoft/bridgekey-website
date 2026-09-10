@@ -114,7 +114,7 @@ export default function Footer() {
                 <Link href="/terms" className="hover:text-[#00E5C0] transition-colors duration-200">Terms & Conditions</Link>
               </li>
               <li>
-                <Link href="/support" className="hover:text-[#00E5C0] transition-colors duration-200">Help Center</Link>
+                <Link href="/support" className="hover:text-[#00E5C0] transition-colors duration-200">Support</Link>
               </li>
             </ul>
             <div className="flex flex-col gap-3 mt-4 w-full">

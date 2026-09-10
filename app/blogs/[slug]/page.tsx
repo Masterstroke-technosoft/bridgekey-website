@@ -7,6 +7,26 @@ import CursorGlow from "@/components/CursorGlow";
 import ParticleNetwork from "@/components/ParticleNetwork";
 import BlogPostWidget from "@/components/BlogPostWidget";
 
+import type { Metadata } from "next";
+
+type Props = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata> {
+  const { slug } = await params;
+
+  return {
+    alternates: {
+      canonical: `https://bridgekey.io/blogs/${slug}`,
+    },
+  };
+}
+
 const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const SITE_TOKEN = process.env.NEXT_PUBLIC_SITE_TOKEN;
 
