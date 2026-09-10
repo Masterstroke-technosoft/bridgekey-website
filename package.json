@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/package-standalone.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "package": "node scripts/package-standalone.mjs"
   },
   "dependencies": {
     "framer-motion": "^13.0.0",
