@@ -2,12 +2,26 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === '/';
   const [menuOpen, setMenuOpen] = useState(false);
+  const [downloadDropdownOpen, setDownloadDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDownloadDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -35,11 +49,43 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="https://play.google.com/store/apps/details?id=com.bridgekey" className="nav-cta" target="_blank" rel="noopener noreferrer">
-            <span className="dot"></span>
-            <span className="hidden sm:inline">Download BridgeKey</span>
-            <span className="inline sm:hidden">Download</span>
-          </a>
+          <div className="relative" ref={dropdownRef}>
+            <button
+              type="button"
+              onClick={() => setDownloadDropdownOpen((prev) => !prev)}
+              className="nav-cta cursor-pointer select-none"
+              aria-expanded={downloadDropdownOpen}
+              aria-haspopup="true"
+            >
+              <span className="dot"></span>
+              <span className="hidden sm:inline">Download BridgeKey</span>
+              <span className="inline sm:hidden">Download</span>
+              <svg
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${downloadDropdownOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {downloadDropdownOpen && (
+              <div className="absolute right-0 top-full pt-2 z-50 w-maxc min-w-max flex flex-col items-stretch">
+                <a
+                  href="https://chromewebstore.google.com/detail/bridgekey/bfjojdcfenehemjgjlepdjomkpginlkg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setDownloadDropdownOpen(false)}
+                  className="nav-cta !w-full !justify-center !whitespace-nowrap bg-[#050A14] backdrop-blur-xl shadow-xl"
+                > 
+                  <span className="dot"></span>
+                  <span>Add Extension</span>
+                </a>
+              </div>
+            )}
+          </div>
 
           <button
             className="md:hidden text-white flex items-center justify-center p-1"

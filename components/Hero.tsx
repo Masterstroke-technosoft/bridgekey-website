@@ -118,7 +118,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/assets/icons8-google-play-store-48.png" alt="playstore-logo" style={{ height: '28px', width: 'auto' }} />
+              <img src="/assets/icons8-google-play-store-48.png" alt="playstore-logo" style={{ height: '28px', width: '28px' }} />
               Download BridgeKey
             </a>
 
@@ -130,8 +130,8 @@ export default function Hero() {
             >
               <img
                 src="/assets/Google_Chrome_icon.png"
-                alt="Chrome logo"
-                style={{ height: "28px", width: "auto" }}
+                alt="Chrome-logo"
+                style={{ height: "28px", width: "28px" }}
               />
               Add Extension
             </a>

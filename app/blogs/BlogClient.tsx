@@ -42,9 +42,7 @@ export default function BlogClient({
             result = result.filter(
                 (item) => Boolean(item.featured)
             );
-        }
-
-       
+      }   
         if (searchQuery.trim()) {
             const q = searchQuery.toLowerCase().trim();
 
@@ -149,7 +147,7 @@ export default function BlogClient({
 
                 <div className="mb-10 bg-[#070F1F] border border-[rgba(143,160,182,0.15)] rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between shadow-xl">
 
-                  
+
                     <div className="relative flex-1 max-w-md">
                         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
                             <svg
@@ -203,7 +201,7 @@ export default function BlogClient({
 
                     <div className="flex items-center gap-3 flex-wrap">
 
-                       
+
                         <button
                             type="button"
                             onClick={() =>
@@ -229,7 +227,7 @@ export default function BlogClient({
                             <span>Featured</span>
                         </button>
 
-                       
+
                         <div className="relative flex items-center">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
                                 <svg
