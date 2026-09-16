@@ -2023,6 +2023,7 @@ h2 em {
   height: 100%;
 }
 
+.sec-item h3,
 .sec-item h4 {
   font-family: Syne, sans-serif;
   font-weight: 600;

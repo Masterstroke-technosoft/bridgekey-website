@@ -76,7 +76,7 @@ export default function Showcase() {
             </svg>
 
             <div className="coin-chip c1" title="MST">
-              <img src="/assets/1.png" alt="MST" style={{ height: '40px', width: '40px' }} />
+              <img src="/assets/1.webp" alt="MST" width="40" height="40" style={{ height: '40px', width: '40px' }} />
             </div>
             <div className="coin-chip c2" title="ETH">
               Ξ
@@ -95,11 +95,11 @@ export default function Showcase() {
 
             <div className="qr-card">
               <div className="lbl">Download</div>
-              <img src="/assets/BridgekeyDownloadQR.png" height="40px" width="100px" alt="QR Code" />
+              <img src="/assets/BridgekeyDownloadQR.webp" width="100" height="100" alt="QR Code" style={{ height: '100px', width: '100px' }} />
             </div>
 
             <div className="device">
-              <img className="app-screenshot" src="/assets/BridgekeyBig.png" alt="BridgeKey app screenshot" />
+              <img className="app-screenshot" src="/assets/BridgekeyBig.webp" alt="BridgeKey app screenshot" width="450" height="900" />
             </div>
           </div>
         </div>

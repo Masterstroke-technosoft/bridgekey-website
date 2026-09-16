@@ -83,7 +83,7 @@ export const viewport: Viewport = {
 
 export default function MultiChainPage() {
   const networks = [
-    { name: 'MST Blockchain', logo: '/assets/1.png' },
+    { name: 'MST Blockchain', logo: '/assets/1.webp' },
     { name: 'Ethereum' },
     { name: 'BNB Smart Chain' },
     { name: 'Polygon' },
@@ -412,7 +412,7 @@ export default function MultiChainPage() {
               <div className="reveal" data-delay="1" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
                 <div className="bk-detail-card">
                   <span style={{ fontFamily: 'JetBrains Mono, monospace', color: 'var(--teal)', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '12px' }}>Development & Testing</span>
-                  <h4 style={{ fontFamily: 'Syne, sans-serif', fontSize: '20px', fontWeight: 600, color: 'white', marginBottom: '12px' }}>Testnet Connectivity</h4>
+                  <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: '20px', fontWeight: 600, color: 'white', marginBottom: '12px' }}>Testnet Connectivity</h3>
                   <p style={{ color: 'var(--ink-dim)', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>
                     Build, test, and explore with support for popular blockchain test networks, making BridgeKey suitable for developers and blockchain innovators.
                   </p>
@@ -420,7 +420,7 @@ export default function MultiChainPage() {
 
                 <div className="bk-detail-card">
                   <span style={{ fontFamily: 'JetBrains Mono, monospace', color: 'var(--teal)', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '12px' }}>Need access to another EVM-compatible blockchain?</span>
-                  <h4 style={{ fontFamily: 'Syne, sans-serif', fontSize: '20px', fontWeight: 600, color: 'white', marginBottom: '12px' }}>Custom RPC Networks</h4>
+                  <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: '20px', fontWeight: 600, color: 'white', marginBottom: '12px' }}>Custom RPC Networks</h3>
                   <p style={{ color: 'var(--ink-dim)', fontSize: '15px', lineHeight: '1.6', margin: 0 }}>
                     BridgeKey lets you add custom RPC networks, giving you the flexibility to connect to emerging ecosystems and private blockchain environments.
                   </p>
@@ -429,7 +429,7 @@ export default function MultiChainPage() {
 
               <div className="reveal" data-delay="2" style={{ display: 'flex', alignItems: 'center' }}>
                 <div className="bk-switch-card">
-                  <h4 style={{ fontFamily: 'Syne, sans-serif', fontSize: '24px', fontWeight: 600, color: 'white', marginBottom: '16px' }}>Seamless Network Switching</h4>
+                  <h3 style={{ fontFamily: 'Syne, sans-serif', fontSize: '24px', fontWeight: 600, color: 'white', marginBottom: '16px' }}>Seamless Network Switching</h3>
                   <p style={{ color: 'var(--ink-dim)', fontSize: '16px', lineHeight: '1.7', marginBottom: '0' }}>
                     Switch between supported blockchain networks with just a few taps. Your assets, balances, and supported tokens are organized for each network, helping you manage multiple ecosystems through one intuitive interface.
                   </p>
@@ -604,8 +604,9 @@ export default function MultiChainPage() {
             </p>
             <div className="reveal" data-delay="2">
               <a href="https://play.google.com/store/apps/details?id=com.bridgekey" className="playstore-btn" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/playstore.png" alt="playstore logo" style={{ height: '28px', width: 'auto' }} />
-                Explore BridgeKey
+                <img src="/assets/playstore.png" alt="playstore logo" width="28" height="28" style={{ height: '28px', width: 'auto' }} />
+                <span className="hidden sm:inline">Download BridgeKey</span>
+                <span className="inline sm:hidden">Download</span>
               </a>
             </div>
           </div>

@@ -24,7 +24,7 @@ export default function Security() {
               </svg>
             </div>
             <span className="tag">Property 01</span>
-            <h4>Non‑custodial.</h4>
+            <h3>Non‑custodial.</h3>
             <p className="content">Your keys live on your device. We can't see them, freeze them, or hand them over. Period.</p>
           </div>
           <div className="sec-item reveal" data-delay="2">
@@ -37,7 +37,7 @@ export default function Security() {
               </svg>
             </div>
             <span className="tag">Property 02</span>
-            <h4>Multi-Asset Support.</h4>
+            <h3>Multi-Asset Support.</h3>
             <p className="content">Store and manage MSTC, Bitcoin, Ethereum and thousand plus tokens in one secure wallet.</p>
           </div>
           <div className="sec-item reveal" data-delay="3">
@@ -49,7 +49,7 @@ export default function Security() {
               </svg>
             </div>
             <span className="tag">Property 03</span>
-            <h4>Transaction History.</h4>
+            <h3>Transaction History.</h3>
             <p className="content">Keep track of all your transactions with detailed records and easy-to-understand summaries.</p>
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function Security() {
             borderBottom: '1px solid transparent',
             transition: 'border-color 0.2s',
           }}
-          className="hover:border-[var(--teal)]"
+            className="hover:border-[var(--teal)]"
           >
             Learn more about our security →
           </Link>

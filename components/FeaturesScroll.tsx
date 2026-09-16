@@ -247,6 +247,8 @@ export default function FeaturesScroll() {
                   <img
                     src={feature.imgSrc.trim()}
                     alt={feature.title}
+                    width={600}
+                    height={400}
                     className="w-full h-full rounded-xl object-contain mx-auto my-auto transition-transform duration-300 hover:scale-[1.05]"
                   />
                 </div>
@@ -282,6 +284,8 @@ export default function FeaturesScroll() {
                 <img
                   src={feature.imgSrc.trim()}
                   alt={feature.title}
+                  width={400}
+                  height={220}
                   className="max-h-[220px] w-auto object-contain rounded-xl mx-auto"
                 />
               </div>

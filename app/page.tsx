@@ -187,7 +187,7 @@ export default function Home() {
     <main>
       <meta httpEquiv="content-language" content="en-IN" />
       <link rel="alternate" href="android-app://com.bridgekey/https/bridgekey.io/" />
-      <link rel="preload" as="image" href="/assets/BridgekeyBig.png" />
+      <link rel="preload" as="image" href="/assets/BridgekeyBig.webp" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://play.google.com" />
 

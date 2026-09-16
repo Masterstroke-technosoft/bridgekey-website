@@ -52,6 +52,8 @@ export default function Footer() {
               <img
                 src="/uploads/header-logo.png"
                 alt="BridgeKey Logo"
+                width={240}
+                height={128}
                 className="h-32 w-auto object-contain"
               />
             </Link>
@@ -62,7 +64,7 @@ export default function Footer() {
 
           {/* Links Categories Columns */}
           <motion.div className="flex flex-col gap-4" variants={itemVariants}>
-            <h5 className="font-mono text-xs text-gray-500 tracking-wider uppercase font-semibold">Product</h5>
+            <h3 className="font-mono text-xs text-gray-500 tracking-wider uppercase font-semibold">Product</h3>
             <ul className="flex flex-col gap-3 text-sm text-gray-400">
               {['About', 'Features', 'Security', 'Multi-Chain'].map((item) => (
                 <li key={item}>
@@ -84,7 +86,7 @@ export default function Footer() {
           </motion.div>
 
           <motion.div className="flex flex-col gap-4" variants={itemVariants}>
-            <h5 className="font-mono text-xs text-gray-500 tracking-wider uppercase font-semibold">Chain</h5>
+            <h3 className="font-mono text-xs text-gray-500 tracking-wider uppercase font-semibold">Chain</h3>
             <ul className="flex flex-col gap-3 text-sm text-gray-400">
               <li>
                 <a href="https://mstblockchain.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#00E5C0] transition-colors duration-200">
@@ -105,7 +107,7 @@ export default function Footer() {
           </motion.div>
 
           <motion.div className="col-span-2 md:col-span-1 flex flex-col gap-4" variants={itemVariants}>
-            <h5 className="font-mono text-xs text-gray-500 tracking-wider uppercase font-semibold">Legal & Support</h5>
+            <h3 className="font-mono text-xs text-gray-500 tracking-wider uppercase font-semibold">Legal & Support</h3>
             <ul className="flex flex-col gap-3 text-sm text-gray-400">
               <li>
                 <Link href="/privacy" className="hover:text-[#00E5C0] transition-colors duration-200">Privacy Policy</Link>
