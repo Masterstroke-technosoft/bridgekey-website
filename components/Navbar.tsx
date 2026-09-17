@@ -50,44 +50,40 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4">
           <div className="relative inline-flex items-center" ref={dropdownRef}>
-            <div className="nav-cta !p-0 !gap-0 flex items-center select-none overflow-hidden">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.bridgekey"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 py-2.5 pl-4 pr-1.5 text-inherit hover:text-[var(--teal)] transition-colors"
-                title="Download BridgeKey on PlayStore"
+            <button
+              type="button"
+              onClick={() => setDownloadDropdownOpen((prev) => !prev)}
+              className="nav-cta cursor-pointer select-none"
+              aria-expanded={downloadDropdownOpen}
+              aria-haspopup="true"
+            >
+              <span className="dot"></span>
+              <span className="hidden sm:inline">Download Bridgekey</span>
+              <span className="inline sm:hidden">Download</span>
+              <svg
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${downloadDropdownOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
               >
-                <span className="dot"></span>
-                <span className="hidden sm:inline">Download BridgeKey</span>
-                <span className="inline sm:hidden">Download</span>
-              </a>
-
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setDownloadDropdownOpen((prev) => !prev);
-                }}
-                className="py-2.5 pl-1 pr-3 text-inherit hover:text-[var(--teal)] flex items-center justify-center cursor-pointer transition-colors"
-                aria-label="Toggle download options"
-                aria-expanded={downloadDropdownOpen}
-                aria-haspopup="true"
-              >
-                <svg
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${downloadDropdownOpen ? 'rotate-180 text-[var(--teal)]' : ''}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-            </div>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
 
             {downloadDropdownOpen && (
-              <div className="absolute right-0 top-full pt-2 z-50 min-w-full w-max flex flex-col items-stretch">
+              <div className="absolute right-0 top-full pt-2 z-50 min-w-min w-max flex flex-col items-stretch gap-2">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.bridgekey"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setDownloadDropdownOpen(false)}
+                  className="nav-cta !w-full !justify-center !whitespace-nowrap bg-[#050A14] backdrop-blur-xl shadow-xl"
+                >
+                  {/* <span className="dot"></span> */}
+                  <img src="/assets/icons8-google-play-store-48.webp" alt="playstore-logo" width="20" height="20" style={{ height: '20px', width: '20px' }} />
+                  <span>Android</span>
+                </a>
                 <a
                   href="https://chromewebstore.google.com/detail/bridgekey/bfjojdcfenehemjgjlepdjomkpginlkg"
                   target="_blank"
@@ -95,8 +91,11 @@ export default function Navbar() {
                   onClick={() => setDownloadDropdownOpen(false)}
                   className="nav-cta !w-full !justify-center !whitespace-nowrap bg-[#050A14] backdrop-blur-xl shadow-xl"
                 >
-                  <span className="dot"></span>
-                  <span>Add Extension</span>
+                  {/* <span className="dot"></span> */}
+                  <img
+                    src="/assets/Google_Chrome_icon.webp" alt="Chrome-logo" width="20" height="20" style={{ height: "20px", width: "20px" }}
+                  />
+                  <span>Chrome</span>
                 </a>
               </div>
             )}
