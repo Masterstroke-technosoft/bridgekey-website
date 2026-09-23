@@ -26,7 +26,7 @@ export default function MSTChain() {
                 <div className="lbl">Average Block Time</div>
               </div>
               <div className="stat">
-                <div className="num">73,000 +</div>
+                <div className="num">80,000 +</div>
                 <div className="lbl">Active validators</div>
               </div>
               <div className="stat">

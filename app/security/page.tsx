@@ -363,7 +363,7 @@ export default function SecurityPage() {
                   <span className="bk-pillar__scan" aria-hidden="true" />
                   <div className="bk-pillar__icon">{p.icon}</div>
                   <span className="tag bk-pillar__tag">{p.tag}</span>
-                  <h4 className="bk-pillar__title">{p.title}</h4>
+                  <h3 className="bk-pillar__title">{p.title}</h3>
                   <p className="content bk-pillar__body">
                     <strong>{p.quote}</strong> {p.body}
                   </p>
@@ -416,7 +416,7 @@ export default function SecurityPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/assets/playstore.png" alt="playstore logo" style={{ height: '28px', width: 'auto' }} />
+                <img src="/assets/playstore.png" alt="playstore logo" width="28" height="28" style={{ height: '28px', width: 'auto' }} />
                 Download BridgeKey
               </a>
             </div>

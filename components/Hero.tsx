@@ -118,8 +118,20 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="/assets/icons8-google-play-store-48.png" alt="playstore-logo" style={{ height: '28px', width: 'auto' }} />
+              <img src="/assets/icons8-google-play-store-48.webp" alt="playstore-logo" width="28" height="28" style={{ height: '28px', width: '28px' }} />
               Download BridgeKey
+            </a>
+
+            <a
+              href="https://chromewebstore.google.com/detail/bridgekey/bfjojdcfenehemjgjlepdjomkpginlkg"
+              className="playstore-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/assets/Google_Chrome_icon.webp" alt="Chrome-logo" width="28" height="28" style={{ height: "28px", width: "28px" }}
+              />
+              Add Extension
             </a>
           </div>
 

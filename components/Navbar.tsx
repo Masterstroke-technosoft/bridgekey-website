@@ -2,12 +2,26 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === '/';
   const [menuOpen, setMenuOpen] = useState(false);
+  const [downloadDropdownOpen, setDownloadDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDownloadDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -31,16 +45,63 @@ export default function Navbar() {
           )}
           <Link href="/security">Security</Link>
           <Link href="/multi-chain">Multi-Chain</Link>
+          <Link href="/blogs">Blogs</Link>
         </div>
-        
+
         <div className="flex items-center gap-4">
-          <a href="https://play.google.com/store/apps/details?id=com.bridgekey" className="nav-cta" target="_blank" rel="noopener noreferrer">
-            <span className="dot"></span>
-            <span className="hidden sm:inline">Download BridgeKey</span>
-            <span className="inline sm:hidden">Download</span>
-          </a>
-          
-          <button 
+          <div className="relative inline-flex items-center" ref={dropdownRef}>
+            <button
+              type="button"
+              onClick={() => setDownloadDropdownOpen((prev) => !prev)}
+              className="nav-cta cursor-pointer select-none"
+              aria-expanded={downloadDropdownOpen}
+              aria-haspopup="true"
+            >
+              <span className="dot"></span>
+              <span className="hidden sm:inline">Download Bridgekey</span>
+              <span className="inline sm:hidden">Download</span>
+              <svg
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${downloadDropdownOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {downloadDropdownOpen && (
+              <div className="absolute right-0 top-full pt-2 z-50 min-w-min w-max flex flex-col items-stretch gap-2">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.bridgekey"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setDownloadDropdownOpen(false)}
+                  className="nav-cta !w-full !justify-center !whitespace-nowrap bg-[#050A14] backdrop-blur-xl shadow-xl"
+                >
+                  {/* <span className="dot"></span> */}
+                  <img src="/assets/icons8-google-play-store-48.webp" alt="playstore-logo" width="20" height="20" style={{ height: '20px', width: '20px' }} />
+                  <span>Android</span>
+                </a>
+                <a
+                  href="https://chromewebstore.google.com/detail/bridgekey/bfjojdcfenehemjgjlepdjomkpginlkg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setDownloadDropdownOpen(false)}
+                  className="nav-cta !w-full !justify-center !whitespace-nowrap bg-[#050A14] backdrop-blur-xl shadow-xl"
+                >
+                  {/* <span className="dot"></span> */}
+                  <img
+                    src="/assets/Google_Chrome_icon.webp" alt="Chrome-logo" width="20" height="20" style={{ height: "20px", width: "20px" }}
+                  />
+                  <span>Chrome</span>
+                </a>
+              </div>
+            )}
+          </div>
+
+          <button
             className="md:hidden text-white flex items-center justify-center p-1"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
@@ -73,7 +134,8 @@ export default function Navbar() {
               <a href="/#how" onClick={() => setMenuOpen(false)} className="py-4 border-b border-[rgba(255,255,255,0.08)]">How it works</a>
             )}
             <Link href="/security" onClick={() => setMenuOpen(false)} className="py-4 border-b border-[rgba(255,255,255,0.08)]">Security</Link>
-            <Link href="/multi-chain" onClick={() => setMenuOpen(false)} className="py-4">Multi-Chain</Link>
+            <Link href="/multi-chain" onClick={() => setMenuOpen(false)} className="py-4 border-b border-[rgba(255,255,255,0.08)]">Multi-Chain</Link>
+            <Link href="/blogs" onClick={() => setMenuOpen(false)} className="py-4">Blogs</Link>
           </div>
         </div>
       )}
