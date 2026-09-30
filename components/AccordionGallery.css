@@ -33,7 +33,7 @@
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
   min-height: 430px;
   -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
+  cursor: none;
 }
 
 /* Hover State - Comes Up (Lifts smoothly upwards without touching the upside card) */
