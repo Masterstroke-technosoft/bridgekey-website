@@ -5,7 +5,6 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import CursorGlow from "@/components/CursorGlow";
 import ParticleNetwork from "@/components/ParticleNetwork";
-import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
 
 const reasons = [
@@ -46,38 +45,20 @@ export default function FeedbackPage() {
         setIsSubmitting(true);
         setSubmitError("");
 
-        const sheetUrl = process.env.NEXT_PUBLIC_FEEDBACK_SHEET_URL;
-
-        const payload = {
-            timestamp: new Date().toLocaleString("en-US", {
-                timeZone: "Asia/Kolkata",
-                dateStyle: "medium",
-                timeStyle: "short",
-            }),
-            reasons: selectedReasons.length > 0 ? selectedReasons.join(", ") : "None selected",
-            additionalFeedback: feedback.trim() || "No additional comments",
-        };
-
         try {
-            if (sheetUrl) {
-                await fetch(sheetUrl, {
-                    method: "POST",
-                    mode: "no-cors",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(payload),
-                });
-            } else {
-                // Log payload in console if sheet URL is not yet populated
-                console.log("Feedback recorded for Google Sheet:", payload);
-            }
+            const response = await fetch("/api/feedback", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ reasons: selectedReasons, feedback: feedback.trim() }),
+            });
+            const result = await response.json().catch(() => null);
 
+            if (!response.ok || result?.success !== true) {
+                throw new Error(result?.error || "Feedback could not be saved right now.");
+            }
             setIsSubmitted(true);
         } catch (err) {
-            console.error("Error submitting feedback to Google Sheet:", err);
-            // Even if network fails, show confirmation so the user is not stuck
-            setIsSubmitted(true);
+            setSubmitError(err instanceof Error ? err.message : "Feedback could not be saved right now. Please try again.");
         } finally {
             setIsSubmitting(false);
         }
@@ -183,7 +164,7 @@ export default function FeedbackPage() {
 
                             <div className="message-field">
                                 <label htmlFor="feedback">
-                                    Anything else you'd like us to know?
+                                    Anything else you&apos;d like us to know?
                                     <span>Optional</span>
                                 </label>
 
@@ -213,6 +194,11 @@ export default function FeedbackPage() {
                                     </>
                                 )}
                             </button>
+                            {submitError && (
+                                <p role="alert" className="feedback-submit-error">
+                                    {submitError}
+                                </p>
+                            )}
                         </form>
                     )}
 
