@@ -1,5 +1,4 @@
 // Set SHARED_SECRET in Apps Script Project Settings > Script Properties.
-const SPREADSHEET_ID = "1fONf3omjQkia5Gp6_xEqCRvyuqpjSZ9LAlZCqykaF3A";
 const SHEET_NAME = "Feedback";
 const HEADERS = ["Timestamp", "Uninstallation Reason", "Additional Feedback"];
 
@@ -67,7 +66,12 @@ function doPost(e) {
 }
 
 function getSheet_() {
-  const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
+  const spreadsheetId = PropertiesService.getScriptProperties().getProperty("SPREADSHEET_ID");
+  if (!spreadsheetId || !/^[a-zA-Z0-9_-]+$/.test(spreadsheetId)) {
+    throw new Error("Set SPREADSHEET_ID in Apps Script Project Settings > Script Properties.");
+  }
+
+  const spreadsheet = SpreadsheetApp.openById(spreadsheetId);
 
   let sheet = spreadsheet.getSheetByName(SHEET_NAME);
   if (!sheet) sheet = spreadsheet.insertSheet(SHEET_NAME);
