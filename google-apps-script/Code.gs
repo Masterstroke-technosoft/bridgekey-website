@@ -1,6 +1,23 @@
 // Set SHARED_SECRET in Apps Script Project Settings > Script Properties.
 const SHEET_NAME = "Feedback";
 const HEADERS = ["Timestamp", "Uninstallation Reason", "Additional Feedback"];
+const MAX_FEEDBACK_LENGTH = 5000;
+const MAX_REASONS = 13;
+const VALID_REASONS = [
+  "I found a wallet I like more",
+  "BridgeKey is too slow or buggy",
+  "BridgeKey doesn't have the features I need from my wallet",
+  "Reinstalling to troubleshoot",
+  "BridgeKey is too hard to use",
+  "BridgeKey does not support the network I wish to use",
+  "I lost access to my wallet",
+  "I use BridgeKey on another device",
+  "I no longer use or need a wallet",
+  "I need to import another Secret Recovery Phrase",
+  "I installed or uninstalled BridgeKey by mistake",
+  "I was scammed",
+  "Other"
+];
 
 function doGet() {
   return json_({
@@ -15,7 +32,7 @@ function doPost(e) {
 
   try {
     const raw = e && e.postData && e.postData.contents;
-    if (!raw || raw.length > 20000) {
+    if (!raw || Utilities.newBlob(raw).getBytes().length > 20000) {
       throw new Error("A valid JSON request under 20 KB is required.");
     }
 
@@ -32,6 +49,9 @@ function doPost(e) {
     }
     if (request.sheetName !== SHEET_NAME) {
       throw new Error("Sheet name must be " + SHEET_NAME + ".");
+    }
+    if (request.action === "append" || request.action === "update") {
+      validateFeedbackRow_(request.values);
     }
 
     locked = lock.tryLock(10000);
@@ -141,13 +161,44 @@ function validateRow_(values) {
     if (value !== null && typeof value !== "string" && typeof value !== "number" && typeof value !== "boolean") {
       throw new Error("Each cell must be text, a number, a boolean, or empty.");
     }
-    if (typeof value === "string" && value.length > 5000) {
+    if (typeof value === "string" && value.length > MAX_FEEDBACK_LENGTH) {
       throw new Error("Cell values must be 5,000 characters or fewer.");
     }
+    if (typeof value === "string" && /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/.test(value)) {
+      throw new Error("Cell values contain unsupported control characters.");
+    }
     // Prevent user-provided text from being evaluated as a Sheet formula.
-    if (typeof value === "string" && /^[\s]*[=+@-]/.test(value)) return "'" + value;
+    if (typeof value === "string" && /^[\s\uFEFF]*[=+@-]/.test(value)) return "'" + value;
     return value;
   });
+}
+
+function validateFeedbackRow_(values) {
+  validateRow_(values);
+  const timestamp = values[0];
+  const reasonText = values[1];
+  const feedback = values[2];
+  if (typeof timestamp !== "string" || timestamp.length > 40 || isNaN(Date.parse(timestamp))) {
+    throw new Error("A valid feedback timestamp is required.");
+  }
+  if (typeof reasonText !== "string" || reasonText.length > 2000) {
+    throw new Error("Uninstallation reasons must be valid text.");
+  }
+  if (typeof feedback !== "string" || feedback.length > MAX_FEEDBACK_LENGTH ||
+      /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/.test(feedback)) {
+    throw new Error("Additional feedback must be 5,000 characters or fewer and contain valid text.");
+  }
+
+  const reasons = reasonText === "None selected" ? [] : reasonText.split(", ");
+  if (reasons.length > MAX_REASONS || reasons.some(function (reason) {
+    return VALID_REASONS.indexOf(reason) === -1;
+  }) || new Set(reasons).size !== reasons.length) {
+    throw new Error("Please provide valid, non-duplicate uninstallation reasons.");
+  }
+  if (reasons.length === 0 && !feedback.trim()) {
+    throw new Error("Please provide a reason or additional feedback.");
+  }
+  return validateRow_(values);
 }
 
 function sameSecret_(provided, expected) {

@@ -174,6 +174,7 @@ export default function FeedbackPage() {
                                     onChange={(e) => setFeedback(e.target.value)}
                                     placeholder="Tell us what we could improve..."
                                     rows={4}
+                                    maxLength={5_000}
                                 />
                             </div>
 
