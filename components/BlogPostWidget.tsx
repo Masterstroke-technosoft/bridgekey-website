@@ -8,9 +8,6 @@ interface BlogPostWidgetProps {
   slug: string;
 }
 
-const DEFAULT_DESCRIPTION =
-  'A practical guide to managing API keys securely, protecting application credentials, and simplifying authentication with Bridge Key.';
-
 export default function BlogPostWidget({
   cmsUrl,
   siteToken,
@@ -32,8 +29,21 @@ export default function BlogPostWidget({
 
     document.body.appendChild(script);
 
-    // Layout and alignment styles only (original font colors preserved untouched)
+    // Layout and alignment styles, plus text colors the widget's light-theme defaults make unreadable on the dark page
     const layoutStyles = `
+      .mst-breadcrumb-item a,
+      .mst-breadcrumb-separator,
+      .mst-post-subheading,
+      .mst-post-meta {
+        color: #8FA0B6 !important;
+      }
+      .mst-breadcrumb-item a:hover {
+        color: #00E5C0 !important;
+      }
+      .mst-breadcrumb-current,
+      .mst-post-author {
+        color: #E2E8F0 !important;
+      }
       :host, .mst-widget {
         width: 100% !important;
         max-width: 100% !important;
@@ -122,13 +132,6 @@ export default function BlogPostWidget({
         el.style.maxWidth = '100%';
         el.style.width = '100%';
       });
-
-      const subHeadingEl = shadow.querySelector<HTMLElement>(
-        '.mst-post-subheading'
-      );
-      if (subHeadingEl) {
-        subHeadingEl.textContent = DEFAULT_DESCRIPTION;
-      }
 
       const post = shadow.querySelector<HTMLElement>('.mst-post');
       if (post) {

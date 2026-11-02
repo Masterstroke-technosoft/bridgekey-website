@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import CursorGlow from "@/components/CursorGlow";
 import ParticleNetwork from "@/components/ParticleNetwork";
 import BlogPostWidget from "@/components/BlogPostWidget";
+import { getBlogPosts } from "@/lib/blog";
 
 import type { Metadata } from "next";
 
@@ -30,84 +31,7 @@ export async function generateMetadata({
 const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const SITE_TOKEN = process.env.NEXT_PUBLIC_SITE_TOKEN;
 
-interface CmsPost {
-  id: string;
-  slug: string;
-  heading: string;
-  subHeading?: string;
-  cardImage?: string;
-  category?: string;
-  featured?: boolean;
-  publishedAt?: string;
-  author?: {
-    name?: string;
-  };
-}
-
-interface SidebarBlogItem {
-  image: string;
-  category: string;
-  heading: string;
-  subHeading: string;
-  author: string;
-  date: string;
-  slug: string;
-  link: string;
-}
-
-function formatDate(dateStr?: string) {
-  if (!dateStr) return "";
-  try {
-    const d = new Date(dateStr);
-    return d.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  } catch {
-    return dateStr;
-  }
-}
-
-async function getOtherBlogPosts(): Promise<SidebarBlogItem[]> {
-  try {
-    if (!CMS_URL || !SITE_TOKEN) {
-      return [];
-    }
-
-    const res = await fetch(
-      `${CMS_URL}/api/v1/connector/posts?limit=20`,
-      {
-        headers: {
-          "x-site-token": SITE_TOKEN,
-        },
-        cache: "no-store",
-      }
-    );
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch posts from backend");
-    }
-
-    const data: CmsPost[] = await res.json();
-
-    return data.map((post) => ({
-      image:
-        post.cardImage ||
-        "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1200&auto=format&fit=crop",
-      category: post.category?.toUpperCase() || "GENERAL",
-      heading: post.heading,
-      subHeading: post.subHeading || "",
-      author: post.author?.name || "MST Editorial Team",
-      date: formatDate(post.publishedAt),
-      slug: post.slug,
-      link: `/blogs/${post.slug}`,
-    }));
-  } catch (error) {
-    console.error("Error fetching other blog posts:", error);
-    return [];
-  }
-}
+const SIDEBAR_POST_LIMIT = 20;
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -119,7 +43,7 @@ export default async function BlogPostPage({
   params,
 }: BlogPostPageProps) {
   const { slug } = await params;
-  const allPosts = await getOtherBlogPosts();
+  const allPosts = (await getBlogPosts()).slice(0, SIDEBAR_POST_LIMIT);
 
   return (
     <main className="min-h-screen bg-[var(--bg)] text-[var(--ink)]">

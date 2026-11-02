@@ -38,51 +38,8 @@ export interface AccordionGalleryProps {
   className?: string;
 }
 
-const DEFAULT_ITEMS: AccordionGalleryItem[] = [
-  {
-    image: 'https://ik.imagekit.io/avboeabnm1/blog-posts/6a9955066dcd567e2ac69968/email_banner_design2.jpg_ABBec7vEj.jpeg',
-    category: 'GENERAL',
-    heading: 'Bridge Key: Secure API Keys and Authentication for Modern Applications',
-    subHeading: 'A practical guide to managing API keys securely, protecting application credentials, and simplifying authentication with Bridge Key.',
-    author: 'MST Editorial Team',
-    date: 'Sep 4, 2026',
-    featured: true,
-    link: '/blogs/bridge-key-secure-api-key-management'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1200&auto=format&fit=crop',
-    category: 'SECURITY',
-    heading: 'Biometric Non-Custodial Vaults & Key Protection',
-    subHeading: 'A practical guide to managing API keys securely, protecting application credentials, and simplifying authentication with Bridge Key.',
-    author: 'BridgeKey Security Lab',
-    date: 'Sep 2, 2026',
-    featured: false,
-    link: '/security'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1622979135225-d2ba269bc1df?q=80&w=1200&auto=format&fit=crop',
-    category: 'MULTI-CHAIN',
-    heading: 'Unified Cross-Chain Routing Across 95+ EVM Networks',
-    subHeading: 'A practical guide to managing API keys securely, protecting application credentials, and simplifying authentication with Bridge Key.',
-    author: 'Ecosystem Engineering',
-    date: 'Aug 29, 2026',
-    featured: false,
-    link: '/multi-chain'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
-    category: 'LAYER-1',
-    heading: 'MST Layer-1 Consensus: High Speed & Low Latency',
-    subHeading: 'A practical guide to managing API keys securely, protecting application credentials, and simplifying authentication with Bridge Key.',
-    author: 'MST Protocol Team',
-    date: 'Aug 25, 2026',
-    featured: false,
-    link: 'https://mstblockchain.com'
-  }
-];
-
 const AccordionGallery = ({
-  items = DEFAULT_ITEMS,
+  items = [],
   accentColor = '#2563eb',
   cardTheme = 'light',
   gap = 24,
