@@ -166,7 +166,7 @@ export default function Home() {
         "name": "What is MST Blockchain?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "MST Blockchain is a sovereign Layer-1 blockchain with 3-second block time, 73,000+ validators and fees of 0.001 MSTC. BridgeKey is the official native wallet for the MST Blockchain ecosystem."
+          "text": "MST Blockchain is a sovereign Layer-1 blockchain with 3-second block time, 87,000+ validators and fees of 0.001 MSTC. BridgeKey is the official native wallet for the MST Blockchain ecosystem."
         }
       }
     ]
@@ -259,7 +259,7 @@ export default function Home() {
               },
               {
                 q: "What is MST Blockchain?",
-                a: "MST Blockchain is a sovereign Layer-1 blockchain with 3-second block time, 73,000+ validators and fees of 0.001 MSTC. BridgeKey is the official native wallet."
+                a: "MST Blockchain is a sovereign Layer-1 blockchain with 3-second block time, 87,000+ validators and fees of 0.001 MSTC. BridgeKey is the official native wallet."
               }
             ].map((faq, idx) => (
               <details
