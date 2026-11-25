@@ -37,8 +37,8 @@ export default function Security() {
               </svg>
             </div>
             <span className="tag">Property 02</span>
-            <h3>Multi-Asset Support.</h3>
-            <p className="content">Store and manage MSTC, Bitcoin, Ethereum and thousand plus tokens in one secure wallet.</p>
+            <h3>Biometric Authentication.</h3>
+            <p className="content">Fingerprint or Face ID required to unlock your wallet and approve every transaction. Your wallet is protected even if your phone is stolen. Access your crypto in under 3 seconds with no passwords.</p>
           </div>
           <div className="sec-item reveal" data-delay="3">
             <div className="ic">
@@ -49,8 +49,8 @@ export default function Security() {
               </svg>
             </div>
             <span className="tag">Property 03</span>
-            <h3>Transaction History.</h3>
-            <p className="content">Keep track of all your transactions with detailed records and easy-to-understand summaries.</p>
+            <h3>AES Local Encryption.</h3>
+            <p className="content">Your private keys are encrypted using AES-256 directly on your device. No data is ever transmitted to BridgeKey servers. Your keys never leave your phone — not even for backup.</p>
           </div>
         </div>
         <div style={{ textAlign: 'center', marginTop: '48px' }} className="reveal" data-delay="4">
