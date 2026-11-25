@@ -6,6 +6,8 @@ import ParticleNetwork from '@/components/ParticleNetwork';
 import ScrollReveal from '@/components/ScrollReveal';
 import SpecTable from '@/components/SpecTable';
 import SecurityConsole from '@/components/SecurityConsole';
+import SecurityFAQ from '../securityfaq/page';
+
 
 export const metadata: Metadata = {
   title: "BridgeKey: Non-Custodial Crypto Wallet Security — Your Keys, Your Device",
@@ -398,6 +400,8 @@ export default function SecurityPage() {
             </div>
           </div>
         </section>
+
+        <SecurityFAQ />
 
         {/* Custom CTA Band */}
         <section className="cta-band bk-cta" style={{ borderTop: '1px solid var(--line)' }}>

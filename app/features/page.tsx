@@ -5,6 +5,7 @@ import CursorGlow from '@/components/CursorGlow';
 import ParticleNetwork from '@/components/ParticleNetwork';
 import ScrollReveal from '@/components/ScrollReveal';
 import FeaturesScroll from '@/components/FeaturesScroll';
+import FeaturesFAQ from '@/components/FeaturesFAQ';
 
 export const metadata: Metadata = {
   title: "BridgeKey Features: Biometric Login, Multi-Chain & Web3 Browser",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     title: "BridgeKey Features: Biometric Login, Multi-Chain & Web3 Browser",
     description: "Explore BridgeKey non-custodial wallet features: biometric login, 95+ chain support, Web3 browser, hardware wallet & smart accounts. No KYC. Free.",
     url: "https://bridgekey.io/features",
-    locale: "en_IN",
+    locale: "en_US",
     images: [
       {
         url: "https://bridgekey.io/assets/og-features.png",
@@ -269,6 +270,7 @@ export default function FeaturesPage() {
         </section>
 
         {/* Opposite Scroll Parallax Section */}
+        <FeaturesFAQ />
         <FeaturesScroll />
 
         {/* Custom CTA Band */}

@@ -10,6 +10,56 @@ import { getBlogPosts } from "@/lib/blog";
 
 import type { Metadata } from "next";
 
+const CMS_URL =
+  process.env.NEXT_PUBLIC_CMS_URL ||
+  process.env.NEXT_PUBLIC_CMS_API_URL ||
+  "https://cms-api.masterstroke.academy";
+const SITE_TOKEN =
+  process.env.CMS_SITE_TOKEN ||
+  process.env.NEXT_PUBLIC_SITE_TOKEN ||
+  process.env.NEXT_PUBLIC_CMS_SITE_TOKEN ||
+  "";
+
+interface CmsPost {
+  id: string;
+  slug: string;
+  heading: string;
+  subHeading?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  cardImage?: string;
+  category?: string;
+  featured?: boolean;
+  publishedAt?: string;
+  createdAt?: string;
+  author?: {
+    name?: string;
+  };
+}
+
+async function getPost(slug: string): Promise<CmsPost | null> {
+  try {
+    if (!CMS_URL || !SITE_TOKEN) {
+      return null;
+    }
+
+    const res = await fetch(
+      `${CMS_URL.replace(/\/+$/, "")}/api/v1/connector/posts/${encodeURIComponent(slug)}`,
+      {
+        headers: {
+          "x-site-token": SITE_TOKEN,
+        },
+        next: { revalidate: 60 },
+      }
+    );
+    if (!res.ok) return null;
+    return (await res.json()) as CmsPost;
+  } catch (error) {
+    console.error("Failed to fetch post for metadata:", error);
+    return null;
+  }
+}
+
 type Props = {
   params: Promise<{
     slug: string;
@@ -20,14 +70,116 @@ export async function generateMetadata({
   params,
 }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const post = await getPost(slug);
+
+  if (!post) {
+    return {
+      title: "Blog Post Not Found",
+    };
+  }
+
+  const title = post.metaTitle || post.heading || "Blog Post";
+  const description = post.metaDescription || post.subHeading || "";
+  const imageUrl = post.cardImage || "";
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://bridgekey.io").replace(/\/+$/, "");
+  const canonicalUrl = `${siteUrl}/blogs/${slug}`;
 
   return {
+    title,
+    description,
     alternates: {
-      canonical: `https://bridgekey.io/blogs/${slug}`,
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      type: "article",
+      title,
+      description,
+      url: canonicalUrl,
+      images: imageUrl
+        ? [
+          {
+            url: imageUrl,
+            width: 1200,
+            height: 630,
+            alt: title,
+          },
+        ]
+        : [],
+      publishedTime: post.publishedAt || post.createdAt,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: imageUrl ? [imageUrl] : [],
     },
   };
 }
 
+interface SidebarBlogItem {
+  image: string;
+  category: string;
+  heading: string;
+  subHeading: string;
+  author: string;
+  date: string;
+  slug: string;
+  link: string;
+}
+
+function formatDate(dateStr?: string) {
+  if (!dateStr) return "";
+  try {
+    const d = new Date(dateStr);
+    return d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  } catch {
+    return dateStr;
+  }
+}
+
+async function getOtherBlogPosts(): Promise<SidebarBlogItem[]> {
+  try {
+    if (!CMS_URL || !SITE_TOKEN) {
+      return [];
+    }
+
+    const res = await fetch(
+      `${CMS_URL}/api/v1/connector/posts?limit=20`,
+      {
+        headers: {
+          "x-site-token": SITE_TOKEN,
+        },
+        cache: "no-store",
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch posts from backend");
+    }
+
+    const data: CmsPost[] = await res.json();
+
+    return data.map((post) => ({
+      image:
+        post.cardImage ||
+        "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1200&auto=format&fit=crop",
+      category: post.category?.toUpperCase() || "GENERAL",
+      heading: post.heading,
+      subHeading: post.subHeading || "",
+      author: post.author?.name || "MST Editorial Team",
+      date: formatDate(post.publishedAt),
+      slug: post.slug,
+      link: `/blogs/${post.slug}`,
+    }));
+  } catch (error) {
+    console.error("Error fetching other blog posts:", error);
+    return [];
+  }
+}
 const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const SITE_TOKEN = process.env.NEXT_PUBLIC_SITE_TOKEN;
 
