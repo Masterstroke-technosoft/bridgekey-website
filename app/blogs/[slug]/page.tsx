@@ -96,13 +96,13 @@ export async function generateMetadata({
       url: canonicalUrl,
       images: imageUrl
         ? [
-            {
-              url: imageUrl,
-              width: 1200,
-              height: 630,
-              alt: title,
-            },
-          ]
+          {
+            url: imageUrl,
+            width: 1200,
+            height: 630,
+            alt: title,
+          },
+        ]
         : [],
       publishedTime: post.publishedAt || post.createdAt,
     },
