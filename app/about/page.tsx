@@ -140,7 +140,7 @@ export default function AboutPage() {
         "name": "What is MST Blockchain?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "MST Blockchain is India's first Layer-1 with sub-second finality, 73,000+ validators and average fees of 0.001 MSTC."
+          "text": "MST Blockchain is India's first Layer-1 with sub-second finality, 87,000+ validators and average fees of 0.001 MSTC."
         }
       },
       {
@@ -325,7 +325,7 @@ export default function AboutPage() {
             </h2>
             <div className="reveal" data-delay="2" style={{ marginTop: '24px', maxWidth: '800px' }}>
               <p style={{ color: 'var(--ink-dim)', fontSize: '16px', lineHeight: '1.7' }}>
-                BridgeKey is designed as the primary wallet solution for the MST Blockchain ecosystem, providing users with direct access to a high-performance Layer 1 blockchain network. By combining MST Blockchain&apos;s scalable infrastructure with BridgeKey&apos;s secure wallet technology, users can experience faster transactions, low network fees, and efficient interaction with blockchain applications. BridgeKey helps unlock the potential of MST Blockchain by providing a reliable and accessible platform for managing MSTC tokens, digital assets, and Web3 transactions. With 3-second average block times, 73,000+ active validators and average transaction fees of just 0.001 MSTC, MST Blockchain represents India&apos;s native decentralised infrastructure. BridgeKey is the only wallet built to natively access the full MST ecosystem.
+                BridgeKey is designed as the primary wallet solution for the MST Blockchain ecosystem, providing users with direct access to a high-performance Layer 1 blockchain network. By combining MST Blockchain&apos;s scalable infrastructure with BridgeKey&apos;s secure wallet technology, users can experience faster transactions, low network fees, and efficient interaction with blockchain applications. BridgeKey helps unlock the potential of MST Blockchain by providing a reliable and accessible platform for managing MSTC tokens, digital assets, and Web3 transactions. With 3-second average block times, 87,000+ active validators and average transaction fees of just 0.001 MSTC, MST Blockchain represents India&apos;s native decentralised infrastructure. BridgeKey is the only wallet built to natively access the full MST ecosystem.
               </p>
             </div>
           </div>
@@ -370,7 +370,7 @@ export default function AboutPage() {
                 },
                 {
                   q: "What is MST Blockchain?",
-                  a: "MST Blockchain is India&apos;s first Layer‑1 with sub‑second finality, 73,000+ validators and average fees of 0.001 MSTC."
+                  a: "MST Blockchain is India&apos;s first Layer‑1 with sub‑second finality, 87,000+ validators and average fees of 0.001 MSTC."
                 },
                 {
                   q: "Is BridgeKey free to use?",

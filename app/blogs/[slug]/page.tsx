@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import CursorGlow from "@/components/CursorGlow";
 import ParticleNetwork from "@/components/ParticleNetwork";
 import BlogPostWidget from "@/components/BlogPostWidget";
+import { getBlogPosts } from "@/lib/blog";
 
 import type { Metadata } from "next";
 
@@ -179,6 +180,10 @@ async function getOtherBlogPosts(): Promise<SidebarBlogItem[]> {
     return [];
   }
 }
+const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL;
+const SITE_TOKEN = process.env.NEXT_PUBLIC_SITE_TOKEN;
+
+const SIDEBAR_POST_LIMIT = 20;
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -190,7 +195,7 @@ export default async function BlogPostPage({
   params,
 }: BlogPostPageProps) {
   const { slug } = await params;
-  const allPosts = await getOtherBlogPosts();
+  const allPosts = (await getBlogPosts()).slice(0, SIDEBAR_POST_LIMIT);
 
   return (
     <main className="min-h-screen bg-[var(--bg)] text-[var(--ink)]">

@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BridgeKey website
 
-## Getting Started
+This is the BridgeKey Next.js website, on the `next-code` branch.
 
-First, run the development server:
+## Run locally
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Install dependencies with `npm ci`.
+2. Copy `.env.example` to `.env.local` and set the Google Sheets values if you want feedback submissions persisted.
+3. Start the development server with `npm run dev`, then open [http://localhost:3000](http://localhost:3000).
+4. Run `npm run lint` and `npm run build` to check the project.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Google Sheets feedback integration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The `/feedback` form sends data to the Next.js `/api/feedback` route. That server-side route validates the request and calls the reusable service in `lib/google-sheets.ts`, which sends JSON over HTTPS to a Google Apps Script Web App. The shared secret stays in server environment variables and Apps Script Script Properties; it is never sent to browser code. The Apps Script implementation, configuration, and deployment instructions are in [google-apps-script/README.md](google-apps-script/README.md).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Required server-only environment variables:
 
-## Learn More
+- `GOOGLE_SHEETS_SCRIPT_URL`: deployed Apps Script Web App URL ending in `/exec`.
+- `GOOGLE_SHEETS_SCRIPT_SECRET`: same random secret as the Apps Script `SHARED_SECRET` Script Property (minimum 32 characters).
+- `GOOGLE_SHEETS_SHEET_NAME`: optional; must match Apps Script `SHEET_NAME`, default `Feedback`.
 
-To learn more about Next.js, take a look at the following resources:
+To test, configure the Sheet and Web App, set the variables in `.env.local`, restart Next.js, then submit the form at `/feedback`. The service also supports authenticated read and row-update operations for server-side use. Apps Script can be tested from **Deploy → Test deployments** or by requesting its URL in a browser for the non-sensitive `doGet` status response.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+No Google Cloud Console project, Google Cloud billing, Service Account, OAuth credentials, or payment method is used.
