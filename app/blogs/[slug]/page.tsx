@@ -27,6 +27,7 @@ interface CmsPost {
   subHeading?: string;
   metaTitle?: string;
   metaDescription?: string;
+  metaKeywords?: string[] | string;
   cardImage?: string;
   category?: string;
   featured?: boolean;
@@ -80,6 +81,11 @@ export async function generateMetadata({
 
   const title = post.metaTitle || post.heading || "Blog Post";
   const description = post.metaDescription || post.subHeading || "";
+  const keywords = Array.isArray(post.metaKeywords)
+    ? post.metaKeywords.map((k) => k.trim()).filter(Boolean)
+    : typeof post.metaKeywords === "string" && post.metaKeywords.trim()
+      ? post.metaKeywords.trim()
+      : undefined;
   const imageUrl = post.cardImage || "";
   const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://bridgekey.io").replace(/\/+$/, "");
   const canonicalUrl = `${siteUrl}/blogs/${slug}`;
@@ -87,6 +93,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    ...(keywords?.length ? { keywords } : {}),
     alternates: {
       canonical: canonicalUrl,
     },
@@ -182,6 +189,9 @@ async function getOtherBlogPosts(): Promise<SidebarBlogItem[]> {
 }
 const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL;
 const SITE_TOKEN = process.env.NEXT_PUBLIC_SITE_TOKEN;
+
+const SIDEBAR_POST_LIMIT = 20;
+
 
 const SIDEBAR_POST_LIMIT = 20;
 
