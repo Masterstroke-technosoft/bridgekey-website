@@ -31,9 +31,10 @@ rmSync(tarball, { force: true });
 const staged = join(root, '.next', 'build.tar.gz.tmp');
 rmSync(staged, { force: true });
 try {
-  // --force-local: without it tar reads the `D:` in an absolute Windows path as
-  // a remote host spec and fails with "Cannot connect to D: resolve failed".
-  execFileSync('tar', ['--force-local', '-czf', staged, '.'], {
+  // Relative path on purpose: GNU tar reads the `D:` in an absolute Windows path as
+  // a remote host spec, and the fix for that (--force-local) is GNU-only, so it
+  // breaks under the bsdtar that ships with Windows.
+  execFileSync('tar', ['-czf', '../build.tar.gz.tmp', '.'], {
     cwd: standalone,
     stdio: 'inherit',
   });
