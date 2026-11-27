@@ -190,8 +190,6 @@ async function getOtherBlogPosts(): Promise<SidebarBlogItem[]> {
 // const CMS_URL = process.env.NEXT_PUBLIC_CMS_URL;
 // const SITE_TOKEN = process.env.NEXT_PUBLIC_SITE_TOKEN;
 
-const SIDEBAR_POST_LIMIT = 20;
-
 
 const SIDEBAR_POST_LIMIT = 20;
 
